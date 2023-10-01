@@ -1,0 +1,12 @@
+@import url("https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap");
+svg {
+  z-index: 100;
+}
+
+:root {
+  --padding: 10vmin;
+  --color-background: #D0CBC7;
+  --font-size-large: 8vw;
+  --font-size-medium: 4vw;
+  --font-size-normal: 2vw;
+}
