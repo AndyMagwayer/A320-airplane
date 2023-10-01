@@ -10,3 +10,18 @@ svg {
   --font-size-medium: 4vw;
   --font-size-normal: 2vw;
 }
+
+@media only screen and (min-width: 800px) {
+    :root {
+      --font-size-large: 64px;
+      --font-size-medium: 32px;
+      --font-size-normal: 16px;
+    }
+  }
+  @media only screen and (max-width: 500px) {
+    :root {
+      --font-size-large: 40px;
+      --font-size-medium: 20px;
+      --font-size-normal: 14px;
+    }
+  }
