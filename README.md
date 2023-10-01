@@ -3,7 +3,7 @@
 ![A320
 ](https://github.com/AndyMagwayer/A320-airplane/blob/main/Screenshot%202023-10-01%20164837.png)
 
-## Deploy: 
+## Deploy: https://a320-airplane-maga.netlify.app/
 This repository contains the code and resources for the A320 Airplane Project. The project is aimed at providing an interactive simulation of the A320 airplane, allowing users to learn and practice various aircraft systems and procedures.
 
 ## Features
