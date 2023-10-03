@@ -103,7 +103,7 @@ This is a personal portfolio website that showcases my work, skills, and experie
 - GitHub Pages: Hosted the website on GitHub Pages for easy deployment and accessibility.
 
 ## Deployment
-
+ https://a320-airplane-maga.netlify.app/
 The website is deployed using GitHub Pages, which allows for easy hosting and sharing of static web pages directly from a GitHub repository. The repository contains all the necessary files and assets for the website, including HTML, CSS, JavaScript, and media files. Any updates or changes made to the repository will be automatically reflected on the live website.
 
 ## Conclusion
