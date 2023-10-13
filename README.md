@@ -70,7 +70,7 @@ This project is licensed under the [MIT License](https://github.com/AndyMagwayer
 
 If you have any questions or suggestions regarding the A320 Airplane Project, please feel free to reach out to the project maintainer:
 
-- Name: Andy Magwayer
+- Name: AndyMagwayer
 - GitHub: [AndyMagwayer](https://github.com/AndyMagwayer)
 
 We appreciate any feedback and contributions to make this project better. Enjoy the A320 Airplane Simulation!
