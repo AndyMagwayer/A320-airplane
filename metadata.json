@@ -1,5 +1,5 @@
 {
   "name": "A320-airplane",
-  "description": "Interactive 3D A320 airplane showcase with Three.js and GSAP ScrollTrigger",
+  "description": "Pixel Agents - Virtual AI Dev Office where animated coding agents collaborate, type code, and complete development tasks",
   "capabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
 }

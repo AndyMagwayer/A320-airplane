@@ -1,94 +1,269 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>A320-airplane | Magamed</title>
-    <meta name="description" content="Interactive 3D A320 airplane showcase with Three.js and GSAP ScrollTrigger">
-    <meta property="og:title" content="A320-airplane | Magamed">
-    <meta property="og:description" content="Interactive 3D A320 airplane showcase with Three.js and GSAP ScrollTrigger">
-    <link rel="stylesheet" href="main.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pixel Agents | Virtual AI Dev Office</title>
+  <meta name="description" content="Pixel Agents - Virtual AI Dev Office where animated coding agents collaborate, type code, and complete development tasks">
+  <meta property="og:title" content="Pixel Agents | Virtual AI Dev Office">
+  <meta property="og:description" content="Pixel Agents - Virtual AI Dev Office where animated coding agents collaborate, type code, and complete development tasks">
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;700&family=Press+Start+2P&family=Silkscreen:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="main.css">
 </head>
-<body>
-    <div class="content">
-        <div class="loading">Loading</div>
-        <div class="trigger"></div>
-        <div class="section">
-    
-            <h1>Airplanes.</h1>
-            <h3>The beginners guide.</h3>
-            <p>You've probably forgotten what these are.</p>
-            <!-- 		<div class="phonetic">/ ˈɛərˌpleɪn /</div> -->
-            <div class="scroll-cta">Scroll</div>
+<body class="theme-day">
+  <div id="app">
+    <!-- Top Retro Header Bar -->
+    <header class="top-nav">
+      <div class="brand">
+        <span class="pixel-logo">👾</span>
+        <div class="brand-text">
+          <h1>PIXEL AGENTS</h1>
+          <span class="version-tag">DEV OFFICE v2.4</span>
         </div>
-    
-        <div class="section right">
-            <h2>They're kinda like buses...</h2>
+      </div>
+
+      <div class="office-stats">
+        <div class="stat-pill" title="Active Agents">
+          <span class="stat-icon">👥</span>
+          <span id="stat-agent-count">5 Agents</span>
         </div>
-    
-        <div class="ground-container">
-            <div class="parallax ground"></div>
-            <div class="section right">
-                <h2>..except they leave the ground.</h2>
-                <p>Saaay what!?.</p>
-            </div>
-    
-            <div class="section">
-                <h2>They fly through the sky.</h2>
-                <p>For realsies!</p>
-            </div>
-    
-            <div class="section right">
-                <h2>Defying all known physical laws.</h2>
-                <p>It's actual magic!</p>
-            </div>
-            <div class="parallax clouds"></div>
+        <div class="stat-pill" title="Total Tasks Solved">
+          <span class="stat-icon">⚡</span>
+          <span id="stat-tasks-done">0 Tasks</span>
         </div>
-    
-        <div class="blueprint">
-            <svg width="100%" height="100%" viewbox="0 0 100 100">
-                <line id="line-length" x1="10" y1="80" x2="90" y2="80" stroke-width="0.5"></line>
-                <path id="line-wingspan" d="M10 50, L40 35, M60 35 L90 50" stroke-width="0.5"></path>
-                <circle id="circle-phalange" cx="60" cy="60" r="15" fill="transparent" stroke-width="0.5"></circle>
-            </svg>
-            <div class="section dark ">
-                <h2>The facts and figures.</h2>
-                <p>Lets get into the nitty gritty...</p>
-            </div>
-            <div class="section dark length">
-                <h2>Length.</h2>
-                <p>Long.</p>
-            </div>
-            <div class="section dark wingspan">
-                <h2>Wing Span.</h2>
-                <p>I dunno, longer than a cat probably.</p>
-            </div>
-            <div class="section dark phalange">
-                <h2>Left Phalange</h2>
-                <p>Missing</p>
-            </div>
-            <div class="section dark">
-                <h2>Engines</h2>
-                <p>Turbine funtime</p>
-            </div>
-            <!-- 		<div class="section"></div> -->
+        <div class="stat-pill" title="Coffee Consumed">
+          <span class="stat-icon">☕</span>
+          <span id="stat-coffee-count">0 Cups</span>
         </div>
-        <div class="sunset">
-            <div class="section"></div>
-            <div class="section end">
-                <h2>Fin.</h2>
-                <ul class="credits">
-                    <li>Plane model by <a href="https://poly.google.com/view/8ciDd9k8wha" target="_blank">Google</a></li>
-                    <li>Animated using <a href="https://greensock.com/scrolltrigger/" target="_blank">GSAP ScrollTrigger</a></li>
-                </ul>
-            </div>
+        <div class="stat-pill" title="Lines of Code">
+          <span class="stat-icon">💻</span>
+          <span id="stat-loc-count">0 LOC</span>
         </div>
+      </div>
+
+      <div class="nav-actions">
+        <button id="btn-theme-toggle" class="retro-btn icon-btn" title="Toggle Lighting Mode">
+          <span class="btn-icon">🌓</span>
+        </button>
+        <button id="btn-sound-toggle" class="retro-btn icon-btn" title="Toggle 8-bit Audio">
+          <span class="btn-icon" id="sound-icon">🔊</span>
+        </button>
+        <button id="btn-zoom-in" class="retro-btn icon-btn" title="Zoom In">+</button>
+        <button id="btn-zoom-out" class="retro-btn icon-btn" title="Zoom Out">-</button>
+        <button id="btn-speed" class="retro-btn" title="Simulation Speed">
+          <span id="speed-label">1x SPD</span>
+        </button>
+        <button id="btn-hire" class="retro-btn highlight-btn">
+          <span>+ HIRE AGENT</span>
+        </button>
+      </div>
+    </header>
+
+    <!-- Main Workspace Area -->
+    <div class="workspace">
+      <!-- Left Sidebar: Agent Roster -->
+      <aside class="sidebar roster-sidebar">
+        <div class="panel-header">
+          <h2>AGENT ROSTER</h2>
+          <span class="badge" id="roster-active-badge">5 ACTIVE</span>
+        </div>
+
+        <div class="agents-list" id="agents-list">
+          <!-- Dynamically populated agents -->
+        </div>
+
+        <div class="quick-room-actions">
+          <div class="panel-header-mini">OFFICE HUBS</div>
+          <div class="hub-buttons">
+            <button class="hub-btn" data-hub="coffee">
+              <span>☕ Coffee Bar</span>
+            </button>
+            <button class="hub-btn" data-hub="servers">
+              <span>🖥️ Server Rack</span>
+            </button>
+            <button class="hub-btn" data-hub="meeting">
+              <span>📋 Meeting Board</span>
+            </button>
+            <button class="hub-btn" data-hub="lounge">
+              <span>🛋️ Chill Lounge</span>
+            </button>
+          </div>
+        </div>
+      </aside>
+
+      <!-- Center: The Pixel Canvas Viewport -->
+      <main class="canvas-viewport" id="viewport-container">
+        <canvas id="office-canvas"></canvas>
+
+        <!-- Floating Quick Viewport Overlay -->
+        <div class="viewport-hud">
+          <div class="hud-breadcrumbs">
+            <span class="hud-dot live-pulse"></span>
+            <span id="hud-status-text">OFFICE ENGINE RUNNING • 60 FPS</span>
+          </div>
+          <div class="hud-controls">
+            <button id="btn-reset-cam" class="hud-btn">CENTER VIEW</button>
+            <button id="btn-coffee-break" class="hud-btn highlight">ALL HANDS COFFEE ☕</button>
+          </div>
+        </div>
+
+        <!-- Floating Speech Bubbles Container (HTML overlay) -->
+        <div id="speech-bubbles-layer"></div>
+      </main>
+
+      <!-- Right Sidebar: Task Commander & Live Terminal -->
+      <aside class="sidebar terminal-sidebar">
+        <!-- New Task Dispatcher -->
+        <section class="task-dispatcher">
+          <div class="panel-header">
+            <h2>TASK DISPATCHER</h2>
+            <span class="badge highlight">ASSIGN</span>
+          </div>
+
+          <form id="task-form" class="task-form">
+            <div class="input-group">
+              <label for="task-input">DISPATCH INSTRUCTION</label>
+              <input type="text" id="task-input" placeholder="e.g. Build authentication flow, fix crash in API..." autocomplete="off">
+            </div>
+
+            <div class="task-presets">
+              <div class="presets-label">QUICK TASKS:</div>
+              <div class="preset-chips">
+                <button type="button" class="chip" data-task="Refactor 3D airplane render pipeline">✈️ 3D Pipeline</button>
+                <button type="button" class="chip" data-task="Optimize database indexing and cache">⚡ Redis Cache</button>
+                <button type="button" class="chip" data-task="Fix zero-day vulnerability in auth">🛡️ Fix Security</button>
+                <button type="button" class="chip" data-task="Deploy microservices to Kubernetes">☸️ Deploy K8s</button>
+                <button type="button" class="chip" data-task="Write end-to-end Cypress test suite">🧪 E2E Tests</button>
+              </div>
+            </div>
+
+            <div class="assignee-select-group">
+              <label for="agent-select">ASSIGN TO:</label>
+              <select id="agent-select">
+                <option value="auto">🤖 Auto (Best Available Agent)</option>
+              </select>
+            </div>
+
+            <button type="submit" class="retro-btn dispatch-btn">
+              <span>▶ RUN WORKFLOW</span>
+            </button>
+          </form>
+        </section>
+
+        <!-- Live Terminal Stream -->
+        <section class="terminal-section">
+          <div class="panel-header">
+            <div class="terminal-title">
+              <span class="term-dot red"></span>
+              <span class="term-dot yellow"></span>
+              <span class="term-dot green"></span>
+              <span class="term-label">AGENT TERMINAL</span>
+            </div>
+            <button id="btn-clear-terminal" class="term-action-btn">CLEAR</button>
+          </div>
+
+          <div class="terminal-stream" id="terminal-stream">
+            <div class="term-line sys">[SYSTEM] Pixel Agents Engine initialized.</div>
+            <div class="term-line sys">[SYSTEM] Workstations online. 5 AI Agents ready for commands.</div>
+          </div>
+        </section>
+      </aside>
     </div>
-<!-- partial -->
-<script src='https://unpkg.com/three@0.117.1/build/three.min.js'></script>
-<script src='https://unpkg.com/three@0.117.1/examples/js/loaders/OBJLoader.js'></script>
-<script src='https://cdnjs.cloudflare.com/ajax/libs/gsap/3.3.1/gsap.min.js'></script>
-<script src='https://cdnjs.cloudflare.com/ajax/libs/gsap/3.3.1/ScrollTrigger.min.js'></script>
-<script src='https://s3-us-west-2.amazonaws.com/s.cdpn.io/16327/DrawSVGPlugin3.min.js'></script><script  src="script.js"></script>
+
+    <!-- Agent Detail Modal -->
+    <div id="agent-modal" class="modal-backdrop hidden">
+      <div class="modal-window">
+        <div class="modal-header">
+          <div class="modal-title-group">
+            <div class="modal-avatar" id="modal-agent-avatar"></div>
+            <div>
+              <h3 id="modal-agent-name">Agent Name</h3>
+              <span class="agent-role-tag" id="modal-agent-role">Role</span>
+            </div>
+          </div>
+          <button class="modal-close" id="btn-close-modal">✕</button>
+        </div>
+
+        <div class="modal-body">
+          <div class="modal-stats-grid">
+            <div class="mstat-card">
+              <div class="mstat-val" id="modal-stat-status">IDLE</div>
+              <div class="mstat-lbl">CURRENT STATUS</div>
+            </div>
+            <div class="mstat-card">
+              <div class="mstat-val" id="modal-stat-task">None</div>
+              <div class="mstat-lbl">ACTIVE TASK</div>
+            </div>
+            <div class="mstat-card">
+              <div class="mstat-val" id="modal-stat-loc">0</div>
+              <div class="mstat-lbl">LINES WRITTEN</div>
+            </div>
+            <div class="mstat-card">
+              <div class="mstat-val" id="modal-stat-coffee">0</div>
+              <div class="mstat-lbl">COFFEE CUPS</div>
+            </div>
+          </div>
+
+          <div class="modal-thought-box">
+            <div class="thought-label">CURRENT INNER MONOLOGUE:</div>
+            <div class="thought-content" id="modal-agent-thought">"Waiting for orders..."</div>
+          </div>
+
+          <div class="modal-actions">
+            <button class="retro-btn" id="modal-btn-coffee">☕ Send for Coffee</button>
+            <button class="retro-btn" id="modal-btn-work">💻 Send to Desk</button>
+            <button class="retro-btn" id="modal-btn-wander">🚶 Take a Walk</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Hire Agent Modal -->
+    <div id="hire-modal" class="modal-backdrop hidden">
+      <div class="modal-window">
+        <div class="modal-header">
+          <h3>HIRE NEW AI AGENT</h3>
+          <button class="modal-close" id="btn-close-hire">✕</button>
+        </div>
+        <form id="hire-form" class="modal-body">
+          <div class="input-group">
+            <label for="hire-name">AGENT CODENAME</label>
+            <input type="text" id="hire-name" placeholder="e.g. Phoenix, Neo, Ada..." required maxlength="12">
+          </div>
+          <div class="input-group">
+            <label for="hire-role">SPECIALIZATION ROLE</label>
+            <select id="hire-role">
+              <option value="Frontend Lead">🎨 Frontend Lead</option>
+              <option value="Backend Architect">⚙️ Backend Architect</option>
+              <option value="DevOps Specialist">🚀 DevOps Specialist</option>
+              <option value="QA & Security">🛡️ QA & Security</option>
+              <option value="AI / ML Engineer">🧠 AI / ML Engineer</option>
+            </select>
+          </div>
+          <div class="input-group">
+            <label>OUTFIT COLOR</label>
+            <div class="color-options" id="color-options">
+              <button type="button" class="color-swatch active" data-color="#9333ea" style="background:#9333ea;"></button>
+              <button type="button" class="color-swatch" data-color="#2563eb" style="background:#2563eb;"></button>
+              <button type="button" class="color-swatch" data-color="#ea580c" style="background:#ea580c;"></button>
+              <button type="button" class="color-swatch" data-color="#059669" style="background:#059669;"></button>
+              <button type="button" class="color-swatch" data-color="#db2777" style="background:#db2777;"></button>
+              <button type="button" class="color-swatch" data-color="#0284c7" style="background:#0284c7;"></button>
+              <button type="button" class="color-swatch" data-color="#eab308" style="background:#eab308;"></button>
+            </div>
+          </div>
+          <button type="submit" class="retro-btn highlight-btn" style="width:100%; margin-top:1rem;">
+            + ONBOARD TO OFFICE
+          </button>
+        </form>
+      </div>
+    </div>
+
+  </div>
+
+  <script src="script.js"></script>
 </body>
 </html>
