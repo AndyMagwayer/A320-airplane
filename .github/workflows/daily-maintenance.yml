@@ -118,3 +118,7 @@ jobs:
       - name: Report missing Telegram configuration
         if: always() && (env.TELEGRAM_BOT_TOKEN == '' || env.TELEGRAM_CHAT_ID == '')
         run: echo "Telegram not sent: configure TELEGRAM_BOT_TOKEN and TELEGRAM_CHAT_ID repository secrets."
+
+      - name: Fail workflow if project checks failed
+        if: always() && steps.audit.outcome == 'failure'
+        run: exit 1
