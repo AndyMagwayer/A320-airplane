@@ -1,0 +1,5 @@
+{
+  "name": "A320-airplane",
+  "description": "Interactive 3D A320 airplane showcase with Three.js and GSAP ScrollTrigger",
+  "capabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

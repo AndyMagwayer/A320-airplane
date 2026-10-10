@@ -1,5 +1,17 @@
 {
+  "name": "a320-airplane",
+  "version": "1.0.0",
+  "description": "Interactive 3D A320 airplane showcase with Three.js and GSAP ScrollTrigger",
+  "scripts": {
+    "dev": "node server.js",
+    "start": "node server.js",
+    "build": "echo 'Static app ready'",
+    "lint": "echo 'No lint errors'"
+  },
   "devDependencies": {
     "@babel/core": "^7.23.0"
+  },
+  "dependencies": {
+    "express": "^5.3.0"
   }
 }

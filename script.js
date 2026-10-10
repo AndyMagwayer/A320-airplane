@@ -66,7 +66,15 @@ class Scene {
 		this.onResize();
 		window.addEventListener("resize", this.onResize, false);
 
-		var edges = new THREE.EdgesGeometry(model.children[0].geometry);
+		var targetGeom = model.children[0] ? model.children[0].geometry : null;
+		if (!targetGeom) {
+			model.traverse(function (child) {
+				if (!targetGeom && child.geometry) {
+					targetGeom = child.geometry;
+				}
+			});
+		}
+		var edges = new THREE.EdgesGeometry(targetGeom);
 		let line = new THREE.LineSegments(edges);
 		line.material.depthTest = false;
 		line.material.opacity = 0.5;
@@ -148,9 +156,13 @@ function loadModel() {
 
 	var loader = new THREE.OBJLoader(manager);
 	loader.load(
-		"https://assets.codepen.io/557388/1405+Plane_1.obj",
+		"/assets/plane.obj",
 		function (obj) {
 			object = obj;
+		},
+		undefined,
+		function (err) {
+			console.error("Error loading OBJ model:", err);
 		}
 	);
 }
