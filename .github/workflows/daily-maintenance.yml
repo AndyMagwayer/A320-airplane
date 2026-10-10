@@ -113,7 +113,10 @@ jobs:
             exit 0
           fi
           git commit -m "ci: record daily maintenance results [skip ci]"
-          git push origin HEAD:main
+          # Integrate commits added to main while this job was running.
+git fetch origin main
+git rebase origin/main
+git push origin HEAD:main
 
       - name: Send Telegram report if configured
         if: always()
