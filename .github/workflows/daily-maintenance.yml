@@ -1,25 +1,27 @@
 name: Daily Project Maintenance
+
 on:
   schedule:
     - cron: "0 11 * * *"
   workflow_dispatch:
+
 permissions:
   contents: write
+
 concurrency:
   group: daily-maintenance-${{ github.repository }}
   cancel-in-progress: false
+
 jobs:
   maintain:
     runs-on: ubuntu-latest
-    env:
-      TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
-      TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
-    timeout-minutes: 20
+    timeout-minutes: 25
     steps:
       - name: Check out repository
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
+
       - name: Audit project and run available checks
         id: audit
         shell: bash
@@ -31,7 +33,7 @@ jobs:
           test_status="not-applicable"
           build_status="not-applicable"
           if [ -f package.json ]; then
-            if [ -f bun.lockb ] || [ -f bun.lock ]; then
+            if [ -f bun.lock ] || [ -f bun.lockb ]; then
               curl -fsSL https://bun.sh/install | bash
               export PATH="$HOME/.bun/bin:$PATH"
               bun install --frozen-lockfile
@@ -47,6 +49,10 @@ jobs:
               yarn install --immutable
               install_status=$?
               runner="yarn"
+            elif [ -f package-lock.json ]; then
+              npm ci
+              install_status=$?
+              runner="npm run"
             else
               npm install
               install_status=$?
@@ -70,6 +76,7 @@ jobs:
           } >> "$GITHUB_OUTPUT"
           printf 'Install: %s\nLint: %s\nTest: %s\nBuild/compile: %s\n' "$install_status" "$lint_status" "$test_status" "$build_status" > maintenance-results.txt
           if [ "$install_status" -gt 0 ] || [ "$lint_status" -gt 0 ] || [ "$test_status" -gt 0 ] || [ "$build_status" -gt 0 ]; then exit 1; fi
+
       - name: Update README maintenance log
         if: always()
         shell: bash
@@ -83,42 +90,49 @@ jobs:
             results="Checks did not produce a result report."
           fi
           if ! grep -q '^## Automated Maintenance Log$' README.md 2>/dev/null; then
-            printf '\n\n## Automated Maintenance Log\n\n| Timestamp (UTC) | Workflow | Result | Details |\n|---|---|---|---|\n' >> README.md
+            printf '\n\n## Automated Maintenance Log\n\n| Timestamp (UTC) | Workflow outcome | Details |\n|---|---|---|\n' >> README.md
           fi
           details="$(printf '%s' "$results" | tr '\n' ';' | sed 's/|/\\|/g')"
-          printf '| %s | GitHub Actions | %s | %s |\n' "$timestamp" "$AUDIT_OUTCOME" "$details" >> README.md
+          printf '| %s | %s | %s |\n' "$timestamp" "$AUDIT_OUTCOME" "$details" >> README.md
           {
-            echo "## A320 Airplane — daily maintenance"
-            echo "- Time: $timestamp"
-            echo "- Workflow result: $AUDIT_OUTCOME"
+            echo "### A320 Airplane — daily maintenance"
+            echo "- Timestamp (UTC): $timestamp"
+            echo "- Workflow outcome: $AUDIT_OUTCOME"
             echo "$results"
           } >> "$GITHUB_STEP_SUMMARY"
-      - name: Commit and push README update
+
+      - name: Commit and push maintenance report
         if: always()
         shell: bash
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add README.md
-          git commit -m "docs: record daily maintenance run [skip ci]"
+          if git diff --cached --quiet; then
+            echo "No README maintenance changes to commit."
+            exit 0
+          fi
+          git commit -m "ci: record daily maintenance results [skip ci]"
           git push origin HEAD:main
-      - name: Send Telegram report when credentials are configured
-        if: always() && env.TELEGRAM_BOT_TOKEN != '' && env.TELEGRAM_CHAT_ID != ''
+
+      - name: Send Telegram report if configured
+        if: always()
         shell: bash
         env:
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
           AUDIT_OUTCOME: ${{ steps.audit.outcome }}
         run: |
+          if [ -z "$TELEGRAM_BOT_TOKEN" ] || [ -z "$TELEGRAM_CHAT_ID" ]; then
+            echo "Telegram skipped: configure TELEGRAM_BOT_TOKEN and TELEGRAM_CHAT_ID repository secrets."
+            exit 0
+          fi
           text="Daily maintenance: A320 Airplane
           Repository: ${GITHUB_REPOSITORY}
           Result: ${AUDIT_OUTCOME}
           Commit: ${GITHUB_SHA}"
-          curl -fsS -X POST "https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage" -d "chat_id=${TELEGRAM_CHAT_ID}" --data-urlencode "text=${text}"
-      - name: Report missing Telegram configuration
-        if: always() && (env.TELEGRAM_BOT_TOKEN == '' || env.TELEGRAM_CHAT_ID == '')
-        run: echo "Telegram not sent: configure TELEGRAM_BOT_TOKEN and TELEGRAM_CHAT_ID repository secrets."
+          curl --fail --silent --show-error -X POST "https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage" -d "chat_id=${TELEGRAM_CHAT_ID}" --data-urlencode "text=${text}"
 
-      - name: Fail workflow if project checks failed
+      - name: Mark workflow failed if project checks failed
         if: always() && steps.audit.outcome == 'failure'
         run: exit 1
