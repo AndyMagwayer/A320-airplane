@@ -11,6 +11,9 @@ concurrency:
 jobs:
   maintain:
     runs-on: ubuntu-latest
+    env:
+      TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+      TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
     timeout-minutes: 20
     steps:
       - name: Check out repository
@@ -100,7 +103,7 @@ jobs:
           git commit -m "docs: record daily maintenance run [skip ci]"
           git push origin HEAD:main
       - name: Send Telegram report when credentials are configured
-        if: always() && secrets.TELEGRAM_BOT_TOKEN != '' && secrets.TELEGRAM_CHAT_ID != ''
+        if: always() && env.TELEGRAM_BOT_TOKEN != '' && env.TELEGRAM_CHAT_ID != ''
         shell: bash
         env:
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
@@ -113,5 +116,5 @@ jobs:
           Commit: ${GITHUB_SHA}"
           curl -fsS -X POST "https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage" -d "chat_id=${TELEGRAM_CHAT_ID}" --data-urlencode "text=${text}"
       - name: Report missing Telegram configuration
-        if: always() && (secrets.TELEGRAM_BOT_TOKEN == '' || secrets.TELEGRAM_CHAT_ID == '')
+        if: always() && (env.TELEGRAM_BOT_TOKEN == '' || env.TELEGRAM_CHAT_ID == '')
         run: echo "Telegram not sent: configure TELEGRAM_BOT_TOKEN and TELEGRAM_CHAT_ID repository secrets."
