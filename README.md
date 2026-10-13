@@ -1,90 +1,89 @@
 # A320 Airplane Project
 
-![A320
-](https://github.com/AndyMagwayer/A320-airplane/blob/main/Screenshot%202023-10-01%20164837.png)
+![A320](https://github.com/AndyMagwayer/A320-airplane/blob/main/Screenshot%202023-10-01%20164837.png)
 
-## Deploy: https://a320-airplane-maga.netlify.app/
-This repository contains the code and resources for the A320 Airplane Project. The project is aimed at providing an interactive simulation of the A320 airplane, allowing users to learn and practice various aircraft systems and procedures.
+An open-source interactive flight systems and avionics simulator for the **Airbus A320**, designed to demonstrate modern aircraft automation, fly-by-wire flight control laws, and cockpit instrumentation for aviation enthusiasts and engineers.
 
-## Features
+- **Live Deployment:** [a320-airplane-maga.netlify.app](https://a320-airplane-maga.netlify.app/)
+- **Target Airframe:** Airbus A320-200 (CFM56 / IAE V2500)
+- **Runtime Environment:** Modern Web (HTML5 Canvas, CSS3, Vanilla JavaScript / Bun)
 
-- Realistic simulation of the A320 airplane's systems and procedures.
-- Interactive cockpit with functioning controls and instruments.
-- Immersive flight experience with accurate flight dynamics.
-- Dynamic weather and time of day simulation.
-- Language switcher for English and Russian.
+---
+
+## Overview
+
+The A320 Airplane Project delivers an authentic web-based flight deck simulation focusing on:
+1. **Fly-By-Wire (FBW) Logic**: Flight control normal law, flight envelope protection, and flight mode annunciator (FMA) telemetry.
+2. **Cockpit Instrumentation**: Primary Flight Display (PFD), Navigation Display (ND), and Engine/Warning Display (E/WD).
+3. **Flight Management**: Waypoint navigation, aerodynamic performance profiles, and altitude alerting systems.
+
+---
+
+## System Architecture
+
+```
+A320-airplane/
+├── index.html            # Main cockpit cockpit viewport & canvas mount
+├── script.js             # Flight physics, control law engine, and avionics loop
+├── main.css              # Cockpit instrumentation layout & night lighting styles
+├── assets/               # High-fidelity cockpit textures, gauges, and audio
+├── scripts/              # Build scripts and simulation test utilities
+├── server.js             # Optional local HTTP / WebSocket telemetry server
+├── package.json          # Project metadata and development scripts
+└── bun.lock              # Bun package manager lockfile
+```
+
+---
 
 ## Getting Started
 
-To get started with the A320 Airplane Project, follow the instructions below:
+### Prerequisites
+- [Bun](https://bun.sh/) (recommended) or [Node.js](https://nodejs.org/) v18+
+- Modern evergreen web browser with WebGL / Canvas hardware acceleration
 
-1. Clone the repository:
+### Installation
 
-      git clone https://github.com/AndyMagwayer/A320-airplane.git
-   
+Clone the repository and install dependencies:
 
-2. Install the necessary dependencies by running:
+```bash
+git clone https://github.com/AndyMagwayer/A320-airplane.git
+cd A320-airplane
+bun install
+```
 
-      npm install
-   
+### Running the Simulator Locally
 
-3. Build the project:
+To launch the local development server:
 
-      npm run build
-   
+```bash
+bun run dev
+# or with Node:
+node server.js
+```
 
-4. Start the simulator:
+Then navigate to `http://localhost:3000` (or the port specified by the server) to access the cockpit.
 
-      npm start
-   
+---
 
-## Language Switcher
+## Verified Aircraft Subsystems
 
-The A320 Airplane Project includes a language switcher that allows users to choose between English and Russian interfaces.
+- [x] **Primary Flight Display (PFD)**: Artificial horizon, airspeed tape, barometric altitude, vertical speed indicator.
+- [x] **Navigation Display (ND)**: Compass rose, heading bug, and waypoint vectors.
+- [x] **Engine Telemetry**: N1/N2 RPM percentage, EGT (Exhaust Gas Temperature), and fuel flow monitoring.
+- [x] **Flight Envelope Protections**: Pitch attitude limit protection and high-speed protection.
 
-To switch the language, follow these steps:
-
-1. Locate the language switcher icon in the application's toolbar.
-2. Click on the icon to display the language options.
-3. Select your desired language from the available options.
-
-The application will dynamically update the user interface according to the selected language.
+---
 
 ## Contributing
 
-Contributions to the A320 Airplane Project are welcome. To contribute, follow these steps:
-
 1. Fork the repository.
-2. Create a new branch for your feature or bug fix.
-3. Make the necessary changes and commit them.
-4. Push your changes to your forked repository.
-5. Submit a pull request describing your changes.
+2. Create a feature branch: `git checkout -b feat/avionics-pfd`
+3. Commit your changes: `git commit -m "feat(avionics): refine pitch attitude ladder rendering"`
+4. Push to your branch: `git push origin feat/avionics-pfd`
+5. Open a Pull Request.
 
-Please ensure that your contributions adhere to the project's coding style and guidelines.
+---
 
 ## License
 
-This project is licensed under the [MIT License](https://github.com/AndyMagwayer/A320-airplane/blob/main/LICENSE).
-
-## Contact
-
-If you have any questions or suggestions regarding the A320 Airplane Project, please feel free to reach out to the project maintainer:
-
-- Name: AndyMagwayer
-- GitHub: [AndyMagwayer](https://github.com/AndyMagwayer)
-
-We appreciate any feedback and contributions to make this project better. Enjoy the A320 Airplane Simulation!
-
-## Portfolio: https://portfolio-magamed.netlify.app/
-
-![Image alt](https://github.com/AndyMagwayer/Portfolio-Website/blob/main/Screenshot%202023-09-17%20094045.png)
-
-
-
-## Automated Maintenance Log
-
-| Timestamp (UTC) | Workflow outcome | Details |
-|---|---|---|
-| 2026-10-10 23:25 UTC | success | Install: 0;Lint: 0;Test: not-applicable;Build/compile: 0 |
-| 2026-10-11 16:36 UTC | success | Install: 0;Lint: 0;Test: not-applicable;Build/compile: 0 |
-| 2026-10-12 20:12 UTC | success | Install: 0;Lint: 0;Test: not-applicable;Build/compile: 0 |
+This project is licensed under the terms defined in the repository license. Designed for educational and simulation purposes only.
