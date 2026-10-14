@@ -2,34 +2,37 @@
 
 ![A320 Airplane Showcase](./Screenshot%202023-10-01%20164837.png)
 
-An interactive 3D web experience showcasing an Airbus A320 aircraft model rendered in WebGL using Three.js, Wavefront OBJ loading, and layered atmospheric environments.
+An interactive 3D web experience showcasing an Airbus A320 aircraft model rendered in WebGL using Three.js, Wavefront OBJ loading, and layered atmospheric visual environments.
 
-- **Live Demo:** [a320-airplane-maga.netlify.app](https://a320-airplane-maga.netlify.app/)
-- **3D Asset:** Airbus A320 (`assets/plane.obj`)
-- **Stack:** Three.js, JavaScript (ES6+), Express, Node.js / Bun
+- **Live Deployment:** [a320-airplane-maga.netlify.app](https://a320-airplane-maga.netlify.app/)
+- **3D Asset:** Airbus A320 Wavefront OBJ (`assets/plane.obj`)
+- **Core Stack:** Three.js, JavaScript (ES6+), Express, Node.js / Bun
 
 ---
 
 ## Overview
 
-This repository provides a 3D visual showcase centered on an Airbus A320 aircraft. The scene combines WebGL rendering with layered visual backdrops—including high-altitude skies, terrain textures, and vector clouds. The application runs as a static client-side web application accompanied by a lightweight Express server for local development and static asset delivery.
+This repository provides a hardware-accelerated 3D showcase centered on an Airbus A320 aircraft. The presentation couples WebGL rendering via Three.js with responsive multi-layered visual staging, including sunset sky horizons, terrain textures, and vector cloud overlays. The project functions as a static client-side application and includes an Express static server for local development and self-hosted environments.
 
 ### Key Features
 
-- **WebGL 3D Aircraft Model**: Renders an Airbus A320 Wavefront OBJ geometry (`assets/plane.obj`) with directional lighting and responsive perspective cameras.
-- **Atmospheric Environment Layers**: Blends canvas WebGL rendering with horizon imagery (`assets/sunset.jpg`, `assets/ground.jpg`) and vector cloud overlays (`assets/clouds.svg`).
-- **Responsive Viewport Handling**: Dynamically recalculates aspect ratio and renderer dimensions on window resize events.
-- **Procedural Model Generator**: Includes a standalone Node.js utility (`scripts/generate_plane_obj.js`) to generate or regenerate plane OBJ geometry.
-- **Lightweight Static Server**: Built-in Express server (`server.js`) with configurable port binding via environment variables.
+- **WebGL 3D Aircraft Model**: Loads and renders the Wavefront OBJ aircraft mesh (`assets/plane.obj`) via Three.js `OBJLoader` with calibrated ambient and directional illumination.
+- **Multi-Layer Atmospheric Staging**: Blends the Three.js WebGL canvas with background photographic horizon layers (`assets/sunset.jpg`, `assets/ground.jpg`) and foreground vector cloud graphics (`assets/clouds.svg`).
+- **Responsive Viewport Pipeline**: Continuously recalculates camera aspect ratios, projection matrices, and renderer dimensions across screen resizing events.
+- **Procedural Model Generator**: Includes a standalone script (`scripts/generate_plane_obj.js`) that procedurally constructs airliner fuselage, wing, engine, and stabilizer OBJ geometry from scratch.
+- **Production & Dev Server**: Lightweight Express server (`server.js`) supporting environment-based port configuration (`PORT` / `.env`) alongside direct static hosting compatibility (e.g., Netlify).
 
 ---
 
 ## Technology Stack
 
-- **Rendering & Visualization**: [Three.js](https://threejs.org/) (WebGL, OBJLoader), HTML5 Canvas, CSS3
-- **Runtime & Tooling**: [Node.js](https://nodejs.org/) (v18+) or [Bun](https://bun.sh/), `@babel/core`
-- **Server**: [Express](https://expressjs.com/)
-- **3D & Visual Formats**: Wavefront OBJ (`.obj`), Scalable Vector Graphics (`.svg`), JPEG (`.jpg`)
+| Area | Technology |
+|---|---|
+| **3D & Graphics** | [Three.js](https://threejs.org/) (WebGL, `OBJLoader`, `PerspectiveCamera`), HTML5 Canvas |
+| **Markup & Styling** | Semantic HTML5, CSS3 responsive layering |
+| **Server & Runtime** | [Node.js](https://nodejs.org/) (v18+) or [Bun](https://bun.sh/) (v1.0+), [Express](https://expressjs.com/) v5 |
+| **Asset Formats** | Wavefront 3D OBJ (`.obj`), Scalable Vector Graphics (`.svg`), JPEG (`.jpg`) |
+| **Tooling** | Babel Core (`@babel/core`) |
 
 ---
 
@@ -37,23 +40,23 @@ This repository provides a 3D visual showcase centered on an Airbus A320 aircraf
 
 ```text
 A320-airplane/
-├── assets/                            # 3D model geometry and environment assets
-│   ├── clouds.svg                     # Vector cloud overlay
-│   ├── ground.jpg                     # Horizon terrain texture
+├── assets/                            # 3D model geometry and visual assets
+│   ├── clouds.svg                     # Vector cloud atmospheric overlay
+│   ├── ground.jpg                     # Aerial terrain texture
 │   ├── plane.obj                      # Wavefront OBJ 3D model of Airbus A320
-│   └── sunset.jpg                     # Skybox / background horizon texture
-├── scripts/                           # Maintenance and generation utilities
-│   └── generate_plane_obj.js          # Procedural script to generate plane OBJ geometry
-├── src/                               # Reference and source visual assets
-│   └── assets/images/                 # Sky, cloud, and terrain reference photography
-├── .env.example                       # Template for environment configuration
-├── bun.lock                           # Bun dependency lockfile
-├── index.html                         # Application entrypoint and WebGL canvas mounting point
-├── main.css                           # Viewport styling and responsive layout rules
-├── package.json                       # Project metadata, dependencies, and scripts
-├── script.js                          # Three.js scene setup, OBJLoader, lighting, and animation loop
-├── server.js                          # Express static HTTP server
-└── Screenshot 2023-10-01 164837.png   # Visual preview screenshot
+│   └── sunset.jpg                     # High-altitude sunset sky backdrop
+├── scripts/                           # Maintenance and build utilities
+│   └── generate_plane_obj.js          # Procedural script to generate assets/plane.obj
+├── src/                               # Source visual reference photography
+│   └── assets/images/                 # Aerial ground, landscape, and sky reference images
+├── .env.example                       # Example environment configuration
+├── bun.lock                           # Bun lockfile for reproducible installations
+├── index.html                         # Main HTML document and WebGL container
+├── main.css                           # Viewport layout and atmospheric layering styles
+├── package.json                       # Package metadata, scripts, and dependencies
+├── script.js                          # Three.js initialization, asset loader, and animation loop
+├── server.js                          # Express static HTTP file server
+└── Screenshot 2023-10-01 164837.png   # Application preview visual
 ```
 
 ---
@@ -73,19 +76,19 @@ A320-airplane/
    cd A320-airplane
    ```
 
-2. Install project dependencies:
+2. Install dependencies:
    ```bash
    npm install
-   # or with Bun
+   # or using Bun
    bun install
    ```
 
-3. (Optional) Configure environment variables:
+3. (Optional) Set up environment variables:
    ```bash
    cp .env.example .env
    ```
 
-### Running the Application
+### Running Locally
 
 Start the local development server:
 
@@ -95,41 +98,53 @@ npm run dev
 bun run dev
 ```
 
-Once started, navigate to `http://localhost:3000` (or the port specified by the `PORT` environment variable) in your browser.
+Open your browser and navigate to `http://localhost:3000` (or the configured `PORT`).
 
 ---
 
 ## Available Scripts
 
-| Command | Action |
+| Command | Description |
 |---|---|
-| `npm run dev` | Starts the Express static file server for local development |
-| `npm start` | Executes the production HTTP static server via `server.js` |
-| `npm run build` | Validates static asset bundle readiness |
-| `npm run lint` | Runs project verification and linting checks |
-| `node scripts/generate_plane_obj.js` | Generates procedural plane OBJ geometry to `assets/plane.obj` |
+| `npm run dev` | Launches the local Express server on the configured port |
+| `npm start` | Runs the Express server (`node server.js`) |
+| `npm run build` | Validates static readiness for production deployment |
+| `npm run lint` | Runs project verification checks |
+| `node scripts/generate_plane_obj.js` | Procedurally regenerates `assets/plane.obj` geometry |
 
 ---
 
 ## Configuration
 
-Configurable via environment variables or a local `.env` file:
+Environment variables can be provided via a `.env` file or exported in your shell:
 
 | Variable | Default | Description |
 |---|---|---|
-| `PORT` | `3000` | Port number on which the local Express server listens |
+| `PORT` | `3000` | Local port for the Express static HTTP server |
+
+---
+
+## Generating 3D Model Geometry
+
+The repository includes a procedural OBJ generator (`scripts/generate_plane_obj.js`) capable of producing the aircraft mesh directly:
+
+```bash
+node scripts/generate_plane_obj.js
+```
+
+This utility generates the fuselage segments, low-wing sweep, dual turbofan nacelles, and vertical/horizontal tail empennage into `assets/plane.obj`.
 
 ---
 
 ## Contributing
 
-Contributions are welcome. To propose changes:
+Contributions to improve performance, add interactive controls, or enhance atmospheric shaders are welcome.
 
 1. Fork the repository.
-2. Create a dedicated branch (`git checkout -b feature/model-optimization`).
-3. Verify your changes locally by testing WebGL rendering across desktop and mobile viewports.
+2. Create a feature branch (`git checkout -b feature/lighting-optimization`).
+3. Test changes locally across desktop and mobile viewports.
 4. Commit your changes with clear, descriptive commit messages.
-5. Push your branch to GitHub and submit a Pull Request.
+5. Push to your branch and submit a Pull Request.
 
 ---
 
