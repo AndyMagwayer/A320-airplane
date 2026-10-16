@@ -2,34 +2,37 @@
 
 ![A320 Showcase Preview](Screenshot%202023-10-01%20164837.png)
 
-An interactive 3D web experience showcasing an Airbus A320 commercial aircraft rendered in real time with **Three.js** and animated using **GSAP ScrollTrigger**.
+An interactive 3D web experience showcasing an Airbus A320 passenger airliner rendered in real-time WebGL using **Three.js** and choreographed using **GSAP ScrollTrigger**.
 
-- **Live Deployment:** [a320-airplane-maga.netlify.app](https://a320-airplane-maga.netlify.app/)
-- **Subject:** Airbus A320 twin-engine passenger airliner
-- **Core Stack:** Three.js (WebGL), GSAP ScrollTrigger, Vanilla JavaScript, HTML5/CSS3, Express.js
+- **Live Demo:** [a320-airplane-maga.netlify.app](https://a320-airplane-maga.netlify.app/)
+- **Subject:** Airbus A320 twin-engine commercial airliner
+- **Core Tech:** Three.js (WebGL), GSAP ScrollTrigger, Vanilla JavaScript (ES6+), CSS3, Express.js
 
 ---
 
 ## Overview
 
-This application renders an interactive flight sequence of an Airbus A320 within a WebGL viewport. As the user scrolls through the page, dynamic camera trajectories and airframe rotations simulate cruising and altitude maneuvers across layered atmospheric visuals.
+This project provides an immersive, scroll-driven visual journey of an Airbus A320. As visitors scroll down the page, GSAP ScrollTrigger interpolates camera translations, field-of-view perspectives, and airframe rotations (pitch, roll, and yaw) against layered atmospheric visual backdrops.
 
-### Key Features
+### Key Highlights
 
-- **Real-Time WebGL Rendering**: Renders the 3D aircraft model (`assets/plane.obj`) using Three.js with directional and ambient lighting setups.
-- **Scroll-Driven Choreography**: GSAP and ScrollTrigger map user scroll depth directly to aircraft pitch, roll, yaw, and camera translation paths.
-- **Atmospheric Visuals**: Integrates aerial terrain textures (`assets/ground.jpg`), cloud vector layers (`assets/clouds.svg`), and sunset sky backgrounds (`assets/sunset.jpg`).
-- **Procedural Model Tooling**: Ships with a custom generator script (`scripts/generate_plane_obj.js`) that produces and updates the 3D Wavefront OBJ geometry for the fuselage, wings, stabilizers, and engines.
-- **Flexible Deployment**: Runs either as a static client application (Netlify, GitHub Pages) or served through the bundled Express.js server.
+- **Hardware-Accelerated WebGL Rendering**: Loads and renders a custom 3D model (`assets/plane.obj`) via Three.js with directional lighting and ambient illumination.
+- **Scroll-Synchronized Flight Dynamics**: GSAP timelines bound to page scroll control continuous aircraft attitude changes, simulating climbs, banks, and cruising phases.
+- **Layered Atmospheric Scenery**: Integrates sky, cloud vector graphics (`assets/clouds.svg`), and aerial terrain textures (`assets/ground.jpg`, `assets/sunset.jpg`) for depth parallax.
+- **Procedural Model Generator**: Includes a standalone Node.js utility (`scripts/generate_plane_obj.js`) that procedurally computes and exports the Wavefront OBJ geometry for the fuselage, wings, horizontal/vertical stabilizers, and turbofan engines.
+- **Dual Deployment Modes**: Can be served through the built-in Express server (`server.js`) or deployed directly to any static host (Netlify, Vercel, GitHub Pages).
 
 ---
 
 ## Technology Stack
 
-- **3D Engine**: [Three.js](https://threejs.org/) (WebGL rendering, OBJLoader, PerspectiveCamera, directional lighting)
-- **Animation**: [GSAP](https://greensock.com/gsap/) & [ScrollTrigger](https://greensock.com/scrolltrigger/)
-- **Server / Runtime**: [Node.js](https://nodejs.org/) (v18+) or [Bun](https://bun.sh/) with [Express](https://expressjs.com/)
-- **Frontend**: Vanilla ES6+ JavaScript, CSS3 flex/grid and canvas overlay styling, semantic HTML5
+| Layer | Technologies |
+|---|---|
+| **3D Rendering** | [Three.js](https://threejs.org/) (WebGLRenderer, PerspectiveCamera, Scene, OBJLoader, DirectionalLight, AmbientLight) |
+| **Animation & Timing** | [GSAP 3](https://greensock.com/gsap/) with [ScrollTrigger](https://greensock.com/scrolltrigger/) plugin |
+| **Frontend** | Vanilla JavaScript (ES6+), HTML5 Canvas, responsive CSS3 |
+| **Server / Runtime** | [Node.js](https://nodejs.org/) (v18+) or [Bun](https://bun.sh/), [Express.js](https://expressjs.com/) |
+| **Model Tooling** | Procedural 3D OBJ mesh generator (`scripts/generate_plane_obj.js`) |
 
 ---
 
@@ -37,21 +40,22 @@ This application renders an interactive flight sequence of an Airbus A320 within
 
 ```text
 A320-airplane/
-├── .env.example             # Template for local environment variables (e.g. PORT)
-├── assets/                  # Production 3D and visual assets
+├── .env.example             # Example environment file (PORT definition)
+├── assets/                  # Production 3D model and image assets
 │   ├── clouds.svg           # Vector cloud overlay
-│   ├── ground.jpg           # Aerial landscape ground texture
-│   ├── plane.obj            # Wavefront OBJ 3D model of the A320
-│   └── sunset.jpg           # Horizon and sky background texture
+│   ├── ground.jpg           # Aerial terrain ground texture
+│   ├── plane.obj            # 3D Wavefront OBJ aircraft model
+│   └── sunset.jpg           # Sunset sky background texture
 ├── scripts/
-│   └── generate_plane_obj.js # Procedural generator for A320 OBJ geometry
+│   └── generate_plane_obj.js # Procedural generator for assets/plane.obj
 ├── src/
-│   └── assets/images/       # Source high-resolution textures and skies
-├── index.html               # Main entry HTML and WebGL container
-├── main.css                 # Responsive viewport styles and UI layout
-├── script.js                # Scene initialization, OBJ loading, and GSAP timeline
-├── server.js                # Express static asset server
-├── package.json             # NPM package manifest and scripts
+│   └── assets/images/       # High-resolution source textures and landscapes
+├── index.html               # Main application entry point and WebGL canvas mounting
+├── main.css                 # Viewport layout, overlay styling, and canvas positioning
+├── script.js                # Scene initialization, model loading, and GSAP timeline logic
+├── server.js                # Express static server
+├── metadata.json            # Repository project metadata
+├── package.json             # Project scripts and dependency declarations
 └── bun.lock                 # Bun dependency lockfile
 ```
 
@@ -59,9 +63,9 @@ A320-airplane/
 
 ## Prerequisites
 
-- **Node.js** v18.0.0 or higher (or **Bun** v1.0+)
-- **npm** v9+ or **bun** package manager
-- Modern desktop or mobile web browser with WebGL hardware acceleration
+- **Node.js** (v18.0.0 or later) or **Bun** (v1.0 or later)
+- **npm** (v9+) or **bun** CLI
+- Modern desktop or mobile browser with WebGL 1.0/2.0 hardware acceleration enabled
 
 ---
 
@@ -77,26 +81,24 @@ A320-airplane/
    ```bash
    npm install
    ```
-   *Or using Bun:*
+   *Alternatively, using Bun:*
    ```bash
    bun install
    ```
 
-3. **Configure environment (optional):**
-   Copy the example environment configuration:
+3. **Environment Configuration (Optional):**
    ```bash
    cp .env.example .env
    ```
-   The application defaults to port `3000` if `PORT` is not defined.
+   By default, the Express server listens on port `3000` unless overridden by the `PORT` environment variable.
 
 ---
 
 ## Running the Application
 
-### Local Development Server
+### Development Server
 
-Start the built-in Express server:
-
+Start the local development server:
 ```bash
 npm run dev
 ```
@@ -104,45 +106,58 @@ npm run dev
 ```bash
 bun run dev
 ```
+Open your browser and navigate to `http://localhost:3000`.
 
-Navigate to [http://localhost:3000](http://localhost:3000) in your browser.
+### Production Server
 
-### Production Mode
-
+To run the production static asset server:
 ```bash
 npm start
 ```
 
-### Static Hosting (Netlify / Vercel / GitHub Pages)
+### Static Hosting
 
-Because the client code (`index.html`, `main.css`, `script.js`, and `assets/`) is fully static, the repository can be hosted on any static file provider without a backend Node.js process.
+The client application consists of static files (`index.html`, `main.css`, `script.js`, and `assets/`). It can be hosted directly on static platforms such as Netlify, Vercel, or GitHub Pages without requiring the Node.js backend.
 
 ---
 
-## Utility Scripts
+## Available Scripts
 
-| Command | Description |
+| Command | Purpose |
 |---|---|
-| `npm run dev` | Runs the Express server for local development on configured port (default `3000`) |
-| `npm start` | Runs the production static server entrypoint (`server.js`) |
-| `npm run build` | Verifies static asset availability |
-| `npm run lint` | Runs syntax and structure verification checks |
-| `node scripts/generate_plane_obj.js` | Recomputes and writes procedural OBJ coordinates to `assets/plane.obj` |
+| `npm run dev` | Launches the local Express server on `http://localhost:3000` |
+| `npm start` | Executes `node server.js` for production serving |
+| `npm run build` | Validates static readiness |
+| `npm run lint` | Runs syntax and structure checks |
+| `node scripts/generate_plane_obj.js` | Procedurally recalculates and regenerates `assets/plane.obj` |
+
+---
+
+## Regenerating the 3D Model
+
+The repository includes a procedural generation script that models the Airbus A320 fuselage, wings, stabilizers, and engines without external 3D modeling software:
+
+```bash
+node scripts/generate_plane_obj.js
+```
+
+This writes the updated vertex, normal, and face data to `assets/plane.obj`, which is automatically loaded by `script.js` upon page refresh.
 
 ---
 
 ## Contributing
 
+Contributions are welcome! Please follow these steps:
+
 1. Fork the repository.
-2. Create a feature branch: `git checkout -b feature/improved-lighting`.
-3. Make your modifications (e.g., shaders, camera transitions, mesh details).
-4. Verify locally using `npm run dev` across multiple browser viewport dimensions.
-5. Commit your changes using conventional commit messages: `git commit -m 'feat: add specular highlights to airframe'`.
-6. Push to your fork: `git push origin feature/improved-lighting`.
-7. Open a Pull Request detailing your changes.
+2. Create a feature branch: `git checkout -b feature/visual-enhancement`.
+3. Implement your changes and verify rendering locally across desktop and mobile viewports.
+4. Commit your changes using conventional commit messages: `git commit -m 'feat: improve lighting attenuation'`.
+5. Push to your branch: `git push origin feature/visual-enhancement`.
+6. Submit a Pull Request describing your modifications.
 
 ---
 
 ## License
 
-Distributed for educational and demonstration purposes. Commercial aircraft trade dress and designs belong to their respective copyright and trademark owners.
+This project is provided for demonstration and educational purposes. Aircraft trademarks, designs, and specifications belong to Airbus SE.
