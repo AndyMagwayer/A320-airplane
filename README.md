@@ -2,124 +2,147 @@
 
 ![A320 Showcase Preview](Screenshot%202023-10-01%20164837.png)
 
-An interactive 3D web experience showcasing an Airbus A320 aircraft model rendered in real time using **Three.js** and animated with **GSAP ScrollTrigger**.
+An interactive 3D web experience showcasing an Airbus A320 commercial aircraft rendered in real time with **Three.js** and animated using **GSAP ScrollTrigger**.
 
-- **Live Demo:** [a320-airplane-maga.netlify.app](https://a320-airplane-maga.netlify.app/)
-- **Subject Model:** Airbus A320 twin-engine commercial airliner
-- **Core Tech:** Three.js (WebGL), GSAP + ScrollTrigger, HTML5/CSS3, Express.js / Node.js
+- **Live Deployment:** [a320-airplane-maga.netlify.app](https://a320-airplane-maga.netlify.app/)
+- **Subject:** Airbus A320 twin-engine passenger airliner
+- **Core Stack:** Three.js (WebGL), GSAP ScrollTrigger, Vanilla JavaScript, HTML5/CSS3, Express.js
 
 ---
 
 ## Overview
 
-This application presents a dynamic 3D showcase of an Airbus A320 in flight:
+This application renders an interactive flight sequence of an Airbus A320 within a WebGL viewport. As the user scrolls through the page, dynamic camera trajectories and airframe rotations simulate cruising and altitude maneuvers across layered atmospheric visuals.
 
-- **Real-Time 3D Rendering**: Renders an A320 airframe model (`assets/plane.obj`) in WebGL using Three.js.
-- **Scroll & Timeline Animation**: Utilizes GSAP and ScrollTrigger to drive dynamic camera trajectories, flight angles, and atmospheric transitions as the user scrolls.
-- **Atmospheric Environment**: Blends procedural and textured background elements including dynamic cloud layers, ground terrain textures, and sunset lighting.
-- **Model Generation Tooling**: Includes an offline procedural generation script (`scripts/generate_plane_obj.js`) to generate and format the OBJ geometry for the aircraft.
+### Key Features
+
+- **Real-Time WebGL Rendering**: Renders the 3D aircraft model (`assets/plane.obj`) using Three.js with directional and ambient lighting setups.
+- **Scroll-Driven Choreography**: GSAP and ScrollTrigger map user scroll depth directly to aircraft pitch, roll, yaw, and camera translation paths.
+- **Atmospheric Visuals**: Integrates aerial terrain textures (`assets/ground.jpg`), cloud vector layers (`assets/clouds.svg`), and sunset sky backgrounds (`assets/sunset.jpg`).
+- **Procedural Model Tooling**: Ships with a custom generator script (`scripts/generate_plane_obj.js`) that produces and updates the 3D Wavefront OBJ geometry for the fuselage, wings, stabilizers, and engines.
+- **Flexible Deployment**: Runs either as a static client application (Netlify, GitHub Pages) or served through the bundled Express.js server.
 
 ---
 
 ## Technology Stack
 
-- **Rendering & 3D**: [Three.js](https://threejs.org/) (WebGL, OBJLoader, PerspectiveCamera, directional lighting)
-- **Animation**: [GSAP](https://greensock.com/gsap/) with [ScrollTrigger](https://greensock.com/scrolltrigger/)
-- **Runtime & Server**: Node.js or [Bun](https://bun.sh/) with [Express](https://expressjs.com/)
-- **Frontend**: Vanilla JavaScript (ES6+), HTML5 Canvas, responsive CSS
+- **3D Engine**: [Three.js](https://threejs.org/) (WebGL rendering, OBJLoader, PerspectiveCamera, directional lighting)
+- **Animation**: [GSAP](https://greensock.com/gsap/) & [ScrollTrigger](https://greensock.com/scrolltrigger/)
+- **Server / Runtime**: [Node.js](https://nodejs.org/) (v18+) or [Bun](https://bun.sh/) with [Express](https://expressjs.com/)
+- **Frontend**: Vanilla ES6+ JavaScript, CSS3 flex/grid and canvas overlay styling, semantic HTML5
 
 ---
 
 ## Project Structure
 
-```
+```text
 A320-airplane/
-├── assets/
-│   ├── clouds.svg              # Vector cloud overlays
-│   ├── ground.jpg              # Aerial terrain ground texture
-│   ├── plane.obj               # 3D wavefront OBJ model of the A320
-│   └── sunset.jpg              # Sky backdrop texture
+├── .env.example             # Template for local environment variables (e.g. PORT)
+├── assets/                  # Production 3D and visual assets
+│   ├── clouds.svg           # Vector cloud overlay
+│   ├── ground.jpg           # Aerial landscape ground texture
+│   ├── plane.obj            # Wavefront OBJ 3D model of the A320
+│   └── sunset.jpg           # Horizon and sky background texture
 ├── scripts/
-│   └── generate_plane_obj.js   # Script to generate the 3D A320 OBJ mesh
+│   └── generate_plane_obj.js # Procedural generator for A320 OBJ geometry
 ├── src/
-│   └── assets/images/          # Source aerial landscapes and sky textures
-├── index.html                  # Main markup with 3D canvas viewport
-├── main.css                    # Layout styling and presentation controls
-├── script.js                   # Three.js scene setup, OBJ loading, and GSAP timeline
-├── server.js                   # Lightweight Express HTTP server for local serving
-├── package.json                # Project dependencies and script runner
-└── bun.lock                    # Dependency lockfile
+│   └── assets/images/       # Source high-resolution textures and skies
+├── index.html               # Main entry HTML and WebGL container
+├── main.css                 # Responsive viewport styles and UI layout
+├── script.js                # Scene initialization, OBJ loading, and GSAP timeline
+├── server.js                # Express static asset server
+├── package.json             # NPM package manifest and scripts
+└── bun.lock                 # Bun dependency lockfile
 ```
 
 ---
 
-## Getting Started
+## Prerequisites
 
-### Prerequisites
+- **Node.js** v18.0.0 or higher (or **Bun** v1.0+)
+- **npm** v9+ or **bun** package manager
+- Modern desktop or mobile web browser with WebGL hardware acceleration
 
-- [Node.js](https://nodejs.org/) (v18 or higher) or [Bun](https://bun.sh/)
-- A modern web browser with WebGL hardware acceleration enabled
+---
 
-### Installation
+## Installation & Setup
 
-1. Clone the repository:
+1. **Clone the repository:**
    ```bash
    git clone https://github.com/AndyMagwayer/A320-airplane.git
    cd A320-airplane
    ```
 
-2. Install dependencies:
+2. **Install dependencies:**
    ```bash
    npm install
-   # or with Bun:
+   ```
+   *Or using Bun:*
+   ```bash
    bun install
    ```
 
-### Running Locally
-
-Start the local development server:
-
-```bash
-npm run dev
-# or with Bun:
-bun run dev
-```
-
-Open [http://localhost:3000](http://localhost:3000) in your web browser to view the showcase.
-
-### Regenerating the 3D Model
-
-If you want to modify or regenerate the procedural 3D airframe mesh:
-
-```bash
-node scripts/generate_plane_obj.js
-```
+3. **Configure environment (optional):**
+   Copy the example environment configuration:
+   ```bash
+   cp .env.example .env
+   ```
+   The application defaults to port `3000` if `PORT` is not defined.
 
 ---
 
-## Development Scripts
+## Running the Application
+
+### Local Development Server
+
+Start the built-in Express server:
+
+```bash
+npm run dev
+```
+*Or with Bun:*
+```bash
+bun run dev
+```
+
+Navigate to [http://localhost:3000](http://localhost:3000) in your browser.
+
+### Production Mode
+
+```bash
+npm start
+```
+
+### Static Hosting (Netlify / Vercel / GitHub Pages)
+
+Because the client code (`index.html`, `main.css`, `script.js`, and `assets/`) is fully static, the repository can be hosted on any static file provider without a backend Node.js process.
+
+---
+
+## Utility Scripts
 
 | Command | Description |
 |---|---|
-| `npm run dev` | Starts the Express server on port 3000 |
-| `npm start` | Runs the production static server |
-| `npm run build` | Verifies static asset readiness |
-| `npm run lint` | Runs syntax and structure verification |
+| `npm run dev` | Runs the Express server for local development on configured port (default `3000`) |
+| `npm start` | Runs the production static server entrypoint (`server.js`) |
+| `npm run build` | Verifies static asset availability |
+| `npm run lint` | Runs syntax and structure verification checks |
+| `node scripts/generate_plane_obj.js` | Recomputes and writes procedural OBJ coordinates to `assets/plane.obj` |
 
 ---
 
 ## Contributing
 
-Contributions to improve performance, add interactive camera controls, or refine 3D materials are welcome:
-
 1. Fork the repository.
-2. Create a dedicated branch: `git checkout -b feature/model-enhancement`.
-3. Test visual rendering and performance across viewports.
-4. Commit your changes: `git commit -m 'feat: enhance turbine engine geometry'`.
-5. Push your branch and submit a Pull Request.
+2. Create a feature branch: `git checkout -b feature/improved-lighting`.
+3. Make your modifications (e.g., shaders, camera transitions, mesh details).
+4. Verify locally using `npm run dev` across multiple browser viewport dimensions.
+5. Commit your changes using conventional commit messages: `git commit -m 'feat: add specular highlights to airframe'`.
+6. Push to your fork: `git push origin feature/improved-lighting`.
+7. Open a Pull Request detailing your changes.
 
 ---
 
 ## License
 
-This project is available for educational and non-commercial showcase purposes. Aircraft designs and trademarks are the property of their respective holders.
+Distributed for educational and demonstration purposes. Commercial aircraft trade dress and designs belong to their respective copyright and trademark owners.
