@@ -1,84 +1,125 @@
-# A320 Airplane Project
+# Airbus A320 3D Interactive Showcase
 
-![A320 Cockpit Simulation](https://github.com/AndyMagwayer/A320-airplane/blob/main/Screenshot%202023-10-01%20164837.png)
+![A320 Showcase Preview](Screenshot%202023-10-01%20164837.png)
 
-Интерактивный веб-симулятор бортовых систем и авионики авиалайнера **Airbus A320**, моделирующий логику электродистанционного управления (Fly-By-Wire), законы управления (Normal / Alternate / Direct Law) и приборную панель кабины пилотов.
+An interactive 3D web experience showcasing an Airbus A320 aircraft model rendered in real time using **Three.js** and animated with **GSAP ScrollTrigger**.
 
-- **Онлайн-демо:** [a320-airplane-maga.netlify.app](https://a320-airplane-maga.netlify.app/)
-- **Воздушное судно:** Airbus A320-200 (CFM56 / IAE V2500)
-- **Стек:** Modern Web (HTML5 Canvas, CSS3, Vanilla JavaScript / Bun)
-
----
-
-## Обзор систем симулятора
-
-Симулятор A320 реализует математическую модель динамики полета и ключевые подсистемы авионики:
-1. **Fly-By-Wire (FBW) Logic**: Законы управления (Normal Law) с защитой от сваливания (Alpha Floor), ограничением угла тангажа (+30°/-15°) и крена (до 67°).
-2. **Приборное оборудование кабины**:
-   - **PFD (Primary Flight Display)**: Авиагоризонт, лента приборной скорости (IAS), барометрическая высота, вариометр (VSI).
-   - **ND (Navigation Display)**: Компасная роза, путевые точки маршрута, векторы сноса и индикация режимов автопилота.
-   - **E/WD (Engine / Warning Display)**: Параметры двигателей N1/N2, температура выхлопных газов (EGT), расход топлива.
-3. **Навигационный комплекс**: Автопилот, автотяга (A/THR), удержание высоты и захват курсового глиссадного луча (ILS/LOC).
+- **Live Demo:** [a320-airplane-maga.netlify.app](https://a320-airplane-maga.netlify.app/)
+- **Subject Model:** Airbus A320 twin-engine commercial airliner
+- **Core Tech:** Three.js (WebGL), GSAP + ScrollTrigger, HTML5/CSS3, Express.js / Node.js
 
 ---
 
-## Архитектура проекта
+## Overview
+
+This application presents a dynamic 3D showcase of an Airbus A320 in flight:
+
+- **Real-Time 3D Rendering**: Renders an A320 airframe model (`assets/plane.obj`) in WebGL using Three.js.
+- **Scroll & Timeline Animation**: Utilizes GSAP and ScrollTrigger to drive dynamic camera trajectories, flight angles, and atmospheric transitions as the user scrolls.
+- **Atmospheric Environment**: Blends procedural and textured background elements including dynamic cloud layers, ground terrain textures, and sunset lighting.
+- **Model Generation Tooling**: Includes an offline procedural generation script (`scripts/generate_plane_obj.js`) to generate and format the OBJ geometry for the aircraft.
+
+---
+
+## Technology Stack
+
+- **Rendering & 3D**: [Three.js](https://threejs.org/) (WebGL, OBJLoader, PerspectiveCamera, directional lighting)
+- **Animation**: [GSAP](https://greensock.com/gsap/) with [ScrollTrigger](https://greensock.com/scrolltrigger/)
+- **Runtime & Server**: Node.js or [Bun](https://bun.sh/) with [Express](https://expressjs.com/)
+- **Frontend**: Vanilla JavaScript (ES6+), HTML5 Canvas, responsive CSS
+
+---
+
+## Project Structure
 
 ```
 A320-airplane/
-├── index.html            # Главное окно кокпита и холст рендеринга
-├── script.js             # Авионика, математика законов FBW и цикл симуляции
-├── main.css              # Оформление приборных панелей и ночная подсветка
-├── assets/               # Текстуры кабин, аудио-звуки тумблеров и шкалы приборов
-├── scripts/              # Утилиты верификации и сценарии тестирования
-├── server.js             # Опциональный локальный WebSocket-сервер телеметрии
-├── package.json          # Метаданные проекта и скрипты запуска
-└── bun.lock              # Файл блокировки пакетного менеджера Bun
+├── assets/
+│   ├── clouds.svg              # Vector cloud overlays
+│   ├── ground.jpg              # Aerial terrain ground texture
+│   ├── plane.obj               # 3D wavefront OBJ model of the A320
+│   └── sunset.jpg              # Sky backdrop texture
+├── scripts/
+│   └── generate_plane_obj.js   # Script to generate the 3D A320 OBJ mesh
+├── src/
+│   └── assets/images/          # Source aerial landscapes and sky textures
+├── index.html                  # Main markup with 3D canvas viewport
+├── main.css                    # Layout styling and presentation controls
+├── script.js                   # Three.js scene setup, OBJ loading, and GSAP timeline
+├── server.js                   # Lightweight Express HTTP server for local serving
+├── package.json                # Project dependencies and script runner
+└── bun.lock                    # Dependency lockfile
 ```
 
 ---
 
-## Быстрый старт
+## Getting Started
 
-### Требования
-- [Bun](https://bun.sh/) (рекомендуется) или [Node.js](https://nodejs.org/) v18+
-- Современный браузер с поддержкой аппаратного ускорения Canvas / WebGL
+### Prerequisites
 
-### Установка и запуск
+- [Node.js](https://nodejs.org/) (v18 or higher) or [Bun](https://bun.sh/)
+- A modern web browser with WebGL hardware acceleration enabled
+
+### Installation
+
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/AndyMagwayer/A320-airplane.git
+   cd A320-airplane
+   ```
+
+2. Install dependencies:
+   ```bash
+   npm install
+   # or with Bun:
+   bun install
+   ```
+
+### Running Locally
+
+Start the local development server:
 
 ```bash
-# Клонирование репозитория
-git clone https://github.com/AndyMagwayer/A320-airplane.git
-cd A320-airplane
-
-# Установка зависимостей
-bun install
-
-# Запуск локального симулятора
+npm run dev
+# or with Bun:
 bun run dev
-# или через Node.js:
-node server.js
 ```
 
-Откройте `http://localhost:3000` в браузере для входа в кабину пилотов.
+Open [http://localhost:3000](http://localhost:3000) in your web browser to view the showcase.
+
+### Regenerating the 3D Model
+
+If you want to modify or regenerate the procedural 3D airframe mesh:
+
+```bash
+node scripts/generate_plane_obj.js
+```
 
 ---
 
-## Проверенные подсистемы авионики
+## Development Scripts
 
-- [x] **Primary Flight Display (PFD)**: Искусственный горизонт, шкалы скорости и высоты, директорная стрелка (FD).
-- [x] **Navigation Display (ND)**: Режимы ARC / ROSE NAV, отображение точек маршрута.
-- [x] **Контроль параметров силовой установки**: N1 %, EGT °C, часовой расход керосина.
-- [x] **Защитные оболочки FBW**: Ограничение перегрузки (+2.5g/-1.0g), защита по углу атаки.
-
----
-
-## Регламент технического обслуживания
-
-> **David Autonomous Maintenance**: Ревизия документации, верификация архитектуры и аудит контрольного среза выполнены в **10/16/2026, 10:00:52** (Asia/Tashkent). Все спецификации синхронизированы с репозиторием.
+| Command | Description |
+|---|---|
+| `npm run dev` | Starts the Express server on port 3000 |
+| `npm start` | Runs the production static server |
+| `npm run build` | Verifies static asset readiness |
+| `npm run lint` | Runs syntax and structure verification |
 
 ---
 
-## Лицензия
+## Contributing
 
-Создано в образовательных и исследовательских целях. Все права на товарные знаки Airbus принадлежат Airbus S.A.S.
+Contributions to improve performance, add interactive camera controls, or refine 3D materials are welcome:
+
+1. Fork the repository.
+2. Create a dedicated branch: `git checkout -b feature/model-enhancement`.
+3. Test visual rendering and performance across viewports.
+4. Commit your changes: `git commit -m 'feat: enhance turbine engine geometry'`.
+5. Push your branch and submit a Pull Request.
+
+---
+
+## License
+
+This project is available for educational and non-commercial showcase purposes. Aircraft designs and trademarks are the property of their respective holders.
