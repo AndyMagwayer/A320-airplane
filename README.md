@@ -82,4 +82,4 @@ node server.js
 ## Лицензия
 
 Создано в образовательных и исследовательских целях. Все права на товарные знаки Airbus принадлежат Airbus S.A.S.
-<!-- David Maintenance Verified: 2026-10-17 16:48:51 (Asia/Tashkent) -->
+<!-- David Maintenance Verified: 2026-10-17 19:05:39 (Asia/Tashkent) -->
