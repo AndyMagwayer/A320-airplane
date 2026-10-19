@@ -12,21 +12,21 @@ This application renders an Airbus A320 3D model (`assets/plane.obj`) inside an 
 
 * **WebGL 3D Rendering**: Real-time rendering of an A320 aircraft using Three.js and OBJLoader.
 * **Scroll-Driven Timeline**: Smooth camera maneuvers and spatial transitions synchronized to viewport scrolling via GSAP and ScrollTrigger.
-* **Atmospheric Scene Composition**: Multi-layered backdrop integrating aerial terrain textures and sunset skyboxes (`ground.jpg`, `sunset.jpg`, `clouds.svg`).
-* **Geometry Generator Utility**: Built-in script (`scripts/generate_plane_obj.js`) for procedural aircraft geometry construction and maintenance.
-* **Express Static Delivery**: Built-in lightweight Express server with configurable port support.
+* **Atmospheric Scene Composition**: Multi-layered backdrop integrating aerial terrain textures and skyboxes.
+* **Geometry Generator Utility**: Built-in script (`scripts/generate_plane_obj.js`) for procedural aircraft geometry construction.
+* **Express Static Delivery**: Lightweight Express server for local development and hosting.
 
 ## Tech Stack
 
-* **3D & Rendering Engine**: Three.js (WebGL, OBJLoader)
-* **Animation & Triggers**: GSAP & GSAP ScrollTrigger
+* **3D Engine**: Three.js (WebGL, OBJLoader)
+* **Animation**: GSAP (ScrollTrigger)
 * **Frontend**: Vanilla JavaScript (ES6+), HTML5, CSS3
-* **Server Runtime**: Node.js / Bun with Express
-* **Package Manager**: Bun (`bun.lock`) or npm
+* **Server Runtime**: Node.js with Express
+* **Package Manager**: Bun or npm
 
 ## Prerequisites
 
-* [Node.js](https://nodejs.org/) (v18 or higher) or [Bun](https://bun.sh/)
+* [Node.js](https://nodejs.org/) (v18+) or [Bun](https://bun.sh/)
 * A modern web browser with WebGL enabled
 
 ## Installation & Setup
@@ -39,22 +39,16 @@ This application renders an Airbus A320 3D model (`assets/plane.obj`) inside an 
 
 2. **Install dependencies:**
    ```bash
-   # Using Bun (recommended)
+   # Using Bun
    bun install
 
    # Alternatively, using npm
    npm install
    ```
 
-3. **Configure environment variables (optional):**
-   ```bash
-   cp .env.example .env
-   ```
-   Configure `PORT` inside `.env` if custom hosting is required (defaults to port `3000`).
-
 ## Running the Application
 
-Start the local development server:
+Start the development server:
 
 ```bash
 # Using Bun
@@ -64,53 +58,27 @@ bun run dev
 npm run dev
 ```
 
-Once started, open your browser and navigate to `http://localhost:3000`.
-
-### Available NPM Scripts
-
-* `npm run dev` / `bun run dev`: Start the Express server for local development.
-* `npm start` / `bun start`: Run the production server via Express.
-* `npm run build` / `bun run build`: Echo static verification status.
-* `npm run lint` / `bun run lint`: Run lint verification.
-
-### Running Utility Scripts
-
-To regenerate or test the procedural aircraft OBJ file:
-
-```bash
-node scripts/generate_plane_obj.js
-```
+Once started, access the application at `http://localhost:3000`.
 
 ## Project Structure
 
 ```text
 A320-airplane/
-├── .env.example              # Example environment configuration
-├── assets/                   # Static assets used in runtime
-│   ├── clouds.svg            # Cloud vector layer
-│   ├── ground.jpg            # Ground terrain texture
-│   ├── plane.obj             # 3D A320 aircraft geometry
-│   └── sunset.jpg            # Sunset sky texture
-├── scripts/                  # Utility scripts
-│   └── generate_plane_obj.js # Procedural OBJ generator for the aircraft
-├── src/                      # Source asset library
-│   └── assets/images/        # High-resolution aerial and sky photography
-├── index.html                # Main application HTML markup
-├── main.css                  # Core application styling and layout
-├── metadata.json             # Project metadata descriptor
-├── package.json              # Project scripts and dependencies
-├── script.js                 # Three.js scene setup and GSAP scroll logic
-└── server.js                 # Express server for local hosting
+├── assets/           # 3D models and base textures
+├── scripts/          # Build and generation utilities
+├── src/              # Source images and assets
+├── index.html        # Main entry point
+├── main.css          # Application styles
+├── script.js         # Core Three.js and GSAP logic
+└── server.js         # Express server configuration
 ```
 
 ## Contributing
 
 1. Fork the repository.
-2. Create a feature branch (`git checkout -b feature/my-feature`).
-3. Verify your changes and asset performance locally.
-4. Commit your changes with conventional commit messages (`git commit -m 'feat: add cockpit camera angle'`).
-5. Push to the branch (`git push origin feature/my-feature`).
-6. Open a Pull Request.
+2. Create a feature branch (`git checkout -b feature/name`).
+3. Commit changes using conventional commit messages.
+4. Push to the branch and open a Pull Request.
 
 ## License
 
