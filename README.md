@@ -1,33 +1,33 @@
 # Airbus A320 3D Showcase
 
-An interactive 3D web experience showcasing the Airbus A320 aircraft, featuring real-time WebGL rendering with Three.js and scroll-driven camera animations powered by GSAP ScrollTrigger.
+An interactive 3D web experience showcasing the Airbus A320 commercial aircraft. Built with Three.js and GSAP ScrollTrigger, this project delivers smooth scroll-coordinated camera transitions, dynamic lighting, and atmospheric scene composition directly in the browser.
 
 ![A320 Showcase Preview](./Screenshot%202023-10-01%20164837.png)
 
 ## Project Overview
 
-This application renders an Airbus A320 3D model (`assets/plane.obj`) inside an interactive WebGL viewport. As the user scrolls through the page, GSAP's ScrollTrigger coordinates camera angles, lighting transitions, and model orientation against aerial and atmospheric sky backdrops.
+The application loads an Airbus A320 3D model (`assets/plane.obj`) into a WebGL canvas. As the user navigates down the page, GSAP ScrollTrigger orchestrates cinematic camera positions, pitch/roll angles, and depth-of-field illusions against ground and cloud layer textures.
 
 ## Features
 
-* **WebGL 3D Rendering**: Real-time rendering of an A320 aircraft using Three.js and OBJLoader.
-* **Scroll-Driven Timeline**: Smooth camera maneuvers and spatial transitions synchronized to viewport scrolling via GSAP and ScrollTrigger.
-* **Atmospheric Scene Composition**: Multi-layered backdrop integrating aerial terrain textures and skyboxes.
-* **Geometry Generator Utility**: Built-in script (`scripts/generate_plane_obj.js`) for procedural aircraft geometry construction.
-* **Express Static Delivery**: Lightweight Express server for local development and hosting.
+* **Real-Time 3D Rendering**: High-performance WebGL scene powered by Three.js with OBJLoader support.
+* **Scroll-Driven Camera Timeline**: GSAP ScrollTrigger synchronization binding scroll progress to camera coordinates and model rotation.
+* **Atmospheric Scene Layers**: Multi-layer compositing using aerial landscape and sky backdrop textures.
+* **Procedural Plane Generator**: Node.js utility script (`scripts/generate_plane_obj.js`) capable of procedurally generating the Wavefront `.obj` mesh.
+* **Static Express Server**: Lightweight Express server with environment-configurable port delivery for local testing and deployment.
 
-## Tech Stack
+## Technology Stack
 
-* **3D Engine**: Three.js (WebGL, OBJLoader)
-* **Animation**: GSAP (ScrollTrigger)
-* **Frontend**: Vanilla JavaScript (ES6+), HTML5, CSS3
-* **Server Runtime**: Node.js with Express
-* **Package Manager**: Bun or npm
+* **3D Graphics**: Three.js (WebGL renderer, OBJLoader, PerspectiveCamera)
+* **Animation Engine**: GSAP (GreenSock Animation Platform) + ScrollTrigger plugin
+* **Frontend**: Vanilla ES6+ JavaScript, HTML5 Canvas, CSS3
+* **Backend / Host**: Node.js with Express 5
+* **Package Managers**: Bun and npm supported
 
 ## Prerequisites
 
-* [Node.js](https://nodejs.org/) (v18+) or [Bun](https://bun.sh/)
-* A modern web browser with WebGL enabled
+* **Node.js**: v18.0.0 or later (or [Bun](https://bun.sh/) v1.0+)
+* **Web Browser**: Any modern browser with WebGL hardware acceleration enabled (Chrome, Firefox, Safari, Edge)
 
 ## Installation & Setup
 
@@ -39,47 +39,74 @@ This application renders an Airbus A320 3D model (`assets/plane.obj`) inside an 
 
 2. **Install dependencies:**
    ```bash
-   # Using Bun
-   bun install
-
-   # Alternatively, using npm
+   # Using npm
    npm install
+
+   # Or using Bun
+   bun install
+   ```
+
+3. **Configure Environment (Optional):**
+   If custom ports or environment settings are needed, create a `.env` file based on the example:
+   ```bash
+   cp .env.example .env
    ```
 
 ## Running the Application
 
-Start the development server:
+Start the local development server:
 
 ```bash
-# Using Bun
-bun run dev
-
 # Using npm
 npm run dev
+
+# Or using Bun
+bun run dev
 ```
 
-Once started, access the application at `http://localhost:3000`.
+By default, the server will serve the application at:
+`http://localhost:3000`
+
+### Available Scripts
+
+| Command | Description |
+| :--- | :--- |
+| `npm run dev` | Starts the Express static file server (`node server.js`) |
+| `npm start` | Production startup command (`node server.js`) |
+| `npm run build` | Validates static asset readiness |
+| `npm run lint` | Runs project lint check |
+| `node scripts/generate_plane_obj.js` | Generates or rebuilds the A320 3D Wavefront `.obj` file |
 
 ## Project Structure
 
 ```text
 A320-airplane/
-├── assets/           # 3D models and base textures
-├── scripts/          # Build and generation utilities
-├── src/              # Source images and assets
-├── index.html        # Main entry point
-├── main.css          # Application styles
-├── script.js         # Core Three.js and GSAP logic
-└── server.js         # Express server configuration
+├── .env.example                 # Example environment variables
+├── assets/                      # Core runtime assets
+│   ├── clouds.svg               # Vector cloud overlay
+│   ├── ground.jpg               # Aerial terrain texture
+│   ├── plane.obj                # 3D aircraft model in Wavefront OBJ format
+│   └── sunset.jpg               # Sky and lighting backdrop
+├── scripts/
+│   └── generate_plane_obj.js    # Procedural mesh generation script
+├── src/
+│   └── assets/images/           # High-resolution backdrop source textures
+├── index.html                   # HTML structure and Three.js canvas mount
+├── main.css                     # Viewport framing and typography styles
+├── package.json                 # Project dependencies and script definitions
+├── script.js                    # Three.js scene setup and GSAP scroll timelines
+└── server.js                    # Express static file server
 ```
 
 ## Contributing
 
 1. Fork the repository.
-2. Create a feature branch (`git checkout -b feature/name`).
-3. Commit changes using conventional commit messages.
-4. Push to the branch and open a Pull Request.
+2. Create a feature branch (`git checkout -b feature/my-feature`).
+3. Ensure code formatting is consistent and test locally (`npm run dev`).
+4. Commit your changes following conventional commit syntax (`git commit -m 'feat: add altitude readout overlay'`).
+5. Push to the branch (`git push origin feature/my-feature`).
+6. Open a Pull Request.
 
 ## License
 
-Created for educational and visualization research. Airbus and A320 design marks belong to their respective copyright holders.
+This project is intended for educational, research, and visualization demonstration purposes. Airbus and A320 trademarks and design references remain the property of their respective owners.
