@@ -1,33 +1,31 @@
 # Airbus A320 3D Showcase
 
-An interactive 3D web experience showcasing the Airbus A320 commercial aircraft. Built with Three.js and GSAP ScrollTrigger, this project delivers smooth scroll-coordinated camera transitions, dynamic lighting, and atmospheric scene composition directly in the browser.
+An interactive 3D web experience showcasing the Airbus A320 commercial aircraft. This project utilizes Three.js for WebGL rendering and GSAP ScrollTrigger for scroll-synchronized camera transitions and animations.
 
 ![A320 Showcase Preview](./Screenshot%202023-10-01%20164837.png)
 
 ## Project Overview
 
-The application loads an Airbus A320 3D model (`assets/plane.obj`) into a WebGL canvas. As the user navigates down the page, GSAP ScrollTrigger orchestrates cinematic camera positions, pitch/roll angles, and depth-of-field illusions against ground and cloud layer textures.
+The application renders a 3D A320 model (`assets/plane.obj`) within a browser-based canvas. It features a responsive design that reacts to scroll progress, orchestrating cinematic camera movements and model orientations to create an immersive visual experience.
 
 ## Features
 
-* **Real-Time 3D Rendering**: High-performance WebGL scene powered by Three.js with OBJLoader support.
-* **Scroll-Driven Camera Timeline**: GSAP ScrollTrigger synchronization binding scroll progress to camera coordinates and model rotation.
-* **Atmospheric Scene Layers**: Multi-layer compositing using aerial landscape and sky backdrop textures.
-* **Procedural Plane Generator**: Node.js utility script (`scripts/generate_plane_obj.js`) capable of procedurally generating the Wavefront `.obj` mesh.
-* **Static Express Server**: Lightweight Express server with environment-configurable port delivery for local testing and deployment.
+* **WebGL Rendering**: Utilizes Three.js to render 3D assets.
+* **Scroll-Driven Animation**: GSAP ScrollTrigger integration for interactive camera control.
+* **Asset Pipeline**: Includes a helper script (`scripts/generate_plane_obj.js`) for managing 3D object generation.
+* **Local Server**: Lightweight Express implementation for serving the static frontend.
 
 ## Technology Stack
 
-* **3D Graphics**: Three.js (WebGL renderer, OBJLoader, PerspectiveCamera)
-* **Animation Engine**: GSAP (GreenSock Animation Platform) + ScrollTrigger plugin
-* **Frontend**: Vanilla ES6+ JavaScript, HTML5 Canvas, CSS3
-* **Backend / Host**: Node.js with Express
-* **Package Managers**: Bun and npm supported
+* **3D Library**: Three.js
+* **Animation**: GSAP (GreenSock Animation Platform)
+* **Backend**: Node.js, Express
+* **Build/Runtime**: Bun or npm
 
 ## Prerequisites
 
-* **Node.js**: v18.0.0 or later (or [Bun](https://bun.sh/) v1.0+)
-* **Web Browser**: Any modern browser with WebGL hardware acceleration enabled (Chrome, Firefox, Safari, Edge)
+* **Node.js**: v18.0.0 or later
+* **Package Manager**: npm or [Bun](https://bun.sh/)
 
 ## Installation & Setup
 
@@ -39,22 +37,14 @@ The application loads an Airbus A320 3D model (`assets/plane.obj`) into a WebGL 
 
 2. **Install dependencies:**
    ```bash
-   # Using npm
    npm install
-
-   # Or using Bun
+   # Or
    bun install
-   ```
-
-3. **Configure Environment (Optional):**
-   If custom ports or environment settings are needed, create a `.env` file based on the example:
-   ```bash
-   cp .env.example .env
    ```
 
 ## Running the Application
 
-Start the local development server:
+Start the development server:
 
 ```bash
 # Using npm
@@ -64,49 +54,28 @@ npm run dev
 bun run dev
 ```
 
-By default, the server will serve the application at:
-`http://localhost:3000`
-
-### Available Scripts
-
-| Command | Description |
-| :--- | :--- |
-| `npm run dev` | Starts the Express static file server (`node server.js`) |
-| `npm start` | Production startup command (`node server.js`) |
-| `npm run build` | Validates static asset readiness |
-| `npm run lint` | Runs project lint check |
-| `node scripts/generate_plane_obj.js` | Generates or rebuilds the A320 3D Wavefront `.obj` file |
+The application will be available at `http://localhost:3000`.
 
 ## Project Structure
 
 ```text
-A320-airplane/
-├── .env.example                 # Example environment variables
-├── assets/                      # Core runtime assets
-│   ├── clouds.svg               # Vector cloud overlay
-│   ├── ground.jpg               # Aerial terrain texture
-│   ├── plane.obj                # 3D aircraft model in Wavefront OBJ format
-│   └── sunset.jpg               # Sky and lighting backdrop
-├── scripts/
-│   └── generate_plane_obj.js    # Procedural mesh generation script
-├── src/
-│   └── assets/images/           # High-resolution backdrop source textures
-├── index.html                   # HTML structure and Three.js canvas mount
-├── main.css                     # Viewport framing and typography styles
-├── package.json                 # Project dependencies and script definitions
-├── script.js                    # Three.js scene setup and GSAP scroll timelines
-└── server.js                    # Express static file server
+├── assets/              # Core 3D and texture assets
+├── scripts/             # Utility build scripts
+├── src/                 # Source textures and media
+├── index.html           # Main entry point
+├── main.css             # Stylesheet
+├── package.json         # Project dependencies
+├── script.js            # Main Three.js/GSAP logic
+└── server.js            # Express server configuration
 ```
 
-## Contributing
+## Contribution
 
 1. Fork the repository.
-2. Create a feature branch (`git checkout -b feature/my-feature`).
-3. Ensure code formatting is consistent and test locally (`npm run dev`).
-4. Commit your changes following conventional commit syntax (`git commit -m 'feat: add altitude readout overlay'`).
-5. Push to the branch (`git push origin feature/my-feature`).
-6. Open a Pull Request.
+2. Create a feature branch (`git checkout -b feature/name`).
+3. Commit changes (`git commit -m 'feat: description'`).
+4. Push to your branch and open a Pull Request.
 
 ## License
 
-This project is intended for educational, research, and visualization demonstration purposes. Airbus and A320 trademarks and design references remain the property of their respective owners.
+This project is intended for educational purposes. All trademarks are the property of their respective owners.
