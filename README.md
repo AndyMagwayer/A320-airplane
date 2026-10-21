@@ -21,7 +21,7 @@ The application loads an Airbus A320 3D model (`assets/plane.obj`) into a WebGL 
 * **3D Graphics**: Three.js (WebGL renderer, OBJLoader, PerspectiveCamera)
 * **Animation Engine**: GSAP (GreenSock Animation Platform) + ScrollTrigger plugin
 * **Frontend**: Vanilla ES6+ JavaScript, HTML5 Canvas, CSS3
-* **Backend / Host**: Node.js with Express 5
+* **Backend / Host**: Node.js with Express
 * **Package Managers**: Bun and npm supported
 
 ## Prerequisites
@@ -110,4 +110,3 @@ A320-airplane/
 ## License
 
 This project is intended for educational, research, and visualization demonstration purposes. Airbus and A320 trademarks and design references remain the property of their respective owners.
-<!-- David Maintenance Verified: 2026-10-21 11:18:46 (Asia/Tashkent) -->
