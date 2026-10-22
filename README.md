@@ -1,28 +1,28 @@
 # A320 Airplane 3D Showcase
 
-An interactive 3D web experience showcasing the Airbus A320. This project leverages Three.js for rendering and GSAP for scroll-driven animations.
+An interactive 3D web experience featuring the Airbus A320, utilizing Three.js for rendering and GSAP for scroll-driven animations.
 
 ## Project Overview
 
-The application renders a 3D A320 model (`assets/plane.obj`) within the browser. It features a responsive layout that synchronizes camera transitions and model orientations with the user's scroll position, providing a cinematic presentation.
+The application renders a 3D A320 model (`assets/plane.obj`) in the browser. It features a layout that synchronizes camera transitions and model orientations with the user's scroll position, providing a cinematic 3D presentation.
 
 ## Features
 
-* **3D Rendering**: Implements Three.js to manage scene, camera, lighting, and 3D model rendering.
-* **Scroll-Sync**: Uses GSAP ScrollTrigger to map scroll progress to dynamic 3D transformations.
-* **Asset Pipeline**: Includes utility scripts in `/scripts` (such as `generate_plane_obj.js`) for 3D asset management.
-* **Express Backend**: A lightweight Node.js/Express server (`server.js`) to serve static assets and application entry points.
+* **3D Rendering**: Utilizes Three.js for scene management, lighting, and model rendering.
+* **Scroll-Sync**: Implements GSAP ScrollTrigger to map scroll progress to 3D object transformations.
+* **Asset Management**: Contains optimized textures and models within `/assets` and `/src/assets`.
+* **Express Server**: Lightweight Node.js/Express implementation for serving static assets.
 
 ## Technology Stack
 
-* **Frontend**: Vanilla JavaScript, Three.js, GSAP (ScrollTrigger)
-* **Styling**: Modern CSS (`main.css`)
+* **Frontend**: Vanilla JavaScript, Three.js, GSAP
+* **Styling**: CSS3
 * **Backend**: Node.js, Express
-* **Package Management**: npm / Bun
+* **Runtime**: Node.js / Bun
 
 ## Prerequisites
 
-* Node.js (v18.0.0+) or Bun installed.
+* Node.js (v18+) or Bun installed.
 
 ## Installation & Setup
 
@@ -51,16 +51,16 @@ npm run dev
 bun run dev
 ```
 
-The application will be available at `http://localhost:3000` (or the configured Express port).
+The application will be available at `http://localhost:3000`.
 
 ## Project Structure
 
 ```text
-├── assets/              # 3D objects (.obj) and texture assets
-├── scripts/             # Utility and asset generation scripts
-├── src/                 # Source imagery and project assets
-├── index.html           # Application entry point
-├── main.css             # UI styling
+├── assets/              # 3D objects and environment assets
+├── scripts/             # Asset utility scripts
+├── src/                 # Source imagery and texture assets
+├── index.html           # Main application entry point
+├── main.css             # Application styling
 ├── package.json         # Dependency management
 ├── script.js            # Three.js/GSAP logic
 └── server.js            # Express server configuration
@@ -69,8 +69,8 @@ The application will be available at `http://localhost:3000` (or the configured 
 ## Contribution
 
 1. Fork the repository.
-2. Create your feature branch (`git checkout -b feat/my-new-feature`).
-3. Commit your changes (`git commit -m 'feat: description'`).
+2. Create your feature branch: `git checkout -b feat/my-new-feature`.
+3. Commit your changes: `git commit -m 'feat: description'`.
 4. Push to the branch and submit a Pull Request.
 
 ## License
