@@ -1,24 +1,23 @@
 # A320 Airplane 3D Showcase
 
-An interactive 3D web experience featuring the Airbus A320, utilizing Three.js for rendering and GSAP for scroll-driven animations.
+An interactive 3D web experience featuring the Airbus A320, utilizing Three.js for rendering and scroll-driven interactions.
 
 ## Project Overview
 
-The application renders a 3D A320 model (`assets/plane.obj`) in the browser. It features a layout that synchronizes camera transitions and model orientations with the user's scroll position, providing a cinematic 3D presentation.
+The application renders a 3D A320 model (`assets/plane.obj`) in the browser alongside custom textures and environmental assets. It provides a cinematic presentation layout built with modern web technologies.
 
 ## Features
 
-* **3D Rendering**: Utilizes Three.js for scene management, lighting, and model rendering.
-* **Scroll-Sync**: Implements GSAP ScrollTrigger to map scroll progress to 3D object transformations.
-* **Asset Management**: Contains optimized textures and models within `/assets` and `/src/assets`.
-* **Express Server**: Lightweight Node.js/Express implementation for serving static assets.
+* **3D Rendering**: Utilizes Three.js for scene management, lighting, and OBJ model parsing/rendering.
+* **Asset Management**: Contains optimized textures, background imagery, and 3D environment assets within `/assets` and `/src/assets`.
+* **Static File Serving**: Includes a lightweight Express server for local development and asset serving.
 
 ## Technology Stack
 
-* **Frontend**: Vanilla JavaScript, Three.js, GSAP
+* **Frontend**: Vanilla JavaScript, Three.js
 * **Styling**: CSS3
 * **Backend**: Node.js, Express
-* **Runtime**: Node.js / Bun
+* **Runtime / Package Management**: Node.js, Bun
 
 ## Prerequisites
 
@@ -51,18 +50,18 @@ npm run dev
 bun run dev
 ```
 
-The application will be available at `http://localhost:3000`.
+The application will be available at `http://localhost:3000` (or the port specified in your environment configuration).
 
 ## Project Structure
 
 ```text
-├── assets/              # 3D objects and environment assets
-├── scripts/             # Asset utility scripts
+├── assets/              # 3D objects (plane.obj) and environment assets
+├── scripts/             # Build and asset generation utility scripts
 ├── src/                 # Source imagery and texture assets
 ├── index.html           # Main application entry point
 ├── main.css             # Application styling
 ├── package.json         # Dependency management
-├── script.js            # Three.js/GSAP logic
+├── script.js            # Three.js application logic
 └── server.js            # Express server configuration
 ```
 
