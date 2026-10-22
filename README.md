@@ -8,16 +8,17 @@ The application renders a 3D A320 model (`assets/plane.obj`) within the browser.
 
 ## Features
 
-* **3D Rendering**: Implements Three.js to manage scene, camera, and model rendering.
-* **Scroll-Sync**: Uses GSAP ScrollTrigger to map scroll progress to 3D transformations.
-* **Asset Pipeline**: Includes utility scripts in `/scripts` for 3D asset management.
-* **Express Backend**: A lightweight Node.js/Express server to serve the static assets.
+* **3D Rendering**: Implements Three.js to manage scene, camera, lighting, and 3D model rendering.
+* **Scroll-Sync**: Uses GSAP ScrollTrigger to map scroll progress to dynamic 3D transformations.
+* **Asset Pipeline**: Includes utility scripts in `/scripts` (such as `generate_plane_obj.js`) for 3D asset management.
+* **Express Backend**: A lightweight Node.js/Express server (`server.js`) to serve static assets and application entry points.
 
 ## Technology Stack
 
-* **Frontend**: Vanilla JavaScript, Three.js, GSAP
+* **Frontend**: Vanilla JavaScript, Three.js, GSAP (ScrollTrigger)
+* **Styling**: Modern CSS (`main.css`)
 * **Backend**: Node.js, Express
-* **Runtime**: Bun or Node.js
+* **Package Management**: npm / Bun
 
 ## Prerequisites
 
@@ -34,7 +35,7 @@ The application renders a 3D A320 model (`assets/plane.obj`) within the browser.
 2. Install dependencies:
    ```bash
    npm install
-   # Or
+   # Or using Bun
    bun install
    ```
 
@@ -50,13 +51,13 @@ npm run dev
 bun run dev
 ```
 
-The application will be available at `http://localhost:3000` (default Express configuration).
+The application will be available at `http://localhost:3000` (or the configured Express port).
 
 ## Project Structure
 
 ```text
-├── assets/              # 3D objects and texture assets
-├── scripts/             # Utility maintenance scripts
+├── assets/              # 3D objects (.obj) and texture assets
+├── scripts/             # Utility and asset generation scripts
 ├── src/                 # Source imagery and project assets
 ├── index.html           # Application entry point
 ├── main.css             # UI styling
@@ -75,4 +76,3 @@ The application will be available at `http://localhost:3000` (default Express co
 ## License
 
 This project is intended for educational purposes. All trademarks are the property of their respective owners.
-<!-- David Maintenance Verified: 2026-10-22 11:22:49 (Asia/Tashkent) -->
