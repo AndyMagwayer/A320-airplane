@@ -9,7 +9,7 @@ This application renders an interactive 3D A320 model (`assets/plane.obj`) withi
 ## Features
 
 * **3D Rendering**: Implements Three.js for scene composition, lighting, materials, and OBJ model parsing.
-* **Asset Pipeline**: Manages specialized 3D models (`plane.obj`) and high-resolution aerial environment textures.
+* **Asset Pipeline**: Manages specialized 3D models (`plane.obj`) and high-resolution aerial environment textures located in `assets/` and `src/assets/images/`.
 * **Static & Dynamic Serving**: Powered by a lightweight Express server for reliable asset delivery and development.
 
 ## Technology Stack
@@ -73,4 +73,3 @@ The application will be available at `http://localhost:3000` (or the configured 
 ## License
 
 This project is intended for educational and showcase purposes. All trademarks are the property of their respective owners.
-<!-- David Maintenance Verified: 2026-10-23 11:16:39 (Asia/Tashkent) -->
