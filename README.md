@@ -1,23 +1,23 @@
 # A320 Airplane 3D Showcase
 
-An interactive 3D web experience featuring an Airbus A320 model, utilizing Three.js for rendering and an Express-based backend for asset management.
+An interactive 3D web experience featuring an Airbus A320 model, utilizing Three.js for rendering and an Express-based server for asset delivery and local development.
 
 ## Project Overview
 
-This application provides a browser-based 3D visualization of the A320 aircraft. It uses `Three.js` to parse OBJ geometry and render it within a controlled scene, supported by a lightweight Node.js/Express server to ensure consistent asset delivery.
+This application provides a browser-based 3D visualization of the A320 aircraft. It uses `Three.js` to parse OBJ geometry and render it within a controlled scene, supported by a lightweight Node.js/Express server and helper scripts for asset generation and management.
 
 ## Features
 
-* **3D Visualization**: Renders `assets/plane.obj` using Three.js.
-* **Asset Pipeline**: Manages environmental textures and imagery stored in `assets/` and `src/assets/images/`.
-* **Static Serving**: Node.js/Express server configured for robust local development.
-* **Automation Scripts**: Includes helper scripts like `scripts/generate_plane_obj.js` for asset preparation.
+* **3D Visualization**: Renders `assets/plane.obj` using Three.js with custom lighting and environment assets.
+* **Asset Pipeline**: Manages textures, vector graphics, and imagery stored across `assets/` and `src/assets/images/`.
+* **Static Serving**: Node.js/Express server configured in `server.js` for robust local development and asset serving.
+* **Automation Scripts**: Includes helper scripts like `scripts/generate_plane_obj.js` for geometry generation.
 
 ## Technology Stack
 
-* **Frontend**: HTML5, CSS3, JavaScript, Three.js
+* **Frontend**: HTML5, CSS3 (`main.css`), JavaScript (`script.js`), Three.js
 * **Backend**: Node.js, Express
-* **Build Tools**: Bun (Recommended) or npm
+* **Package Management**: Bun / npm
 
 ## Prerequisites
 
@@ -35,6 +35,7 @@ This application provides a browser-based 3D visualization of the A320 aircraft.
    ```bash
    bun install
    ```
+   *(Or use `npm install`)*
 
 ## Running the Application
 
@@ -49,19 +50,21 @@ The application will be available at `http://localhost:3000`.
 ## Project Structure
 
 ```text
-├── assets/                  # 3D models and primary source assets
-├── scripts/                 # Utility scripts for asset generation
+├── .env.example             # Environment variable template
+├── assets/                  # 3D models (plane.obj) and core assets
+├── scripts/                 # Utility scripts (e.g., generate_plane_obj.js)
 ├── src/                     # Image textures and environment assets
-├── index.html               # Main entry point
+├── index.html               # Main application entry point
 ├── main.css                 # Global styles
+├── metadata.json            # Project metadata
 ├── package.json             # Project dependencies and scripts
-├── script.js                # Three.js scene logic
+├── script.js                # Three.js scene and rendering logic
 └── server.js                # Express server configuration
 ```
 
 ## Contributing
 
-Contributions are welcome. Please ensure that all new assets are placed in the appropriate `assets/` or `src/assets/` directories and that code adheres to the existing style.
+Contributions are welcome. Please ensure that all new assets are placed in the appropriate `assets/` or `src/assets/` directories and code adheres to existing styles.
 
 1. Fork the repository.
 2. Create your feature branch (`git checkout -b feat/feature-name`).
@@ -71,4 +74,4 @@ Contributions are welcome. Please ensure that all new assets are placed in the a
 
 ## License
 
-This project is intended for educational purposes. All trademarks belong to their respective owners.
+This project is intended for educational and showcase purposes. All trademarks belong to their respective owners.
