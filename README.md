@@ -1,26 +1,27 @@
 # A320 Airplane 3D Showcase
 
-An interactive 3D web experience featuring the Airbus A320, utilizing Three.js for rendering and custom asset management.
+An interactive 3D web experience featuring an Airbus A320 model, utilizing Three.js for rendering and an Express-based backend for asset management.
 
 ## Project Overview
 
-This application renders an interactive 3D A320 model (`assets/plane.obj`) within a responsive browser environment. It leverages environmental textures and a lightweight Express-based Node.js server to deliver the 3D visualization.
+This application provides a browser-based 3D visualization of the A320 aircraft. It uses `Three.js` to parse OBJ geometry and render it within a controlled scene, supported by a lightweight Node.js/Express server to ensure consistent asset delivery.
 
 ## Features
 
-* **3D Rendering**: Implements Three.js for scene composition, lighting, and OBJ model parsing.
-* **Asset Management**: Integrated pipeline for 3D geometry (`plane.obj`) and high-resolution environment textures stored in `assets/` and `src/assets/images/`.
-* **Development Server**: Lightweight Express backend configured for reliable asset serving and local development.
+* **3D Visualization**: Renders `assets/plane.obj` using Three.js.
+* **Asset Pipeline**: Manages environmental textures and imagery stored in `assets/` and `src/assets/images/`.
+* **Static Serving**: Node.js/Express server configured for robust local development.
+* **Automation Scripts**: Includes helper scripts like `scripts/generate_plane_obj.js` for asset preparation.
 
 ## Technology Stack
 
-* **Frontend**: HTML5, CSS3, Vanilla JavaScript, Three.js
+* **Frontend**: HTML5, CSS3, JavaScript, Three.js
 * **Backend**: Node.js, Express
-* **Package Management**: Bun / npm
+* **Build Tools**: Bun (Recommended) or npm
 
 ## Prerequisites
 
-* Node.js (v18+) or [Bun](https://bun.sh/) (recommended).
+* Node.js (v18+) or [Bun](https://bun.sh/).
 
 ## Installation & Setup
 
@@ -33,8 +34,6 @@ This application renders an interactive 3D A320 model (`assets/plane.obj`) withi
 2. Install dependencies:
    ```bash
    bun install
-   # Or using npm:
-   npm install
    ```
 
 ## Running the Application
@@ -42,37 +41,34 @@ This application renders an interactive 3D A320 model (`assets/plane.obj`) withi
 Start the development server:
 
 ```bash
-# Using Bun
 bun run dev
-
-# Or using npm
-npm run start
 ```
 
-The application will be accessible at `http://localhost:3000` (default port).
+The application will be available at `http://localhost:3000`.
 
 ## Project Structure
 
 ```text
-├── assets/                  # 3D models and primary assets
-├── scripts/                 # Utility and generation scripts
-├── src/                     # Source imagery and texture assets
-├── .env.example             # Environment variable template
+├── assets/                  # 3D models and primary source assets
+├── scripts/                 # Utility scripts for asset generation
+├── src/                     # Image textures and environment assets
 ├── index.html               # Main entry point
-├── main.css                 # Application styling
-├── package.json             # Dependencies and build scripts
-├── script.js                # Core Three.js logic
+├── main.css                 # Global styles
+├── package.json             # Project dependencies and scripts
+├── script.js                # Three.js scene logic
 └── server.js                # Express server configuration
 ```
 
 ## Contributing
 
+Contributions are welcome. Please ensure that all new assets are placed in the appropriate `assets/` or `src/assets/` directories and that code adheres to the existing style.
+
 1. Fork the repository.
-2. Create a feature branch (`git checkout -b feat/your-feature-name`).
-3. Commit changes following conventional commit standards.
-4. Push to the branch and submit a Pull Request.
+2. Create your feature branch (`git checkout -b feat/feature-name`).
+3. Commit your changes.
+4. Push to the branch.
+5. Open a Pull Request.
 
 ## License
 
-This project is intended for educational and showcase purposes. All trademarks are the property of their respective owners.
-<!-- David Maintenance Verified: 2026-10-26 01:41:43 (Asia/Tashkent) -->
+This project is intended for educational purposes. All trademarks belong to their respective owners.
