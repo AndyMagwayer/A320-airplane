@@ -1,21 +1,21 @@
 # A320 Airplane 3D Showcase
 
-An interactive 3D web experience featuring an Airbus A320 model, utilizing Three.js for rendering and an Express-based server for asset delivery and local development.
+An interactive 3D web experience featuring an Airbus A320 model, utilizing Three.js for rendering and an Express-based server for local development and asset serving.
 
 ## Project Overview
 
-This application provides a browser-based 3D visualization of the A320 aircraft. It uses `Three.js` to parse OBJ geometry and render it within a controlled scene, supported by a lightweight Node.js/Express server and helper scripts for asset generation and management.
+This application provides a browser-based 3D visualization of the A320 aircraft. It uses Three.js to parse OBJ geometry and render it within a controlled scene. The project includes a lightweight Express server for asset delivery and utility scripts to assist with geometry processing.
 
 ## Features
 
-* **3D Visualization**: Renders `assets/plane.obj` using Three.js with custom lighting and environment assets.
-* **Asset Pipeline**: Manages textures, vector graphics, and imagery stored across `assets/` and `src/assets/images/`.
-* **Static Serving**: Node.js/Express server configured in `server.js` for robust local development and asset serving.
-* **Automation Scripts**: Includes helper scripts like `scripts/generate_plane_obj.js` for geometry generation.
+* **3D Visualization**: Renders `assets/plane.obj` using Three.js.
+* **Asset Management**: Centralized storage for environment textures, vector assets, and background imagery.
+* **Local Development**: Built-in Express server (`server.js`) for seamless development and testing.
+* **Utility Scripts**: Includes build-time helper scripts located in `scripts/`.
 
 ## Technology Stack
 
-* **Frontend**: HTML5, CSS3 (`main.css`), JavaScript (`script.js`), Three.js
+* **Frontend**: HTML5, CSS3, JavaScript, Three.js
 * **Backend**: Node.js, Express
 * **Package Management**: Bun / npm
 
@@ -35,7 +35,7 @@ This application provides a browser-based 3D visualization of the A320 aircraft.
    ```bash
    bun install
    ```
-   *(Or use `npm install`)*
+   *(If using npm, run `npm install`)*
 
 ## Running the Application
 
@@ -50,24 +50,24 @@ The application will be available at `http://localhost:3000`.
 ## Project Structure
 
 ```text
-├── .env.example             # Environment variable template
-├── assets/                  # 3D models (plane.obj) and core assets
-├── scripts/                 # Utility scripts (e.g., generate_plane_obj.js)
-├── src/                     # Image textures and environment assets
-├── index.html               # Main application entry point
-├── main.css                 # Global styles
-├── metadata.json            # Project metadata
-├── package.json             # Project dependencies and scripts
-├── script.js                # Three.js scene and rendering logic
-└── server.js                # Express server configuration
+├── assets/                  # Raw assets (plane.obj, textures)
+├── scripts/                 # Maintenance and build scripts
+├── src/assets/              # Optimized environment and background imagery
+├── .github/                 # CI/CD and automation workflows
+├── index.html               # Entry point
+├── main.css                 # Global styling
+├── script.js                # Core Three.js application logic
+├── server.js                # Express server configuration
+├── package.json             # Project metadata and dependencies
+└── bun.lock                 # Dependency lockfile
 ```
 
 ## Contributing
 
-Contributions are welcome. Please ensure that all new assets are placed in the appropriate `assets/` or `src/assets/` directories and code adheres to existing styles.
+Contributions are welcome. Please ensure that all new assets are placed in the appropriate `assets/` or `src/assets/` directories.
 
 1. Fork the repository.
-2. Create your feature branch (`git checkout -b feat/feature-name`).
+2. Create a feature branch (`git checkout -b feat/your-feature`).
 3. Commit your changes.
 4. Push to the branch.
 5. Open a Pull Request.
