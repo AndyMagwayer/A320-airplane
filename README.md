@@ -8,10 +8,10 @@ This application provides a 3D visualization of the A320 aircraft directly in th
 
 ## Features
 
-* **3D Visualization**: Renders `assets/plane.obj` using Three.js in a dedicated 3D scene.
-* **Asset Management**: Includes support for environment textures and landscape imagery located in `assets/` and `src/assets/images/`.
-* **Development Server**: Includes a `server.js` Express implementation for reliable local testing and asset serving.
-* **Utility Scripts**: Contains `scripts/generate_plane_obj.js` for geometry processing and helper tasks.
+* **3D Visualization**: Renders `assets/plane.obj` using Three.js in an interactive 3D scene.
+* **Asset Management**: Includes support for environment textures, skyboxes, and landscape imagery located in `assets/` and `src/assets/images/`.
+* **Development Server**: Includes a `server.js` Express implementation for reliable local testing and static file serving.
+* **Utility Scripts**: Contains `scripts/generate_plane_obj.js` for procedural geometry generation and helper tasks.
 
 ## Technology Stack
 
@@ -49,7 +49,7 @@ bun run dev
 npm start
 ```
 
-The application will be available at `http://localhost:3000`.
+The application will be available at `http://localhost:3000` (or the port configured in your environment).
 
 ## Project Structure
 
