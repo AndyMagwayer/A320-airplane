@@ -4,14 +4,14 @@ An interactive 3D web experience featuring an Airbus A320 model, utilizing Three
 
 ## Project Overview
 
-This application renders a 3D visualization of the A320 aircraft in the browser. It leverages Three.js to parse OBJ geometry and implements a lightweight Express server for local development and static file serving.
+This application provides a 3D visualization of the A320 aircraft directly in the browser. It uses Three.js to render OBJ geometry and includes a lightweight Express server for local development and static file serving.
 
 ## Features
 
-* **3D Visualization**: Renders `assets/plane.obj` using Three.js in a dedicated scene.
-* **Asset Management**: Supports high-fidelity background imagery and textures located in `src/assets/images/` and `assets/`.
-* **Development Server**: Includes a `server.js` Express implementation for reliable local testing.
-* **Utility Scripts**: Contains geometry processing helpers in `scripts/`.
+* **3D Visualization**: Renders `assets/plane.obj` using Three.js in a dedicated 3D scene.
+* **Asset Management**: Includes support for environment textures and landscape imagery located in `assets/` and `src/assets/images/`.
+* **Development Server**: Includes a `server.js` Express implementation for reliable local testing and asset serving.
+* **Utility Scripts**: Contains `scripts/generate_plane_obj.js` for geometry processing and helper tasks.
 
 ## Technology Stack
 
@@ -57,7 +57,7 @@ The application will be available at `http://localhost:3000`.
 ├── assets/                  # Raw 3D models and base textures
 ├── scripts/                 # Utility and build scripts
 ├── src/assets/images/       # Optimized environment and landscape imagery
-├── .github/                 # CI/CD and automation workflows
+├── .github/                 # CI/CD workflows
 ├── index.html               # Main entry point
 ├── main.css                 # Application styling
 ├── script.js                # Core Three.js application logic
@@ -65,7 +65,7 @@ The application will be available at `http://localhost:3000`.
 └── package.json             # Project metadata and dependencies
 ```
 
-## Contributing
+## Contribution Guidelines
 
 Contributions are welcome. Please ensure that all new assets are organized in the appropriate `assets/` or `src/assets/` directories before submitting a Pull Request.
 
