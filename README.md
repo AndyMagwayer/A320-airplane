@@ -4,24 +4,24 @@ An interactive 3D web experience featuring an Airbus A320 model, utilizing Three
 
 ## Project Overview
 
-This application provides a 3D visualization of the A320 aircraft directly in the browser. It leverages Three.js to render OBJ geometry and includes a lightweight Express server for efficient static file serving.
+This application provides a 3D visualization of the A320 aircraft in the browser. It leverages Three.js to render OBJ geometry and uses a Node.js/Express server to serve static assets and the application frontend.
 
 ## Features
 
-* **3D Visualization**: Renders `assets/plane.obj` using Three.js in an interactive 3D scene.
-* **Asset Management**: Supports complex environment textures, skyboxes, and high-resolution landscape imagery stored in `assets/` and `src/assets/images/`.
-* **Express Server**: A dedicated Node.js/Express server (`server.js`) for reliable static hosting.
-* **Geometry Utilities**: Includes helper scripts like `scripts/generate_plane_obj.js` for geometry maintenance.
+* **3D Rendering**: Interactive 3D scene using `assets/plane.obj`.
+* **Asset Pipeline**: Supports high-resolution textures and environment imagery stored in `src/assets/images/`.
+* **Development Server**: Lightweight Express server for local development and asset hosting.
+* **Geometry Processing**: Includes utility scripts in `scripts/` for automated asset generation.
 
 ## Technology Stack
 
-* **Frontend**: HTML5, CSS3, Vanilla JavaScript, Three.js
+* **Frontend**: Vanilla JavaScript, Three.js, CSS3, HTML5
 * **Backend**: Node.js, Express
-* **Runtime**: Bun (recommended) or Node.js
+* **Package Manager**: Bun (recommended) or npm
 
 ## Prerequisites
 
-* Node.js (v18+) or [Bun](https://bun.sh/).
+* Node.js v18+ or [Bun](https://bun.sh/)
 
 ## Installation & Setup
 
@@ -34,6 +34,8 @@ This application provides a 3D visualization of the A320 aircraft directly in th
 2. Install dependencies:
    ```bash
    bun install
+   # OR
+   npm install
    ```
 
 ## Running the Application
@@ -53,28 +55,24 @@ The application will be available at `http://localhost:3000`.
 ## Project Structure
 
 ```text
-├── assets/                  # Raw 3D models and base textures
-├── scripts/                 # Utility scripts for asset processing
+├── assets/                  # 3D models and base textures
+├── scripts/                 # Asset processing utilities
 ├── src/assets/images/       # Optimized environment and landscape imagery
-├── .github/                 # CI/CD workflows
+├── .github/                 # CI/CD configuration
 ├── index.html               # Main entry point
 ├── main.css                 # Application styling
-├── script.js                # Three.js core logic
+├── script.js                # Three.js application logic
 ├── server.js                # Express server configuration
-└── package.json             # Dependencies and scripts
+└── package.json             # Project metadata and dependencies
 ```
 
 ## Contribution Guidelines
 
-Contributions are welcome. Please ensure that new assets are placed in the appropriate `assets/` or `src/assets/` directories.
-
-1. Fork the repository.
-2. Create a feature branch (`git checkout -b feat/your-feature`).
-3. Commit your changes.
-4. Push to the branch.
-5. Open a Pull Request.
+Contributions are welcome. Please ensure that:
+1. New assets are placed in the appropriate `assets/` or `src/assets/` directories.
+2. You follow the existing code style.
+3. You submit a Pull Request with a clear description of your changes.
 
 ## License
 
 This project is intended for educational and showcase purposes. All trademarks belong to their respective owners.
-<!-- David Maintenance Verified: 2026-10-28 12:06:14 (Asia/Tashkent) -->
