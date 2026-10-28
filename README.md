@@ -9,9 +9,9 @@ This application serves a 3D visualization of an A320 aircraft. It leverages Thr
 ## Features
 
 * **3D Rendering**: Immersive 3D scene integration using `assets/plane.obj`.
-* **Asset Management**: Centralized storage for environment textures, including cloud layers and landscape photography in `src/assets/images/`.
+* **Asset Management**: Centralized storage for environment textures, including cloud layers and landscape photography in `src/assets/images/` and `assets/`.
 * **Express Backend**: Lightweight server implementation in `server.js` for asset delivery.
-* **Utility Scripts**: Automated geometry processing tools provided in `scripts/`.
+* **Utility Scripts**: Automated geometry processing tools provided in `scripts/generate_plane_obj.js`.
 
 ## Technology Stack
 
