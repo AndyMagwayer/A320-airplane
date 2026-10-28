@@ -1,6 +1,6 @@
 # A320 Airplane 3D Showcase
 
-An interactive 3D web experience featuring an Airbus A320 model, utilizing Three.js for rendering and an Express-based server for asset management.
+An interactive 3D web experience featuring an Airbus A320 model, utilizing Three.js for rendering and an Express-based server for asset delivery.
 
 ## Project Overview
 
@@ -9,9 +9,9 @@ This application serves a 3D visualization of an A320 aircraft. It leverages Thr
 ## Features
 
 * **3D Rendering**: Immersive 3D scene integration using `assets/plane.obj`.
-* **Asset Management**: Centralized storage for environment textures, including cloud layers and landscape photography in `src/assets/images/` and `assets/`.
-* **Express Backend**: Lightweight server implementation in `server.js` for asset delivery.
-* **Utility Scripts**: Automated geometry processing tools provided in `scripts/generate_plane_obj.js`.
+* **Asset Management**: Integrated environment textures and high-resolution background assets located in `assets/` and `src/assets/images/`.
+* **Express Backend**: Lightweight server implementation in `server.js` for optimized static asset serving.
+* **Utility Scripts**: Geometry processing tool provided in `scripts/generate_plane_obj.js`.
 
 ## Technology Stack
 
@@ -57,21 +57,21 @@ The application will be available at `http://localhost:3000`.
 ## Project Structure
 
 ```text
-├── assets/            # Primary 3D model and base textures
-├── scripts/           # Asset processing and utility tools
-├── src/assets/images/ # High-resolution environment image assets
-├── .github/           # CI/CD workflows
+├── assets/            # 3D models and base textures
+├── scripts/           # Asset processing tools
+├── src/assets/images/ # Environment and landscape image assets
+├── .github/           # CI/CD maintenance workflows
 ├── index.html         # Main entry point
 ├── main.css           # Global stylesheet
 ├── script.js          # Three.js animation and scene logic
 ├── server.js          # Express server configuration
-└── package.json       # Project dependencies and scripts
+└── package.json       # Dependencies and run scripts
 ```
 
 ## Contribution Guidelines
 
 Contributions are welcome. Please ensure that:
-1. Any new assets are placed in the appropriate `assets/` subdirectories.
+1. Any new assets are placed in the appropriate `assets/` or `src/assets/` subdirectories.
 2. You maintain consistency with the existing code style.
 3. Pull Requests are submitted with a clear description of changes.
 
