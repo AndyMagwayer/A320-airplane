@@ -6,15 +6,15 @@ An interactive 3D web experience featuring an Airbus A320 model, utilizing Three
 This repository provides a 3D visualization platform for web-based model display. The application renders a 3D airplane model within an environment featuring custom sky and ground textures, served via a Node.js/Express environment.
 
 ## Features
-- **3D Rendering**: Implements Three.js to parse and render `assets/plane.obj`.
-- **Animation**: Integrates GSAP for scroll-triggered visual transitions.
-- **Asset Management**: Organizes environment assets and raw 3D files in dedicated directories for modularity.
-- **Lightweight Server**: Uses Express.js for static file serving, compatible with Node.js and Bun.
+- **3D Rendering**: Implements Three.js to parse and render the `assets/plane.obj` model.
+- **Animation**: Integrates GSAP for scroll-triggered visual transitions in `script.js`.
+- **Asset Management**: Organizes environment assets (textures and models) in `assets/` and `src/assets/` directories.
+- **Static Server**: Includes a lightweight Express.js server for serving the application and its dependencies.
 
 ## Technology Stack
 - **Frontend**: Three.js, GSAP, Vanilla JavaScript, CSS3
 - **Backend**: Node.js, Express.js
-- **Tooling**: Bun (recommended) or npm
+- **Environment**: Bun (recommended) or Node.js
 
 ## Prerequisites
 - Node.js (v18+) or [Bun](https://bun.sh/)
@@ -50,18 +50,17 @@ Access the application at `http://localhost:3000`.
 ## Project Structure
 ```text
 ├── assets/             # Raw 3D models and base textures
-├── .github/            # GitHub Actions maintenance workflows
-├── scripts/            # Asset processing utilities
-├── src/                # Optimized project assets and images
+├── scripts/            # Utility scripts for asset processing
+├── src/assets/         # Optimized project imagery
 ├── index.html          # Entry point
 ├── main.css            # Stylesheets
-├── script.js           # Three.js/GSAP logic
+├── script.js           # Core Three.js/GSAP logic
 ├── server.js           # Express server configuration
 └── package.json        # Project metadata and dependencies
 ```
 
 ## Contribution Guidelines
-- Maintain the current directory structure for assets.
-- Ensure `script.js` optimizations are preserved during feature updates.
-- Use utility scripts in `scripts/` to ensure consistency when processing new 3D assets.
-- Submit pull requests for feature enhancements or bug fixes.
+- Maintain the established directory structure for assets.
+- Ensure `script.js` logic remains decoupled from asset-loading utilities.
+- Utilize scripts in `scripts/` when adding new 3D assets to ensure format compatibility.
+- Submit pull requests for bug fixes or feature enhancements.
