@@ -3,22 +3,22 @@
 An interactive 3D web experience featuring the Airbus A320, utilizing Three.js for rendering and GSAP for scroll-based animations.
 
 ## Project Overview
-This repository provides a lightweight 3D visualization platform for an A320 model. The application displays a 3D environment composed of custom sky and ground textures, integrated with a local Express server for asset serving and development.
+This repository provides a 3D visualization platform for an A320 model. The application features a 3D environment with custom sky and ground textures, served via a local Express server.
 
 ## Features
-- **3D Rendering**: Implements Three.js to parse and display the `assets/plane.obj` model.
+- **3D Rendering**: Uses Three.js to parse and display the `assets/plane.obj` model.
 - **Scroll-Driven Animation**: Integrates GSAP ScrollTrigger for parallax and motion effects linked to page scroll.
-- **Asset Management**: Uses a structured directory for textures and 3D assets, supported by utility scripts in `scripts/`.
-- **Development Server**: Includes a Node.js Express server to host the static assets and provide a local development environment.
+- **Asset Management**: Structured directory for textures and 3D assets, with generation utilities in `scripts/`.
+- **Development Server**: Lightweight Node.js Express server for static asset serving.
 
 ## Technology Stack
 - **Frontend**: Three.js, GSAP, CSS3
-- **Backend/Runtime**: Node.js, Express.js
-- **Utilities**: Bun (preferred) or Node.js
+- **Backend**: Node.js, Express.js
+- **Runtime**: Node.js (or Bun)
 
 ## Prerequisites
 - Node.js (v18+) or [Bun](https://bun.sh/) (recommended)
-- Modern web browser with WebGL support
+- A modern web browser with WebGL support
 
 ## Installation & Setup
 
@@ -58,9 +58,9 @@ Access the application at `http://localhost:3000`.
 ```
 
 ## Contribution Guidelines
-- Follow the existing project structure when adding new textures or models.
-- Ensure `script.js` remains optimized for 60fps performance.
-- Use `scripts/` to generate or optimize new 3D assets before importing them.
+- Follow the existing project structure when adding new assets.
+- Ensure `script.js` remains optimized for performance.
+- Use utility scripts in `scripts/` to process new assets.
 - Submit pull requests for feature enhancements or bug fixes.
 
 ## License
