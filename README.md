@@ -8,11 +8,11 @@ This repository provides a 3D visualization platform for an A320 model. The appl
 ## Features
 - **3D Rendering**: Utilizes Three.js to parse and display the `assets/plane.obj` model.
 - **Scroll-Driven Animation**: Integrates GSAP ScrollTrigger for parallax and motion effects linked to user scroll events.
-- **Asset Management**: Includes structured directories for textures and 3D assets, with custom utility scripts in `scripts/` to aid in asset preparation.
-- **Development Server**: Lightweight Node.js/Express.js server configured to serve static assets efficiently.
+- **Asset Management**: Structured directories for textures and 3D assets, with custom utility scripts in `scripts/` for asset generation.
+- **Development Server**: Lightweight Node.js/Express.js server configured for static asset serving.
 
 ## Technology Stack
-- **Frontend**: Three.js, GSAP, CSS3, Vanilla JavaScript
+- **Frontend**: Three.js, GSAP, Vanilla JavaScript, CSS3
 - **Backend**: Node.js, Express.js
 - **Runtime**: Node.js or Bun
 
@@ -60,11 +60,10 @@ Access the application at `http://localhost:3000`.
 ```
 
 ## Contribution Guidelines
-- Follow the existing project structure when adding new assets.
-- Ensure `script.js` remains optimized for performance.
-- Use provided utility scripts in `scripts/` to process new assets to maintain consistency.
+- Maintain the existing project structure when adding new assets.
+- Keep `script.js` optimized for browser performance.
+- Use utility scripts in `scripts/` to ensure asset consistency.
 - Submit pull requests for feature enhancements or bug fixes.
 
 ## License
 This project is intended for research and educational purposes.
-<!-- David Maintenance Verified: 2026-10-31 22:24:06 (Asia/Tashkent) -->
