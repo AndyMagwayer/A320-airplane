@@ -1,15 +1,15 @@
 # A320 Airplane Showcase
 
-An interactive 3D web experience featuring the Airbus A320, utilizing Three.js for rendering and GSAP for scroll-based animations.
+An interactive 3D web experience featuring an Airbus A320 model, utilizing Three.js for rendering and GSAP for scroll-driven animations.
 
 ## Project Overview
-This repository provides a 3D visualization platform for an A320 model. The application features a 3D environment with custom sky and ground textures, served via a local Express server.
+This repository provides a 3D visualization platform designed for web-based model display. The application integrates custom sky and ground textures within a Three.js scene, served via a Node.js/Express environment.
 
 ## Features
-- **3D Rendering**: Utilizes Three.js to parse and display the `assets/plane.obj` model.
-- **Scroll-Driven Animation**: Integrates GSAP ScrollTrigger for parallax and motion effects linked to user scroll events.
-- **Asset Management**: Structured directories for textures and 3D assets, with custom utility scripts in `scripts/` for asset generation.
-- **Development Server**: Lightweight Node.js/Express.js server configured for static asset serving.
+- **3D Rendering**: Implements Three.js to parse and render `assets/plane.obj`.
+- **Scroll-Driven Animation**: Uses GSAP ScrollTrigger to orchestrate complex animations based on user scroll progress.
+- **Asset Pipeline**: Includes structured directories for source images and 3D assets, supported by utility scripts in `scripts/` to aid asset management.
+- **Lightweight Server**: Features an Express.js server for efficient static asset serving.
 
 ## Technology Stack
 - **Frontend**: Three.js, GSAP, Vanilla JavaScript, CSS3
@@ -17,7 +17,7 @@ This repository provides a 3D visualization platform for an A320 model. The appl
 - **Runtime**: Node.js or Bun
 
 ## Prerequisites
-- Node.js (v18+) or [Bun](https://bun.sh/) (recommended)
+- Node.js (v18+) or [Bun](https://bun.sh/)
 - A modern web browser with WebGL support
 
 ## Installation & Setup
@@ -49,22 +49,18 @@ Access the application at `http://localhost:3000`.
 
 ## Project Structure
 ```text
-├── assets/             # Raw 3D models and global textures
-├── scripts/            # Utility scripts for asset processing
-├── src/                # Processed/optimized project assets
-├── index.html          # Main application entry point
+├── assets/             # Raw 3D models and base textures
+├── scripts/            # Asset processing utilities
+├── src/                # Optimized project assets and images
+├── index.html          # Entry point
 ├── main.css            # Stylesheets
-├── script.js           # Three.js and GSAP initialization logic
-├── server.js           # Express server implementation
+├── script.js           # Three.js/GSAP logic
+├── server.js           # Express server configuration
 └── package.json        # Project metadata and dependencies
 ```
 
 ## Contribution Guidelines
-- Maintain the existing project structure when adding new assets.
-- Keep `script.js` optimized for browser performance.
-- Use utility scripts in `scripts/` to ensure asset consistency.
+- Follow the existing directory structure when adding new assets.
+- Ensure all performance-heavy logic in `script.js` is optimized for client-side execution.
+- Use utility scripts located in `scripts/` for consistent asset generation.
 - Submit pull requests for feature enhancements or bug fixes.
-
-## License
-This project is intended for research and educational purposes.
-<!-- David Maintenance Verified: 2026-11-01 02:20:27 (Asia/Tashkent) -->
