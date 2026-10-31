@@ -7,7 +7,7 @@ This repository demonstrates the integration of a 3D airplane model (`plane.obj`
 
 ## Features
 - **3D Model Rendering**: Custom Three.js scene loading the A320 model and procedural environment assets.
-- **Scroll Animations**: GSAP and ScrollTrigger integration for immersive transitions.
+- **Scroll Animations**: GSAP integration for immersive scene transitions.
 - **Lightweight Express Server**: Built-in Node.js/Express static file delivery for easy testing and deployment.
 
 ## Technology Stack
