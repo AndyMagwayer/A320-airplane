@@ -3,20 +3,25 @@
 An interactive 3D visualization of an Airbus A320, utilizing Three.js for 3D rendering and GSAP for scroll-based animations. This project serves as a showcase for model integration and web-based 3D interaction.
 
 ## Project Overview
-This repository demonstrates the integration of a 3D airplane model (`plane.obj`) into a web environment, featuring scroll-triggered animation sequences and asset-managed environmental rendering.
+This repository demonstrates the integration of a 3D airplane model (`plane.obj`) into a web environment, featuring dynamic lighting, environment textures, and smooth web animations.
+
+## Features
+- **3D Model Rendering**: Custom Three.js scene loading the A320 model and procedural environment assets.
+- **Scroll Animations**: GSAP and ScrollTrigger integration for immersive transitions.
+- **Lightweight Express Server**: Built-in Node.js/Express static file delivery for easy testing and deployment.
 
 ## Technology Stack
 - **Rendering**: Three.js
-- **Animation**: GSAP (ScrollTrigger)
-- **Runtime**: Node.js / Bun
+- **Animation**: GSAP (GreenSock Animation Platform)
 - **Server**: Express.js
+- **Runtime**: Node.js / Bun
 
 ## Project Structure
 ```text
 .
-├── assets/           # 3D models and base textures
-├── src/assets/       # Additional landscape and environment imagery
-├── public/           # Static assets and media
+├── assets/           # 3D models and base textures (plane.obj, images)
+├── src/              # Additional images and environment assets
+├── scripts/          # Utility scripts (e.g., generate_plane_obj.js)
 ├── server.js         # Express server configuration
 ├── script.js         # Core Three.js and GSAP logic
 ├── main.css          # Styling for the application overlay
@@ -36,22 +41,21 @@ This repository demonstrates the integration of a 3D airplane model (`plane.obj`
 2. Install dependencies:
    ```bash
    bun install
+   # or npm install
    ```
 
 ## Running the Project
 Start the development server:
 ```bash
-# Using Bun
+# Using Bun or Node.js
 bun run dev
-
-# Or using Node.js
-node server.js
+# or
+npm run dev
 ```
 Open `http://localhost:3000` in your browser to view the interactive scene.
 
 ## Contributing
-This is a personal showcase project. Contributions are welcome via pull requests for code optimization or additional 3D scene refinements. Please ensure all assets added follow the established directory structure.
+Contributions are welcome via pull requests for code optimization or additional 3D scene refinements. Please ensure all assets added follow the established directory structure.
 
 ## License
 This project is provided for research and educational purposes.
-<!-- David Maintenance Verified: 2026-10-31 12:18:42 (Asia/Tashkent) -->
