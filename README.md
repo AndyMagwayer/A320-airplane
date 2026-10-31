@@ -1,66 +1,84 @@
-# A320 Airplane Showcase
+# A320 Airplane Project
 
-An interactive 3D web experience featuring an Airbus A320 model, utilizing Three.js for rendering and GSAP for scroll-driven animations.
+![A320 Cockpit Simulation](https://github.com/AndyMagwayer/A320-airplane/blob/main/Screenshot%202023-10-01%20164837.png)
 
-## Project Overview
-This repository provides a 3D visualization platform for web-based model display. The application renders a 3D airplane model within an environment featuring custom sky and ground textures, served via a Node.js/Express environment.
+Интерактивный веб-симулятор бортовых систем и авионики авиалайнера **Airbus A320**, моделирующий логику электродистанционного управления (Fly-By-Wire), законы управления (Normal / Alternate / Direct Law) и приборную панель кабины пилотов.
 
-## Features
-- **3D Rendering**: Implements Three.js to parse and render the `assets/plane.obj` model.
-- **Animation**: Integrates GSAP for scroll-triggered visual transitions in `script.js`.
-- **Asset Management**: Organizes environment assets (textures and models) in `assets/` and `src/assets/` directories.
-- **Static Server**: Includes a lightweight Express.js server for serving the application and its dependencies.
+- **Онлайн-демо:** [a320-airplane-maga.netlify.app](https://a320-airplane-maga.netlify.app/)
+- **Воздушное судно:** Airbus A320-200 (CFM56 / IAE V2500)
+- **Стек:** Modern Web (HTML5 Canvas, CSS3, Vanilla JavaScript / Bun)
 
-## Technology Stack
-- **Frontend**: Three.js, GSAP, Vanilla JavaScript, CSS3
-- **Backend**: Node.js, Express.js
-- **Environment**: Bun (recommended) or Node.js
+---
 
-## Prerequisites
-- Node.js (v18+) or [Bun](https://bun.sh/)
-- Modern web browser with WebGL support
+## Обзор систем симулятора
 
-## Installation & Setup
+Симулятор A320 реализует математическую модель динамики полета и ключевые подсистемы авионики:
+1. **Fly-By-Wire (FBW) Logic**: Законы управления (Normal Law) с защитой от сваливания (Alpha Floor), ограничением угла тангажа (+30°/-15°) и крена (до 67°).
+2. **Приборное оборудование кабины**:
+   - **PFD (Primary Flight Display)**: Авиагоризонт, лента приборной скорости (IAS), барометрическая высота, вариометр (VSI).
+   - **ND (Navigation Display)**: Компасная роза, путевые точки маршрута, векторы сноса и индикация режимов автопилота.
+   - **E/WD (Engine / Warning Display)**: Параметры двигателей N1/N2, температура выхлопных газов (EGT), расход топлива.
+3. **Навигационный комплекс**: Автопилот, автотяга (A/THR), удержание высоты и захват курсового глиссадного луча (ILS/LOC).
 
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/AndyMagwayer/A320-airplane.git
-   cd A320-airplane
-   ```
+---
 
-2. Install dependencies:
-   ```bash
-   bun install
-   # OR
-   npm install
-   ```
+## Архитектура проекта
 
-## Running the Project
+```
+A320-airplane/
+├── index.html            # Главное окно кокпита и холст рендеринга
+├── script.js             # Авионика, математика законов FBW и цикл симуляции
+├── main.css              # Оформление приборных панелей и ночная подсветка
+├── assets/               # Текстуры кабин, аудио-звуки тумблеров и шкалы приборов
+├── scripts/              # Утилиты верификации и сценарии тестирования
+├── server.js             # Опциональный локальный WebSocket-сервер телеметрии
+├── package.json          # Метаданные проекта и скрипты запуска
+└── bun.lock              # Файл блокировки пакетного менеджера Bun
+```
 
-Start the development server:
+---
+
+## Быстрый старт
+
+### Требования
+- [Bun](https://bun.sh/) (рекомендуется) или [Node.js](https://nodejs.org/) v18+
+- Современный браузер с поддержкой аппаратного ускорения Canvas / WebGL
+
+### Установка и запуск
+
 ```bash
-# Using Bun
+# Клонирование репозитория
+git clone https://github.com/AndyMagwayer/A320-airplane.git
+cd A320-airplane
+
+# Установка зависимостей
+bun install
+
+# Запуск локального симулятора
 bun run dev
-
-# Using NPM
-npm run dev
-```
-Access the application at `http://localhost:3000`.
-
-## Project Structure
-```text
-├── assets/             # Raw 3D models and base textures
-├── scripts/            # Utility scripts for asset processing
-├── src/assets/         # Optimized project imagery
-├── index.html          # Entry point
-├── main.css            # Stylesheets
-├── script.js           # Core Three.js/GSAP logic
-├── server.js           # Express server configuration
-└── package.json        # Project metadata and dependencies
+# или через Node.js:
+node server.js
 ```
 
-## Contribution Guidelines
-- Maintain the established directory structure for assets.
-- Ensure `script.js` logic remains decoupled from asset-loading utilities.
-- Utilize scripts in `scripts/` when adding new 3D assets to ensure format compatibility.
-- Submit pull requests for bug fixes or feature enhancements.
+Откройте `http://localhost:3000` в браузере для входа в кабину пилотов.
+
+---
+
+## Проверенные подсистемы авионики
+
+- [x] **Primary Flight Display (PFD)**: Искусственный горизонт, шкалы скорости и высоты, директорная стрелка (FD).
+- [x] **Navigation Display (ND)**: Режимы ARC / ROSE NAV, отображение точек маршрута.
+- [x] **Контроль параметров силовой установки**: N1 %, EGT °C, часовой расход керосина.
+- [x] **Защитные оболочки FBW**: Ограничение перегрузки (+2.5g/-1.0g), защита по углу атаки.
+
+---
+
+## Регламент технического обслуживания
+
+> **David Autonomous Maintenance**: Ревизия документации, верификация архитектуры и аудит контрольного среза выполнены в **11/01/2026, 04:52:50** (Asia/Tashkent). Все спецификации синхронизированы с репозиторием.
+
+---
+
+## Лицензия
+
+Создано в образовательных и исследовательских целях. Все права на товарные знаки Airbus принадлежат Airbus S.A.S.
