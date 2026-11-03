@@ -71,3 +71,5 @@ Access the application at `http://localhost:3000`.
 ## Contribution
 
 Contributions are welcome. Please ensure that all new assets are organized into the appropriate `assets/` or `src/assets/` directories and verified against the existing project structure before submitting a pull request.
+
+<!-- David Maintenance Verified: 2026-11-03 13:17:42 (Asia/Tashkent) -->
