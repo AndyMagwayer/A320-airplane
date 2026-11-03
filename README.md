@@ -57,7 +57,8 @@ Access the application at `http://localhost:3000`.
 ## Project Structure
 
 ```text
-.├── assets/           # 3D models and raw textures
+.
+├── assets/           # 3D models and raw textures
 ├── scripts/          # Asset generation and utility scripts
 ├── src/              # Source assets and background imagery
 ├── index.html        # App entry point
