@@ -2,24 +2,24 @@
 
 ![A320 Cockpit Simulation](Screenshot%202023-10-01%20164837.png)
 
-An interactive 3D showcase of an Airbus A320 aircraft utilizing Three.js for rendering and a lightweight Express server for asset delivery.
+An interactive 3D showcase of an Airbus A320 aircraft utilizing Three.js for 3D rendering and an Express server for efficient asset delivery.
 
 ## Overview
 
-This project provides a 3D visualization platform for the Airbus A320, optimized for browser-based performance. It serves 3D geometry and environment textures using a Node.js backend.
+This project provides a browser-based 3D visualization platform for the Airbus A320. It uses client-side rendering with Three.js to display 3D geometry and environment textures, powered by a lightweight Node.js/Express backend.
 
 ## Features
 
-- **3D Visualization**: Renders `assets/plane.obj` using Three.js.
-- **Asset Management**: Includes environment textures (clouds, ground, sunset) located in `assets/` and `src/assets/images/`.
-- **Utility Tools**: Includes build/preparation scripts in `scripts/`.
-- **Lightweight Backend**: A dedicated Express server (`server.js`) for static asset delivery.
+- **3D Visualization**: Renders `assets/plane.obj` using Three.js in the browser.
+- **Asset Management**: Includes environment textures and background imagery located in `assets/` and `src/assets/images/`.
+- **Utility Tools**: Includes helper scripts in `scripts/` for automated asset generation.
+- **Static Server**: A dedicated Express server (`server.js`) configured for static asset delivery.
 
 ## Technology Stack
 
 - **Frontend**: Vanilla JavaScript, Three.js, CSS3, HTML5
 - **Backend**: Node.js, Express
-- **Runtime/Package Manager**: Bun (recommended) or npm
+- **Runtime**: Node.js (v18+) or Bun
 
 ## Prerequisites
 
@@ -42,7 +42,7 @@ This project provides a 3D visualization platform for the Airbus A320, optimized
 
 ## Running & Development
 
-Start the local development server:
+Start the development server:
 
 ```bash
 bun run dev
@@ -50,13 +50,12 @@ bun run dev
 npm start
 ```
 
-Access the application at `http://localhost:3000`.
+Access the application at `http://localhost:3000` (default port configuration in `server.js`).
 
 ## Project Structure
 
 ```text
-.
-├── assets/           # 3D models and base textures
+.├── assets/           # 3D models and base textures
 ├── scripts/          # Asset generation and utility scripts
 ├── src/              # Source assets and background imagery
 ├── index.html        # App entry point
@@ -68,4 +67,4 @@ Access the application at `http://localhost:3000`.
 
 ## Contribution
 
-Contributions are welcome. Please ensure that all new assets are categorized into the appropriate `assets/` or `src/assets/` directories before submitting a pull request.
+Contributions are welcome. Please ensure that all new assets are organized into the appropriate `assets/` or `src/assets/` directories before submitting a pull request.
