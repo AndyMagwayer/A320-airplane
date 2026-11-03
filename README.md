@@ -2,18 +2,18 @@
 
 ![A320 Cockpit Simulation](Screenshot%202023-10-01%20164837.png)
 
-An interactive 3D showcase of an Airbus A320 aircraft utilizing Three.js for 3D rendering and an Express server for efficient asset delivery.
+An interactive 3D showcase of an Airbus A320 aircraft utilizing Three.js for 3D rendering and an Express server for asset delivery.
 
 ## Overview
 
-This project provides a browser-based 3D visualization platform for the Airbus A320. It uses client-side rendering with Three.js to display 3D geometry and environment textures, powered by a lightweight Node.js/Express backend.
+This project provides a browser-based 3D visualization platform for the Airbus A320. It leverages Three.js to render 3D geometry and environment textures, supported by a lightweight Node.js/Express backend.
 
 ## Features
 
-- **3D Visualization**: Renders `assets/plane.obj` using Three.js in the browser.
-- **Asset Management**: Includes environment textures and background imagery located in `assets/` and `src/assets/images/`.
-- **Utility Tools**: Includes helper scripts in `scripts/` for automated asset generation.
-- **Static Server**: A dedicated Express server (`server.js`) configured for static asset delivery.
+- **3D Rendering**: Displays the `assets/plane.obj` model using Three.js.
+- **Asset Management**: Orchestrates textures and background imagery through `assets/` and `src/assets/images/`.
+- **Utility Automation**: Includes `scripts/generate_plane_obj.js` for handling 3D model processing.
+- **Static Server**: A streamlined Express server (`server.js`) configured for efficient static asset delivery.
 
 ## Technology Stack
 
@@ -45,17 +45,19 @@ This project provides a browser-based 3D visualization platform for the Airbus A
 Start the development server:
 
 ```bash
+# Using Bun
 bun run dev
-# OR
+
+# Using npm
 npm start
 ```
 
-Access the application at `http://localhost:3000` (default port configuration in `server.js`).
+Access the application at `http://localhost:3000`.
 
 ## Project Structure
 
 ```text
-.├── assets/           # 3D models and base textures
+.├── assets/           # 3D models and raw textures
 ├── scripts/          # Asset generation and utility scripts
 ├── src/              # Source assets and background imagery
 ├── index.html        # App entry point
@@ -67,4 +69,4 @@ Access the application at `http://localhost:3000` (default port configuration in
 
 ## Contribution
 
-Contributions are welcome. Please ensure that all new assets are organized into the appropriate `assets/` or `src/assets/` directories before submitting a pull request.
+Contributions are welcome. Please ensure that all new assets are organized into the appropriate `assets/` or `src/assets/` directories and verified against the existing project structure before submitting a pull request.
