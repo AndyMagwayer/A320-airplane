@@ -76,3 +76,4 @@ Contributions are welcome. Please ensure that:
 - All new assets are placed in the appropriate `assets/` or `src/assets/` directories.
 - Any modifications to the 3D generation pipeline are validated against existing `scripts/` utilities.
 - Code contributions follow the existing project structure and style conventions.
+<!-- David Maintenance Verified: 2026-11-06 13:15:48 (Asia/Tashkent) -->
