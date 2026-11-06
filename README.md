@@ -2,18 +2,18 @@
 
 ![A320 Cockpit Simulation](Screenshot%202023-10-01%20164837.png)
 
-An interactive 3D visualization project featuring an Airbus A320 model rendered with Three.js, supported by a lightweight Express.js backend for asset delivery.
+An interactive 3D visualization project featuring an Airbus A320 model rendered with Three.js, supported by a lightweight Express.js backend.
 
 ## Overview
 
-This repository provides a browser-based 3D showcase. It leverages Three.js for geometry rendering and handles asset delivery through a Node.js/Express server. The project structure is optimized for serving static 3D assets and environment textures.
+This repository provides a browser-based 3D showcase. It leverages Three.js for geometry rendering and handles asset delivery through a Node.js/Express server. The architecture is designed for efficient serving of 3D models and high-resolution environmental textures.
 
 ## Features
 
-- **3D Visualization**: Renders `assets/plane.obj` using Three.js.
-- **Asset Management**: Organizes environment textures and background images in `src/assets/images/` and `assets/`.
-- **Custom Tooling**: Includes `scripts/generate_plane_obj.js` for automated model processing.
-- **Lightweight Backend**: Dedicated Express server for optimized asset delivery.
+- **3D Rendering**: Utilizes Three.js to render the `assets/plane.obj` 3D model.
+- **Asset Management**: Centralized storage for environment textures, skybox elements, and ground imagery in `assets/` and `src/assets/images/`.
+- **Automated Pipeline**: Includes `scripts/generate_plane_obj.js` for custom model processing tasks.
+- **Performance-Oriented Backend**: A dedicated Express server (`server.js`) configured for rapid static asset delivery.
 
 ## Technology Stack
 
@@ -23,7 +23,7 @@ This repository provides a browser-based 3D showcase. It leverages Three.js for 
 
 ## Prerequisites
 
-- Node.js (v18 or higher) or [Bun](https://bun.sh/)
+- Node.js (v18+) or [Bun](https://bun.sh/)
 
 ## Installation & Setup
 
@@ -37,14 +37,14 @@ This repository provides a browser-based 3D showcase. It leverages Three.js for 
    ```bash
    # Using Bun
    bun install
-   
+
    # Using npm
    npm install
    ```
 
 ## Running & Development
 
-Start the Express development server:
+Start the development server:
 
 ```bash
 # Using Bun
@@ -54,25 +54,25 @@ bun run dev
 npm start
 ```
 
-Access the application at `http://localhost:3000`.
+Access the application locally at `http://localhost:3000`.
 
 ## Project Structure
 
 ```text
-.
-├── assets/           # 3D models and raw textures
-├── scripts/          # Utility scripts for asset generation
-├── src/              # Background images and environment assets
+. 
+├── assets/           # 3D model files and global assets
+├── scripts/          # Utility scripts for asset processing
+├── src/              # Application source and image assets
 ├── index.html        # Main entry point
 ├── main.css          # Core stylesheet
 ├── script.js         # Frontend Three.js/GSAP logic
 ├── server.js         # Express server configuration
-└── package.json      # Project dependencies and scripts
+└── package.json      # Dependency and script management
 ```
 
 ## Contribution
 
 Contributions are welcome. Please ensure that:
-- All new assets are placed in the appropriate `assets/` or `src/assets/` folders.
-- Any modifications to the 3D pipeline are tested against the `scripts/` utilities.
-- Code style remains consistent with the existing implementation.
+- All new assets are placed in the appropriate `assets/` or `src/assets/` directories.
+- Any modifications to the 3D generation pipeline are validated against existing `scripts/` utilities.
+- Code contributions follow the existing project structure and style conventions.
