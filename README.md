@@ -2,18 +2,18 @@
 
 ![A320 Cockpit Simulation](Screenshot%202023-10-01%20164837.png)
 
-An interactive 3D visualization project featuring an Airbus A320 model, utilizing Three.js for rendering and an Express.js backend for asset serving.
+An interactive 3D showcase featuring an Airbus A320 model, utilizing Three.js for 3D rendering and GSAP ScrollTrigger for animation-driven storytelling.
 
 ## Overview
 
-This project provides a browser-based 3D showcase. It leverages Three.js for client-side rendering and includes utility scripts for managing 3D model processing. The project is structured to separate raw development assets from optimized runtime assets.
+This project provides a browser-based 3D visualization. It serves as a container for 3D geometry and environmental textures, utilizing a lightweight Express.js backend for static asset delivery and development iteration.
 
 ## Features
 
-- **3D Rendering**: Interactive 3D scene rendering using Three.js.
-- **Asset Management**: Centralized storage for 3D geometry (`.obj`) and high-resolution environmental textures.
-- **Automation**: Utility script located in `scripts/generate_plane_obj.js` for handling 3D model preprocessing.
-- **Static Delivery**: Express.js server configured to serve frontend assets efficiently.
+- **3D Rendering**: Implemented via Three.js with integrated `.obj` model support.
+- **Scroll-Driven Animation**: Utilizes GSAP ScrollTrigger to sync model transformations with user interaction.
+- **Asset Management**: Structured separation between raw source assets and processed display textures.
+- **Build Utilities**: Includes custom scripts to facilitate 3D model processing and project maintenance.
 
 ## Technology Stack
 
@@ -23,7 +23,7 @@ This project provides a browser-based 3D showcase. It leverages Three.js for cli
 
 ## Prerequisites
 
-- Node.js (v18+) or [Bun](https://bun.sh/)
+- [Node.js](https://nodejs.org/) (v18+) or [Bun](https://bun.sh/)
 
 ## Installation & Setup
 
@@ -40,7 +40,7 @@ This project provides a browser-based 3D showcase. It leverages Three.js for cli
 
 ## Running & Development
 
-Start the development server:
+Start the Express development server:
 
 ```bash
 # Using Bun
@@ -50,25 +50,25 @@ bun run dev
 npm start
 ```
 
-Access the application locally at `http://localhost:3000`.
+Access the application at `http://localhost:3000`.
 
 ## Project Structure
 
 ```text
 . 
-├── assets/           # Raw 3D model files and environmental assets
-├── scripts/          # Utility scripts for asset processing
-├── src/              # Optimized image assets
+├── assets/           # Raw 3D model files (.obj) and source textures
+├── scripts/          # Asset processing and utility scripts
+├── src/              # Optimized runtime image assets
 ├── index.html        # Main entry point
 ├── main.css          # Application styles
 ├── script.js         # Frontend Three.js and GSAP logic
 ├── server.js         # Express server configuration
-└── package.json      # Dependency and script management
+└── package.json      # Project dependencies and task runners
 ```
 
 ## Contribution
 
 Contributions are welcome. Please ensure that:
-- New assets are placed in the appropriate `assets/` or `src/assets/` subdirectories.
-- Modifications to the 3D generation pipeline are tested using the `scripts/` utilities.
-- All code changes maintain the current vanilla JS and Three.js implementation standards.
+- New assets are organized within the appropriate `assets/` or `src/assets/` directories.
+- Code consistency is maintained with the existing vanilla JavaScript implementation.
+- Any modifications to the 3D pipeline are validated using the provided scripts in `scripts/`.
