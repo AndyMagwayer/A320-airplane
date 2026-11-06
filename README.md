@@ -12,8 +12,8 @@ This project provides a browser-based 3D visualization platform for the Airbus A
 
 - **3D Rendering**: Displays the `assets/plane.obj` model in a browser environment.
 - **Asset Management**: Orchestrates textures and environment background imagery via `assets/` and `src/assets/images/`.
-- **Utility Automation**: Includes `scripts/generate_plane_obj.js` for 3D model processing.
-- **Static Server**: A lightweight Express server (`server.js`) configured for asset delivery.
+- **Utility Automation**: Includes `scripts/generate_plane_obj.js` for 3D model processing tasks.
+- **Static Server**: A lightweight Express server (`server.js`) configured for local asset delivery.
 
 ## Technology Stack
 
