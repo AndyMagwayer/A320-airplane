@@ -6,14 +6,14 @@ An interactive 3D visualization project featuring an Airbus A320 model rendered 
 
 ## Overview
 
-This repository provides a browser-based 3D showcase. It leverages Three.js for geometry rendering and handles asset delivery through a Node.js/Express server. The architecture is designed for efficient serving of 3D models and high-resolution environmental textures.
+This repository provides a browser-based 3D showcase. It utilizes Three.js for geometry rendering and handles asset delivery through a Node.js/Express server. The architecture is optimized for serving 3D models (`.obj`) and high-resolution environmental textures.
 
 ## Features
 
-- **3D Rendering**: Utilizes Three.js to render the `assets/plane.obj` 3D model.
-- **Asset Management**: Centralized storage for environment textures, skybox elements, and ground imagery in `assets/` and `src/assets/images/`.
-- **Automated Pipeline**: Includes `scripts/generate_plane_obj.js` for custom model processing tasks.
-- **Performance-Oriented Backend**: A dedicated Express server (`server.js`) configured for rapid static asset delivery.
+- **3D Rendering**: Interactive 3D scene rendering using Three.js.
+- **Asset Management**: Centralized management for environmental textures, skyboxes, and ground imagery.
+- **Automated Pipeline**: Includes `scripts/generate_plane_obj.js` for handling 3D model processing.
+- **Performance-Oriented Backend**: Dedicated Express server configured for efficient static asset delivery.
 
 ## Technology Stack
 
@@ -35,11 +35,7 @@ This repository provides a browser-based 3D showcase. It leverages Three.js for 
 
 2. Install dependencies:
    ```bash
-   # Using Bun
-   bun install
-
-   # Using npm
-   npm install
+   bun install # or npm install
    ```
 
 ## Running & Development
@@ -60,9 +56,9 @@ Access the application locally at `http://localhost:3000`.
 
 ```text
 . 
-├── assets/           # 3D model files and global assets
+├── assets/           # 3D model files and raw assets
 ├── scripts/          # Utility scripts for asset processing
-├── src/              # Application source and image assets
+├── src/              # Application source and optimized images
 ├── index.html        # Main entry point
 ├── main.css          # Core stylesheet
 ├── script.js         # Frontend Three.js/GSAP logic
@@ -73,7 +69,6 @@ Access the application locally at `http://localhost:3000`.
 ## Contribution
 
 Contributions are welcome. Please ensure that:
-- All new assets are placed in the appropriate `assets/` or `src/assets/` directories.
-- Any modifications to the 3D generation pipeline are validated against existing `scripts/` utilities.
-- Code contributions follow the existing project structure and style conventions.
-<!-- David Maintenance Verified: 2026-11-06 13:15:48 (Asia/Tashkent) -->
+- New assets are placed in the appropriate `assets/` or `src/assets/` subdirectories.
+- Modifications to the 3D generation pipeline are tested via the `scripts/` utilities.
+- Code adheres to the existing project structure and style conventions.
