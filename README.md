@@ -6,14 +6,14 @@ An interactive 3D showcase of an Airbus A320 aircraft utilizing Three.js for 3D 
 
 ## Overview
 
-This project provides a browser-based 3D visualization platform for the Airbus A320. It leverages Three.js to render 3D geometry and environment textures, supported by a lightweight Node.js/Express backend.
+This project provides a browser-based 3D visualization platform for the Airbus A320. It renders 3D geometry and environment textures using Three.js, supported by a lightweight Node.js/Express backend.
 
 ## Features
 
-- **3D Rendering**: Displays the `assets/plane.obj` model using Three.js.
-- **Asset Management**: Orchestrates textures and background imagery through `assets/` and `src/assets/images/`.
-- **Utility Automation**: Includes `scripts/generate_plane_obj.js` for handling 3D model processing.
-- **Static Server**: A streamlined Express server (`server.js`) configured for efficient static asset delivery.
+- **3D Rendering**: Displays the `assets/plane.obj` model in a browser environment.
+- **Asset Management**: Orchestrates textures and environment background imagery via `assets/` and `src/assets/images/`.
+- **Utility Automation**: Includes `scripts/generate_plane_obj.js` for 3D model processing.
+- **Static Server**: A lightweight Express server (`server.js`) configured for asset delivery.
 
 ## Technology Stack
 
@@ -60,7 +60,7 @@ Access the application at `http://localhost:3000`.
 .
 ├── assets/           # 3D models and raw textures
 ├── scripts/          # Asset generation and utility scripts
-├── src/              # Source assets and background imagery
+├── src/              # Background images and internal assets
 ├── index.html        # App entry point
 ├── main.css          # Application styles
 ├── script.js         # Core Three.js logic
@@ -71,5 +71,3 @@ Access the application at `http://localhost:3000`.
 ## Contribution
 
 Contributions are welcome. Please ensure that all new assets are organized into the appropriate `assets/` or `src/assets/` directories and verified against the existing project structure before submitting a pull request.
-
-<!-- David Maintenance Verified: 2026-11-06 04:30:49 (Asia/Tashkent) -->
