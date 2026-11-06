@@ -6,14 +6,14 @@ An interactive 3D showcase of an Airbus A320 aircraft utilizing Three.js for 3D 
 
 ## Overview
 
-This project provides a browser-based 3D visualization platform for the Airbus A320. It renders 3D geometry and environment textures using Three.js, supported by a lightweight Node.js/Express backend.
+This project provides a browser-based 3D visualization platform. It renders 3D geometry using Three.js, with environment textures organized within the `assets/` and `src/assets/` directories, served by a lightweight Node.js/Express backend.
 
 ## Features
 
-- **3D Rendering**: Displays the `assets/plane.obj` model in a browser environment.
-- **Asset Management**: Orchestrates textures and environment background imagery via `assets/` and `src/assets/images/`.
-- **Utility Automation**: Includes `scripts/generate_plane_obj.js` for 3D model processing tasks.
-- **Static Server**: A lightweight Express server (`server.js`) configured for local asset delivery.
+- **3D Rendering**: Implements model loading for `assets/plane.obj` using Three.js.
+- **Asset Management**: Centralized management of environment textures and skybox imagery.
+- **Automation**: Includes `scripts/generate_plane_obj.js` for 3D model processing.
+- **Development Server**: Lightweight Express server (`server.js`) configured for asset delivery.
 
 ## Technology Stack
 
