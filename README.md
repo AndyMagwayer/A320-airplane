@@ -2,24 +2,24 @@
 
 ![A320 Cockpit Simulation](Screenshot%202023-10-01%20164837.png)
 
-An interactive 3D showcase featuring an Airbus A320 model. The project utilizes [Three.js](https://threejs.org/) for 3D rendering and [GSAP ScrollTrigger](https://greensock.com/scrolltrigger/) to drive smooth, scroll-based animations.
+An interactive 3D showcase featuring an Airbus A320 model. The project utilizes Three.js for 3D rendering and GSAP for motion control.
 
 ## Overview
 
-This project serves as a browser-based 3D visualization tool. It utilizes a lightweight Express.js server to handle asset delivery and static file hosting, providing a streamlined environment for local 3D model testing and animation prototyping.
+This project provides a browser-based 3D visualization of an Airbus A320. It uses a lightweight Express.js server to serve the 3D assets and frontend interface, allowing for seamless local development and testing of 3D animations.
 
 ## Features
 
-- **Interactive 3D Rendering**: Utilizes Three.js to load and render `.obj` models and associated textures.
-- **Scroll-Driven Animation**: Integrates GSAP ScrollTrigger to sync model transformations with viewport scrolling.
-- **Asset Management**: Structured separation between raw source assets (`assets/`) and processed/runtime image assets (`src/assets/`).
-- **Development Server**: Built on Node.js/Express for efficient development cycles.
+- **Interactive 3D Rendering**: Implements Three.js to render `.obj` models.
+- **Scroll-Driven Animation**: Integrates GSAP to sync 3D model transformations with the user's scroll position.
+- **Asset Management**: Organizes raw model files in `/assets` and processed runtime textures in `/src/assets`.
+- **Custom tooling**: Includes utility scripts in `/scripts` to assist with 3D model preparation.
 
 ## Technology Stack
 
 - **Frontend**: Vanilla JavaScript, Three.js, GSAP, CSS3, HTML5
 - **Backend**: Node.js, Express
-- **Runtime**: Compatible with Node.js and Bun
+- **Runtime**: Node.js or Bun
 
 ## Prerequisites
 
@@ -35,10 +35,7 @@ This project serves as a browser-based 3D visualization tool. It utilizes a ligh
 
 2. Install dependencies:
    ```bash
-   # Using Bun
-   bun install
-   # OR using npm
-   npm install
+   bun install # or npm install
    ```
 
 ## Running & Development
@@ -46,11 +43,7 @@ This project serves as a browser-based 3D visualization tool. It utilizes a ligh
 Start the development server:
 
 ```bash
-# Using Bun
-bun run dev
-
-# Using npm
-npm start
+bun run dev # or npm start
 ```
 
 Access the application at `http://localhost:3000`.
@@ -61,7 +54,7 @@ Access the application at `http://localhost:3000`.
 . 
 ├── assets/           # Raw 3D model files and source media
 ├── scripts/          # Utility scripts for asset processing
-├── src/              # Optimized runtime assets
+├── src/              # Optimized runtime assets and images
 ├── index.html        # Primary entry point
 ├── main.css          # Application styling
 ├── script.js         # Frontend animation and rendering logic
@@ -71,7 +64,7 @@ Access the application at `http://localhost:3000`.
 
 ## Contribution
 
-Contributions are welcome. Please ensure:
-- New 3D assets are processed via `scripts/` to ensure format compatibility.
-- Front-end logic in `script.js` maintains consistency with existing GSAP implementation.
-- All new dependencies are tracked within `package.json`.
+Contributions are welcome. Please adhere to the following:
+- Ensure new 3D assets are processed via `scripts/` to maintain format compatibility.
+- Maintain architectural consistency within `script.js`.
+- Update `package.json` if adding new dependencies.
