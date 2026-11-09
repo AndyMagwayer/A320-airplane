@@ -2,24 +2,24 @@
 
 ![A320 Cockpit Simulation](Screenshot%202023-10-01%20164837.png)
 
-An interactive 3D showcase featuring an Airbus A320 model. The project leverages [Three.js](https://threejs.org/) for 3D rendering and [GSAP ScrollTrigger](https://greensock.com/scrolltrigger/) to provide smooth, scroll-based animations for the 3D scene.
+An interactive 3D showcase featuring an Airbus A320 model. The project utilizes [Three.js](https://threejs.org/) for 3D rendering and [GSAP ScrollTrigger](https://greensock.com/scrolltrigger/) to drive smooth, scroll-based animations.
 
 ## Overview
 
-This project is a browser-based 3D visualization tool. It utilizes a lightweight Express.js server to handle asset delivery and static file hosting, making it suitable for quick development cycles and local performance testing.
+This project serves as a browser-based 3D visualization tool. It utilizes a lightweight Express.js server to handle asset delivery and static file hosting, providing a streamlined environment for local 3D model testing and animation prototyping.
 
 ## Features
 
-- **Interactive 3D Rendering**: Implements Three.js to render `.obj` files and texture assets.
-- **Scroll-Driven Storytelling**: Integrates GSAP ScrollTrigger to manipulate model transforms based on user navigation.
-- **Asset Management**: Structured workflow separating source assets (`assets/`) from optimized runtime images (`src/assets/`).
-- **Development Workflow**: Simple Node.js/Express server architecture for immediate feedback.
+- **Interactive 3D Rendering**: Utilizes Three.js to load and render `.obj` models and associated textures.
+- **Scroll-Driven Animation**: Integrates GSAP ScrollTrigger to sync model transformations with viewport scrolling.
+- **Asset Management**: Structured separation between raw source assets (`assets/`) and processed/runtime image assets (`src/assets/`).
+- **Development Server**: Built on Node.js/Express for efficient development cycles.
 
 ## Technology Stack
 
-- **Frontend**: Vanilla JavaScript, Three.js, GSAP (ScrollTrigger), CSS3, HTML5
+- **Frontend**: Vanilla JavaScript, Three.js, GSAP, CSS3, HTML5
 - **Backend**: Node.js, Express
-- **Runtime Compatibility**: Tested with Node.js and Bun
+- **Runtime**: Compatible with Node.js and Bun
 
 ## Prerequisites
 
@@ -61,17 +61,17 @@ Access the application at `http://localhost:3000`.
 . 
 ├── assets/           # Raw 3D model files and source media
 ├── scripts/          # Utility scripts for asset processing
-├── src/              # Optimized runtime assets and image sprites
-├── index.html        # Primary application entry point
-├── main.css          # Core application styling
+├── src/              # Optimized runtime assets
+├── index.html        # Primary entry point
+├── main.css          # Application styling
 ├── script.js         # Frontend animation and rendering logic
-├── server.js         # Express development server configuration
-└── package.json      # Dependencies and execution scripts
+├── server.js         # Express development server
+└── package.json      # Project dependencies and metadata
 ```
 
 ## Contribution
 
-Contributions are welcome. Please adhere to the following:
-- Ensure new 3D assets are processed via `scripts/` when applicable.
-- Maintain parity between the frontend animation logic in `script.js` and the existing style guide.
-- Ensure all new dependencies are documented in `package.json`.
+Contributions are welcome. Please ensure:
+- New 3D assets are processed via `scripts/` to ensure format compatibility.
+- Front-end logic in `script.js` maintains consistency with existing GSAP implementation.
+- All new dependencies are tracked within `package.json`.
