@@ -11,15 +11,15 @@ This project provides a browser-based 3D visualization. It serves as a container
 ## Features
 
 - **3D Rendering**: Implemented via Three.js with integrated `.obj` model support.
-- **Scroll-Driven Animation**: Utilizes GSAP ScrollTrigger to sync model transformations with user interaction.
+- **Scroll-Driven Animation**: Utilizes GSAP ScrollTrigger to sync model transformations with user scroll interaction.
 - **Asset Management**: Structured separation between raw source assets and processed display textures.
-- **Build Utilities**: Includes custom scripts to facilitate 3D model processing and project maintenance.
+- **Build Utilities**: Includes custom scripts to facilitate 3D model processing.
 
 ## Technology Stack
 
 - **Frontend**: Vanilla JavaScript, Three.js, GSAP (ScrollTrigger), CSS3, HTML5
 - **Backend**: Node.js, Express
-- **Runtime**: Node.js (v18+) or Bun
+- **Runtime**: Node.js or Bun
 
 ## Prerequisites
 
@@ -35,7 +35,10 @@ This project provides a browser-based 3D visualization. It serves as a container
 
 2. Install dependencies:
    ```bash
-   bun install # or npm install
+   # Using Bun
+   bun install
+   # OR using npm
+   npm install
    ```
 
 ## Running & Development
@@ -71,5 +74,4 @@ Access the application at `http://localhost:3000`.
 Contributions are welcome. Please ensure that:
 - New assets are organized within the appropriate `assets/` or `src/assets/` directories.
 - Code consistency is maintained with the existing vanilla JavaScript implementation.
-- Any modifications to the 3D pipeline are validated using the provided scripts in `scripts/`.
-<!-- David Maintenance Verified: 2026-11-09 02:55:11 (Asia/Tashkent) -->
+- Any modifications to the 3D pipeline are validated using the scripts in `scripts/`.
