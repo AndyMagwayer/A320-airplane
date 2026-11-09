@@ -2,28 +2,28 @@
 
 ![A320 Cockpit Simulation](Screenshot%202023-10-01%20164837.png)
 
-An interactive 3D showcase featuring an Airbus A320 model, utilizing Three.js for 3D rendering and GSAP ScrollTrigger for animation-driven storytelling.
+An interactive 3D showcase featuring an Airbus A320 model. The project leverages [Three.js](https://threejs.org/) for 3D rendering and [GSAP ScrollTrigger](https://greensock.com/scrolltrigger/) to provide smooth, scroll-based animations for the 3D scene.
 
 ## Overview
 
-This project provides a browser-based 3D visualization. It serves as a container for 3D geometry and environmental textures, utilizing a lightweight Express.js backend for static asset delivery and development iteration.
+This project is a browser-based 3D visualization tool. It utilizes a lightweight Express.js server to handle asset delivery and static file hosting, making it suitable for quick development cycles and local performance testing.
 
 ## Features
 
-- **3D Rendering**: Implemented via Three.js with integrated `.obj` model support.
-- **Scroll-Driven Animation**: Utilizes GSAP ScrollTrigger to sync model transformations with user scroll interaction.
-- **Asset Management**: Structured separation between raw source assets and processed display textures.
-- **Build Utilities**: Includes custom scripts to facilitate 3D model processing.
+- **Interactive 3D Rendering**: Implements Three.js to render `.obj` files and texture assets.
+- **Scroll-Driven Storytelling**: Integrates GSAP ScrollTrigger to manipulate model transforms based on user navigation.
+- **Asset Management**: Structured workflow separating source assets (`assets/`) from optimized runtime images (`src/assets/`).
+- **Development Workflow**: Simple Node.js/Express server architecture for immediate feedback.
 
 ## Technology Stack
 
 - **Frontend**: Vanilla JavaScript, Three.js, GSAP (ScrollTrigger), CSS3, HTML5
 - **Backend**: Node.js, Express
-- **Runtime**: Node.js or Bun
+- **Runtime Compatibility**: Tested with Node.js and Bun
 
 ## Prerequisites
 
-- [Node.js](https://nodejs.org/) (v18+) or [Bun](https://bun.sh/)
+- Node.js (v18+) or [Bun](https://bun.sh/)
 
 ## Installation & Setup
 
@@ -43,7 +43,7 @@ This project provides a browser-based 3D visualization. It serves as a container
 
 ## Running & Development
 
-Start the Express development server:
+Start the development server:
 
 ```bash
 # Using Bun
@@ -59,20 +59,19 @@ Access the application at `http://localhost:3000`.
 
 ```text
 . 
-├── assets/           # Raw 3D model files (.obj) and source textures
-├── scripts/          # Asset processing and utility scripts
-├── src/              # Optimized runtime image assets
-├── index.html        # Main entry point
-├── main.css          # Application styles
-├── script.js         # Frontend Three.js and GSAP logic
-├── server.js         # Express server configuration
-└── package.json      # Project dependencies and task runners
+├── assets/           # Raw 3D model files and source media
+├── scripts/          # Utility scripts for asset processing
+├── src/              # Optimized runtime assets and image sprites
+├── index.html        # Primary application entry point
+├── main.css          # Core application styling
+├── script.js         # Frontend animation and rendering logic
+├── server.js         # Express development server configuration
+└── package.json      # Dependencies and execution scripts
 ```
 
 ## Contribution
 
-Contributions are welcome. Please ensure that:
-- New assets are organized within the appropriate `assets/` or `src/assets/` directories.
-- Code consistency is maintained with the existing vanilla JavaScript implementation.
-- Any modifications to the 3D pipeline are validated using the scripts in `scripts/`.
-<!-- David Maintenance Verified: 2026-11-09 13:25:07 (Asia/Tashkent) -->
+Contributions are welcome. Please adhere to the following:
+- Ensure new 3D assets are processed via `scripts/` when applicable.
+- Maintain parity between the frontend animation logic in `script.js` and the existing style guide.
+- Ensure all new dependencies are documented in `package.json`.
