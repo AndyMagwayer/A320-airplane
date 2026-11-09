@@ -19,7 +19,7 @@ This project provides a browser-based 3D visualization. It uses a lightweight Ex
 
 - **Frontend**: Vanilla JavaScript, Three.js, GSAP, CSS3, HTML5
 - **Backend**: Node.js, Express
-- **Runtime & Package Management**: Node.js or Bun
+- **Runtime**: Node.js or Bun
 
 ## Prerequisites
 
@@ -46,7 +46,7 @@ Start the development server:
 bun run dev # or npm start
 ```
 
-Access the application in your browser at `http://localhost:3000`.
+Access the application in your browser at `http://localhost:3000` (default Express port).
 
 ## Project Structure
 
