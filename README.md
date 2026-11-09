@@ -75,3 +75,4 @@ Contributions are welcome. Please ensure that:
 - New assets are organized within the appropriate `assets/` or `src/assets/` directories.
 - Code consistency is maintained with the existing vanilla JavaScript implementation.
 - Any modifications to the 3D pipeline are validated using the scripts in `scripts/`.
+<!-- David Maintenance Verified: 2026-11-09 13:25:07 (Asia/Tashkent) -->
