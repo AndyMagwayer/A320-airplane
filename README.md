@@ -1,25 +1,25 @@
-# A320 Airplane Project
+# A320 Airplane
 
 ![A320 Cockpit Simulation](Screenshot%202023-10-01%20164837.png)
 
-An interactive 3D showcase featuring an Airbus A320 model. The project utilizes Three.js for 3D rendering and GSAP for motion control.
+An interactive 3D showcase featuring an Airbus A320 model, built with Three.js and GSAP for scroll-driven animations.
 
 ## Overview
 
-This project provides a browser-based 3D visualization of an Airbus A320. It uses a lightweight Express.js server to serve the 3D assets and frontend interface, allowing for seamless local development and testing of 3D animations.
+This project provides a browser-based 3D visualization. It uses a lightweight Express.js server to serve 3D assets and frontend interface, facilitating local development and testing of 3D animations.
 
 ## Features
 
 - **Interactive 3D Rendering**: Implements Three.js to render `.obj` models.
 - **Scroll-Driven Animation**: Integrates GSAP to sync 3D model transformations with the user's scroll position.
-- **Asset Management**: Organizes raw model files in `/assets` and processed runtime textures in `/src/assets`.
-- **Custom tooling**: Includes utility scripts in `/scripts` to assist with 3D model preparation.
+- **Asset Management**: Organizes raw model files in `/assets` and processed runtime textures in `src/assets/images`.
+- **Automated Tooling**: Includes utility scripts in `/scripts` for 3D model preparation and environment management.
 
 ## Technology Stack
 
 - **Frontend**: Vanilla JavaScript, Three.js, GSAP, CSS3, HTML5
 - **Backend**: Node.js, Express
-- **Runtime**: Node.js or Bun
+- **Runtime**: Bun or Node.js
 
 ## Prerequisites
 
@@ -52,19 +52,19 @@ Access the application at `http://localhost:3000`.
 
 ```text
 . 
-├── assets/           # Raw 3D model files and source media
+├── assets/           # Raw model assets (e.g., .obj, .svg, .jpg)
 ├── scripts/          # Utility scripts for asset processing
-├── src/              # Optimized runtime assets and images
-├── index.html        # Primary entry point
-├── main.css          # Application styling
-├── script.js         # Frontend animation and rendering logic
+├── src/              # Optimized runtime assets
+├── index.html        # Entry point
+├── main.css          # Application styles
+├── script.js         # Frontend rendering logic
 ├── server.js         # Express development server
-└── package.json      # Project dependencies and metadata
+└── package.json      # Project dependencies
 ```
 
 ## Contribution
 
-Contributions are welcome. Please adhere to the following:
-- Ensure new 3D assets are processed via `scripts/` to maintain format compatibility.
-- Maintain architectural consistency within `script.js`.
-- Update `package.json` if adding new dependencies.
+Contributions are welcome. Please ensure:
+- New 3D assets are validated via `scripts/`.
+- Changes to rendering logic are implemented in `script.js`.
+- Dependencies are kept up to date in `package.json`.
