@@ -2,7 +2,7 @@
 
 ![A320 Cockpit Simulation](Screenshot%202023-10-01%20164837.png)
 
-An interactive 3D showcase featuring an Airbus A320 model, built with Three.js and GSAP for scroll-driven animations.
+An interactive 3D showcase featuring an Airbus A320 model, utilizing Three.js and GSAP for scroll-driven animations.
 
 ## Overview
 
@@ -10,16 +10,16 @@ This project provides a browser-based 3D visualization. It uses a lightweight Ex
 
 ## Features
 
-- **Interactive 3D Rendering**: Implements Three.js to render `.obj` models.
+- **Interactive 3D Rendering**: Utilizes Three.js for loading and rendering `.obj` models.
 - **Scroll-Driven Animation**: Integrates GSAP to sync 3D model transformations with the user's scroll position.
-- **Asset Management**: Organizes raw model files in `/assets` and processed runtime textures in `src/assets/images`.
-- **Automated Tooling**: Includes utility scripts in `/scripts` for 3D model preparation and environment management.
+- **Asset Management**: Organizes 3D models in `/assets` and runtime textures/background imagery in `src/assets/images`.
+- **Automation Scripts**: Includes utility scripts in `/scripts` for automated model generation and processing.
 
 ## Technology Stack
 
 - **Frontend**: Vanilla JavaScript, Three.js, GSAP, CSS3, HTML5
 - **Backend**: Node.js, Express
-- **Runtime**: Bun or Node.js
+- **Runtime**: Node.js or Bun
 
 ## Prerequisites
 
@@ -52,10 +52,10 @@ Access the application at `http://localhost:3000`.
 
 ```text
 . 
-├── assets/           # Raw model assets (e.g., .obj, .svg, .jpg)
+├── assets/           # Raw model assets (.obj, .svg, .jpg)
 ├── scripts/          # Utility scripts for asset processing
-├── src/              # Optimized runtime assets
-├── index.html        # Entry point
+├── src/              # Optimized runtime images/textures
+├── index.html        # Main entry point
 ├── main.css          # Application styles
 ├── script.js         # Frontend rendering logic
 ├── server.js         # Express development server
@@ -65,6 +65,6 @@ Access the application at `http://localhost:3000`.
 ## Contribution
 
 Contributions are welcome. Please ensure:
-- New 3D assets are validated via `scripts/`.
-- Changes to rendering logic are implemented in `script.js`.
-- Dependencies are kept up to date in `package.json`.
+- New 3D assets are processed via `scripts/`.
+- Rendering logic updates are verified against the existing GSAP implementation in `script.js`.
+- Dependencies are kept up to date.
