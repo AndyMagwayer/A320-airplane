@@ -2,7 +2,7 @@
 
 ![A320 Cockpit Simulation](Screenshot%202023-10-01%20164837.png)
 
-An interactive 3D showcase featuring an Airbus A320 model, utilizing Three.js and GSAP for scroll-driven animations.
+An interactive 3D showcase featuring an Airbus A320 model, utilizing Three.js and GSAP ScrollTrigger for scroll-driven animations.
 
 ## Overview
 
@@ -10,16 +10,16 @@ This project provides a browser-based 3D visualization. It uses a lightweight Ex
 
 ## Features
 
-- **Interactive 3D Rendering**: Utilizes Three.js for loading and rendering the `plane.obj` model.
-- **Scroll-Driven Animation**: Integrates GSAP to synchronize 3D model transformations with scroll interaction.
-- **Asset Management**: Organizes raw 3D models in `/assets` and optimized textures in `src/assets/images`.
-- **Automation Scripts**: Includes Node.js utility scripts for model processing and generation.
+- **Interactive 3D Rendering**: Utilizes Three.js for loading and rendering the `assets/plane.obj` model.
+- **Scroll-Driven Animation**: Integrates GSAP to synchronize 3D model transformations with page scroll interaction.
+- **Asset Management**: Organizes raw 3D models in `/assets` and optimized environment textures in `src/assets/images`.
+- **Automation Tools**: Includes `scripts/generate_plane_obj.js` for model processing.
 
 ## Technology Stack
 
 - **Frontend**: Vanilla JavaScript, Three.js, GSAP, CSS3, HTML5
 - **Backend**: Node.js, Express
-- **Runtime**: Node.js or Bun
+- **Runtime**: Supports Node.js or Bun
 
 ## Prerequisites
 
@@ -52,9 +52,9 @@ Access the application at `http://localhost:3000`.
 
 ```text
 . 
-├── assets/           # Raw model assets and environmental textures
+├── assets/           # Raw model assets and environment textures
 ├── scripts/          # Utility scripts for asset processing
-├── src/              # Optimized runtime images and textures
+├── src/              # Optimized runtime textures
 ├── index.html        # Main entry point
 ├── main.css          # Application styles
 ├── script.js         # Frontend Three.js/GSAP rendering logic
@@ -65,6 +65,6 @@ Access the application at `http://localhost:3000`.
 ## Contribution
 
 Contributions are welcome. Please ensure:
-- New 3D assets are validated for performance.
+- New 3D assets are optimized for web performance.
 - Rendering logic updates are tested against the existing GSAP implementation in `script.js`.
 - Pull requests maintain the integrity of the project structure.
