@@ -10,10 +10,10 @@ This project provides a browser-based 3D visualization. It uses a lightweight Ex
 
 ## Features
 
-- **Interactive 3D Rendering**: Utilizes Three.js for loading and rendering `.obj` models.
-- **Scroll-Driven Animation**: Integrates GSAP to sync 3D model transformations with the user's scroll position.
-- **Asset Management**: Organizes 3D models in `/assets` and runtime textures/background imagery in `src/assets/images`.
-- **Automation Scripts**: Includes utility scripts in `/scripts` for automated model generation and processing.
+- **Interactive 3D Rendering**: Utilizes Three.js for loading and rendering the `plane.obj` model.
+- **Scroll-Driven Animation**: Integrates GSAP to synchronize 3D model transformations with scroll interaction.
+- **Asset Management**: Organizes raw 3D models in `/assets` and optimized textures in `src/assets/images`.
+- **Automation Scripts**: Includes Node.js utility scripts for model processing and generation.
 
 ## Technology Stack
 
@@ -52,12 +52,12 @@ Access the application at `http://localhost:3000`.
 
 ```text
 . 
-├── assets/           # Raw model assets (.obj, .svg, .jpg)
+├── assets/           # Raw model assets and environmental textures
 ├── scripts/          # Utility scripts for asset processing
-├── src/              # Optimized runtime images/textures
+├── src/              # Optimized runtime images and textures
 ├── index.html        # Main entry point
 ├── main.css          # Application styles
-├── script.js         # Frontend rendering logic
+├── script.js         # Frontend Three.js/GSAP rendering logic
 ├── server.js         # Express development server
 └── package.json      # Project dependencies
 ```
@@ -65,6 +65,6 @@ Access the application at `http://localhost:3000`.
 ## Contribution
 
 Contributions are welcome. Please ensure:
-- New 3D assets are processed via `scripts/`.
-- Rendering logic updates are verified against the existing GSAP implementation in `script.js`.
-- Dependencies are kept up to date.
+- New 3D assets are validated for performance.
+- Rendering logic updates are tested against the existing GSAP implementation in `script.js`.
+- Pull requests maintain the integrity of the project structure.
