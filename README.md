@@ -68,4 +68,4 @@ Contributions are welcome. Please ensure:
 - New 3D assets are optimized for web performance.
 - Rendering logic updates are tested against the existing GSAP implementation in `script.js`.
 - Pull requests maintain the integrity of the project structure and dependencies.
-<!-- David Maintenance Verified: 2026-11-10 20:54:08 (Asia/Tashkent) -->
+<!-- David Maintenance Verified: 2026-11-10 23:30:02 (Asia/Tashkent) -->
