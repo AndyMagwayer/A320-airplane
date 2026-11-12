@@ -2,18 +2,18 @@
 
 ![A320 Cockpit Simulation](Screenshot%202023-10-01%20164837.png)
 
-An interactive 3D showcase featuring an Airbus A320 model, utilizing Three.js and GSAP ScrollTrigger for scroll-driven animations.
+An interactive 3D showcase featuring an Airbus A320 model, utilizing Three.js and GSAP for scroll-driven animations.
 
 ## Overview
 
-This project provides a browser-based 3D visualization. It uses a lightweight Express.js server to serve 3D assets and frontend interfaces, facilitating local development and testing of 3D animations and WebGL experiences.
+This project provides a browser-based 3D visualization platform. It uses an Express.js server to efficiently serve 3D assets and frontend interface files, facilitating smooth local development and testing of WebGL experiences.
 
 ## Features
 
-- **Interactive 3D Rendering**: Utilizes Three.js for loading and rendering the `assets/plane.obj` model.
-- **Scroll-Driven Animation**: Integrates GSAP for synchronizing 3D model transformations with page scroll interactions.
-- **Asset Management**: Organizes raw 3D models in `/assets` and environment textures in `src/assets/images`.
-- **Automation Tools**: Includes `scripts/generate_plane_obj.js` for model processing and utility.
+- **3D Rendering**: Implements Three.js to render the `assets/plane.obj` model.
+- **Scroll Animations**: Uses GSAP to synchronize 3D transformations with viewport scroll position.
+- **Asset Management**: Centralizes raw 3D models in `/assets` and environment textures in `src/assets/images`.
+- **Development Utilities**: Includes automation scripts such as `scripts/generate_plane_obj.js` for asset processing.
 
 ## Technology Stack
 
@@ -52,19 +52,19 @@ Access the application in your browser at `http://localhost:3000`.
 
 ```text
 . 
-├── assets/           # Raw model assets and environment textures
-├── scripts/          # Utility scripts for asset processing
-├── src/              # Optimized runtime textures
-├── index.html        # Main entry point
-├── main.css          # Application styles
-├── script.js         # Frontend Three.js/GSAP rendering logic
+├── assets/           # Raw 3D models and textures
+├── scripts/          # Asset processing and utility scripts
+├── src/              # Optimized runtime assets
+├── index.html        # Entry point
+├── main.css          # Global styles
+├── script.js         # Three.js/GSAP logic
 ├── server.js         # Express development server
-└── package.json      # Project dependencies
+└── package.json      # Project metadata and dependencies
 ```
 
 ## Contribution
 
 Contributions are welcome. Please ensure:
-- New 3D assets are optimized for web performance.
-- Rendering logic updates are tested against the existing GSAP implementation in `script.js`.
+- New assets are optimized for web performance.
+- Rendering logic updates are verified against the existing GSAP implementation.
 - Pull requests maintain the integrity of the project structure.
