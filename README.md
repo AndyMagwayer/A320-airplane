@@ -12,8 +12,8 @@ This project provides a browser-based 3D visualization. It uses a lightweight Ex
 
 - **Interactive 3D Rendering**: Utilizes Three.js for loading and rendering the `assets/plane.obj` model.
 - **Scroll-Driven Animation**: Integrates GSAP for synchronizing 3D model transformations with page scroll interactions.
-- **Asset Management**: Organizes raw 3D models in `/assets`, optimized environment textures in `src/assets/images`, and background styling elements.
-- **Automation Tools**: Includes helper scripts like `scripts/generate_plane_obj.js` for model processing.
+- **Asset Management**: Organizes raw 3D models in `/assets` and environment textures in `src/assets/images`.
+- **Automation Tools**: Includes `scripts/generate_plane_obj.js` for model processing and utility.
 
 ## Technology Stack
 
@@ -35,7 +35,7 @@ This project provides a browser-based 3D visualization. It uses a lightweight Ex
 
 2. Install dependencies:
    ```bash
-   bun install # or npm install
+   bun install
    ```
 
 ## Running & Development
@@ -43,10 +43,10 @@ This project provides a browser-based 3D visualization. It uses a lightweight Ex
 Start the development server:
 
 ```bash
-bun run dev # or npm start
+bun run dev
 ```
 
-Access the application in your browser at `http://localhost:3000` (default Express port).
+Access the application in your browser at `http://localhost:3000`.
 
 ## Project Structure
 
@@ -54,7 +54,7 @@ Access the application in your browser at `http://localhost:3000` (default Expre
 . 
 ├── assets/           # Raw model assets and environment textures
 ├── scripts/          # Utility scripts for asset processing
-├── src/              # Optimized runtime textures and assets
+├── src/              # Optimized runtime textures
 ├── index.html        # Main entry point
 ├── main.css          # Application styles
 ├── script.js         # Frontend Three.js/GSAP rendering logic
@@ -67,5 +67,4 @@ Access the application in your browser at `http://localhost:3000` (default Expre
 Contributions are welcome. Please ensure:
 - New 3D assets are optimized for web performance.
 - Rendering logic updates are tested against the existing GSAP implementation in `script.js`.
-- Pull requests maintain the integrity of the project structure and dependencies.
-<!-- David Maintenance Verified: 2026-11-12 05:26:45 (Asia/Tashkent) -->
+- Pull requests maintain the integrity of the project structure.
