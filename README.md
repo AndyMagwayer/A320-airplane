@@ -6,14 +6,14 @@ An interactive 3D visualization project showcasing an Airbus A320 model, utilizi
 
 ## Overview
 
-This project provides a browser-based 3D experience. It uses an Express.js server to serve static assets and frontend interface files, facilitating the rendering of the 3D model and environment textures.
+This project provides a browser-based 3D experience. It leverages an Express.js server to deliver static assets and core frontend logic, enabling real-time 3D rendering of an A320 model within a scroll-responsive environment.
 
 ## Features
 
-- **3D Rendering**: Real-time rendering of `assets/plane.obj` using Three.js.
-- **Scroll Animations**: Integration of GSAP for viewport-synchronized model transitions.
-- **Asset Management**: Structured storage for environment imagery in `src/assets/images/` and global textures in `assets/`.
-- **Utility Scripts**: Includes `scripts/generate_plane_obj.js` for model data handling.
+- **3D Rendering**: Real-time rendering of the `assets/plane.obj` 3D model using Three.js.
+- **Scroll Animations**: Integration of GSAP ScrollTrigger to orchestrate viewport-synchronized transitions.
+- **Asset Management**: Centralized management of environment textures and imagery within `/assets` and `/src/assets/images`.
+- **Utility Tooling**: Includes build scripts for model data handling in the `scripts/` directory.
 
 ## Technology Stack
 
@@ -23,7 +23,7 @@ This project provides a browser-based 3D experience. It uses an Express.js serve
 
 ## Prerequisites
 
-- [Bun](https://bun.sh/) or Node.js (v18+)
+- [Bun](https://bun.sh/) (latest version recommended) or Node.js (v18.0.0+)
 
 ## Installation & Setup
 
@@ -33,7 +33,7 @@ This project provides a browser-based 3D experience. It uses an Express.js serve
    cd A320-airplane
    ```
 
-2. Install dependencies:
+2. Install project dependencies:
    ```bash
    bun install
    ```
@@ -54,12 +54,12 @@ Access the application in your browser at `http://localhost:3000`.
 . 
 ├── assets/           # Raw 3D models and base assets
 ├── scripts/          # Asset processing and utility scripts
-├── src/              # Optimized runtime assets
+├── src/              # Optimized runtime assets and images
 ├── index.html        # Entry point
 ├── main.css          # Global styling
 ├── script.js         # Core Three.js/GSAP logic
 ├── server.js         # Express server configuration
-└── package.json      # Project dependencies and metadata
+└── package.json      # Dependencies and scripts
 ```
 
 ## Contribution
@@ -68,4 +68,3 @@ Contributions are welcome. Please ensure:
 - New assets are optimized for web performance.
 - Rendering logic updates are verified against the existing GSAP implementation.
 - Pull requests maintain the integrity of the project structure.
-<!-- David Maintenance Verified: 2026-11-16 01:20:41 (Asia/Tashkent) -->
