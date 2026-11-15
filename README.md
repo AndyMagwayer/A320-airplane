@@ -6,7 +6,7 @@ An interactive 3D showcase featuring an Airbus A320 model, utilizing Three.js an
 
 ## Overview
 
-This project provides a browser-based 3D visualization platform. It uses an Express.js server to efficiently serve 3D assets and frontend interface files, facilitating local development and testing of WebGL experiences.
+This project provides a browser-based 3D visualization platform. It uses an Express.js server to serve 3D assets and frontend interface files, facilitating local development and testing of WebGL experiences.
 
 ## Features
 
