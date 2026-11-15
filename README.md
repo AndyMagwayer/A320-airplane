@@ -2,7 +2,7 @@
 
 ![A320 Cockpit Simulation](Screenshot%202023-10-01%20164837.png)
 
-An interactive 3D showcase featuring an Airbus A320 model, utilizing Three.js and GSAP for scroll-driven animations.
+An interactive 3D showcase featuring an Airbus A320 model, utilizing Three.js and GSAP ScrollTrigger for immersive, scroll-driven animations.
 
 ## Overview
 
@@ -10,20 +10,20 @@ This project provides a browser-based 3D visualization platform. It uses an Expr
 
 ## Features
 
-- **3D Rendering**: Implements Three.js to render the `assets/plane.obj` model.
-- **Scroll Animations**: Uses GSAP to synchronize 3D transformations with the viewport scroll position.
-- **Asset Management**: Organizes raw 3D models in `/assets` and environment textures in `src/assets/images`.
-- **Asset Automation**: Includes `scripts/generate_plane_obj.js` for custom asset preprocessing.
+- **3D Rendering**: Real-time rendering of `assets/plane.obj` using Three.js.
+- **Scroll Animations**: GSAP-integrated viewport synchronization for dynamic model transitions.
+- **Asset Management**: Structured storage for 3D models and high-fidelity environment textures.
+- **Asset Automation**: Dedicated utility scripts for preprocessing 3D model data.
 
 ## Technology Stack
 
 - **Frontend**: Vanilla JavaScript, Three.js, GSAP, CSS3, HTML5
 - **Backend**: Node.js, Express
-- **Runtime**: Node.js or Bun
+- **Runtime**: Bun (recommended) or Node.js
 
 ## Prerequisites
 
-- Node.js (v18+) or [Bun](https://bun.sh/)
+- [Bun](https://bun.sh/) (latest) or Node.js (v18+)
 
 ## Installation & Setup
 
@@ -52,14 +52,14 @@ Access the application in your browser at `http://localhost:3000`.
 
 ```text
 . 
-├── assets/           # Raw 3D models and static base assets
+├── assets/           # Raw 3D models and base assets
 ├── scripts/          # Asset processing and utility scripts
-├── src/              # Optimized runtime assets and images
+├── src/              # Optimized runtime assets and environment images
 ├── index.html        # Entry point
-├── main.css          # Global styles
+├── main.css          # Global styling
 ├── script.js         # Three.js/GSAP logic
-├── server.js         # Express development server
-└── package.json      # Project configuration
+├── server.js         # Express server configuration
+└── package.json      # Project metadata and dependencies
 ```
 
 ## Contribution
@@ -67,4 +67,4 @@ Access the application in your browser at `http://localhost:3000`.
 Contributions are welcome. Please ensure:
 - New assets are optimized for web performance.
 - Rendering logic updates are verified against the existing GSAP implementation.
-- Pull requests maintain the integrity of the existing project structure.
+- Pull requests maintain the integrity of the project structure.
