@@ -1,21 +1,23 @@
 name: David Autonomous Maintenance Cycle
 
-# Target schedule: Asia/Tashkent (UTC+5) checkpoints:
-# 06:30 Tashkent = 01:30 UTC
-# 13:00 Tashkent = 08:00 UTC
-# 16:00 Tashkent = 11:00 UTC
-# 18:00 Tashkent = 13:00 UTC
-# 20:00 Tashkent = 15:00 UTC
-# 23:00 Tashkent = 18:00 UTC
+# Off-peak Asia/Tashkent (UTC+5) cron schedule to avoid GitHub Actions top-of-hour (:00/:30) delays:
+# 06:17 Tashkent = 01:17 UTC (Early morning streak guarantee)
+# 08:43 Tashkent = 03:43 UTC (Morning backup guarantee)
+# 13:19 Tashkent = 08:19 UTC
+# 16:23 Tashkent = 11:23 UTC
+# 18:41 Tashkent = 13:41 UTC
+# 20:11 Tashkent = 15:11 UTC
+# 22:37 Tashkent = 17:37 UTC (Safely before midnight UTC+5)
 
 on:
   schedule:
-    - cron: '30 1 * * *'   # 06:30 Tashkent
-    - cron: '0 8 * * *'    # 13:00 Tashkent
-    - cron: '0 11 * * *'   # 16:00 Tashkent
-    - cron: '0 13 * * *'   # 18:00 Tashkent
-    - cron: '0 15 * * *'   # 20:00 Tashkent
-    - cron: '0 18 * * *'   # 23:00 Tashkent
+    - cron: '17 1 * * *'   # 06:17 Tashkent
+    - cron: '43 3 * * *'   # 08:43 Tashkent
+    - cron: '19 8 * * *'   # 13:19 Tashkent
+    - cron: '23 11 * * *'  # 16:23 Tashkent
+    - cron: '41 13 * * *'  # 18:41 Tashkent
+    - cron: '11 15 * * *'  # 20:11 Tashkent
+    - cron: '37 17 * * *'  # 22:37 Tashkent
   workflow_dispatch:
 
 permissions:
@@ -71,6 +73,7 @@ jobs:
           git config user.email "andymagwayer@gmail.com"
           
           CURRENT_DATE=$(TZ='Asia/Tashkent' date '+%Y-%m-%d %H:%M:%S')
+          COMMIT_ISO=$(TZ='Asia/Tashkent' date '+%Y-%m-%dT%H:%M:%S+05:00')
           if [ -f README.md ]; then
             # Clean old bot table if present
             if grep -q "## Automated Maintenance Log" README.md 2>/dev/null; then
@@ -86,8 +89,10 @@ jobs:
             
             git add README.md
             if ! git diff --cached --quiet; then
-              git commit -m "docs(readme): autonomous maintenance audit & verification [$CURRENT_DATE]"
-              git push origin HEAD:${{ github.ref_name }}
+              GIT_AUTHOR_DATE="$COMMIT_ISO" GIT_COMMITTER_DATE="$COMMIT_ISO" \
+                git commit -m "docs(readme): autonomous maintenance audit & verification [$CURRENT_DATE]"
+              git pull --rebase origin "${{ github.ref_name }}" || true
+              git push origin HEAD:"${{ github.ref_name }}"
               echo "COMMIT_SHA=$(git rev-parse --short HEAD)" >> $GITHUB_ENV
             else
               echo "Repository already clean & verified."
