@@ -13,7 +13,7 @@ This project provides a browser-based 3D visualization platform. It uses an Expr
 - **3D Rendering**: Implements Three.js to render the `assets/plane.obj` model.
 - **Scroll Animations**: Uses GSAP to synchronize 3D transformations with viewport scroll position.
 - **Asset Management**: Centralizes raw 3D models in `/assets` and environment textures in `src/assets/images`.
-- **Automation**: Includes utility scripts in `/scripts` for asset preprocessing.
+- **Automation**: Includes utility scripts in `/scripts` for asset preprocessing, such as `scripts/generate_plane_obj.js`.
 
 ## Technology Stack
 
@@ -52,14 +52,14 @@ Access the application in your browser at `http://localhost:3000`.
 
 ```text
 . 
-├── assets/           # Raw 3D models and base assets
+├── assets/           # Raw 3D models and static base assets
 ├── scripts/          # Asset processing and utility scripts
 ├── src/              # Optimized runtime assets and images
 ├── index.html        # Entry point
 ├── main.css          # Global styles
 ├── script.js         # Three.js/GSAP logic
 ├── server.js         # Express development server
-└── package.json      # Project dependencies and metadata
+└── package.json      # Project configuration
 ```
 
 ## Contribution
@@ -67,4 +67,4 @@ Access the application in your browser at `http://localhost:3000`.
 Contributions are welcome. Please ensure:
 - New assets are optimized for web performance.
 - Rendering logic updates are verified against the existing GSAP implementation.
-- Pull requests maintain the integrity of the project structure.
+- Pull requests maintain the integrity of the existing project structure.
