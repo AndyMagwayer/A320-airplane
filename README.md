@@ -2,28 +2,28 @@
 
 ![A320 Cockpit Simulation](Screenshot%202023-10-01%20164837.png)
 
-An interactive 3D showcase featuring an Airbus A320 model, utilizing Three.js and GSAP for scroll-driven animations.
+An interactive 3D visualization project showcasing an Airbus A320 model, utilizing Three.js and GSAP for scroll-driven animations.
 
 ## Overview
 
-This project provides a browser-based 3D visualization platform. It uses an Express.js server to serve static 3D assets and frontend interface files, facilitating the rendering of high-fidelity environment textures and 3D models.
+This project provides a browser-based 3D experience. It uses an Express.js server to serve static assets and frontend interface files, facilitating the rendering of the 3D model and environment textures.
 
 ## Features
 
 - **3D Rendering**: Real-time rendering of `assets/plane.obj` using Three.js.
 - **Scroll Animations**: Integration of GSAP for viewport-synchronized model transitions.
-- **Asset Management**: Structured storage for 3D models and environmental imagery in `src/assets/images` and `assets/`.
-- **Asset Processing**: Includes utility scripts in `scripts/` for managing model data and generation.
+- **Asset Management**: Structured storage for environment imagery in `src/assets/images` and `assets/`.
+- **Asset Processing**: Utility script in `scripts/` to assist with model data generation.
 
 ## Technology Stack
 
 - **Frontend**: Vanilla JavaScript, Three.js, GSAP, CSS3, HTML5
 - **Backend**: Node.js, Express
-- **Runtime**: Bun (recommended) or Node.js (v18+)
+- **Runtime**: Bun or Node.js (v18+)
 
 ## Prerequisites
 
-- [Bun](https://bun.sh/) (latest) or Node.js (v18+)
+- [Bun](https://bun.sh/) (recommended) or Node.js (v18+)
 
 ## Installation & Setup
 
@@ -52,9 +52,9 @@ Access the application in your browser at `http://localhost:3000`.
 
 ```text
 . 
-├── assets/           # Raw 3D models and base environment assets
+├── assets/           # Raw 3D models and base assets
 ├── scripts/          # Asset processing and utility scripts
-├── src/              # Optimized runtime assets and environment images
+├── src/              # Optimized runtime images
 ├── index.html        # Entry point
 ├── main.css          # Global styling
 ├── script.js         # Core Three.js/GSAP logic
