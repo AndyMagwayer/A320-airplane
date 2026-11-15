@@ -12,18 +12,18 @@ This project provides a browser-based 3D experience. It uses an Express.js serve
 
 - **3D Rendering**: Real-time rendering of `assets/plane.obj` using Three.js.
 - **Scroll Animations**: Integration of GSAP for viewport-synchronized model transitions.
-- **Asset Management**: Structured storage for environment imagery in `src/assets/images` and `assets/`.
-- **Asset Processing**: Utility script in `scripts/` to assist with model data generation.
+- **Asset Management**: Structured storage for environment imagery in `src/assets/images/` and global textures in `assets/`.
+- **Utility Scripts**: Includes `scripts/generate_plane_obj.js` for model data handling.
 
 ## Technology Stack
 
 - **Frontend**: Vanilla JavaScript, Three.js, GSAP, CSS3, HTML5
 - **Backend**: Node.js, Express
-- **Runtime**: Bun or Node.js (v18+)
+- **Runtime**: Bun (recommended) or Node.js (v18+)
 
 ## Prerequisites
 
-- [Bun](https://bun.sh/) (recommended) or Node.js (v18+)
+- [Bun](https://bun.sh/) or Node.js (v18+)
 
 ## Installation & Setup
 
@@ -54,12 +54,12 @@ Access the application in your browser at `http://localhost:3000`.
 . 
 ├── assets/           # Raw 3D models and base assets
 ├── scripts/          # Asset processing and utility scripts
-├── src/              # Optimized runtime images
+├── src/              # Optimized runtime assets
 ├── index.html        # Entry point
 ├── main.css          # Global styling
 ├── script.js         # Core Three.js/GSAP logic
 ├── server.js         # Express server configuration
-└── package.json      # Dependencies and project metadata
+└── package.json      # Project dependencies and metadata
 ```
 
 ## Contribution
