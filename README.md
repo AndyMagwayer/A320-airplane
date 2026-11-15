@@ -6,14 +6,14 @@ An interactive 3D showcase featuring an Airbus A320 model, utilizing Three.js an
 
 ## Overview
 
-This project provides a browser-based 3D visualization platform. It uses an Express.js server to serve 3D assets and frontend interface files, facilitating the rendering of high-fidelity environment textures and 3D models.
+This project provides a browser-based 3D visualization platform. It uses an Express.js server to serve static 3D assets and frontend interface files, facilitating the rendering of high-fidelity environment textures and 3D models.
 
 ## Features
 
 - **3D Rendering**: Real-time rendering of `assets/plane.obj` using Three.js.
 - **Scroll Animations**: Integration of GSAP for viewport-synchronized model transitions.
-- **Asset Management**: Structured storage for 3D models and environmental imagery in `src/assets/images`.
-- **Asset Processing**: Includes utility scripts in `scripts/` for managing model data.
+- **Asset Management**: Structured storage for 3D models and environmental imagery in `src/assets/images` and `assets/`.
+- **Asset Processing**: Includes utility scripts in `scripts/` for managing model data and generation.
 
 ## Technology Stack
 
