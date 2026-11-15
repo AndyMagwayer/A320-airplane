@@ -19,11 +19,11 @@ This project provides a browser-based 3D experience. It leverages an Express.js 
 
 - **Frontend**: Vanilla JavaScript, Three.js, GSAP, CSS3, HTML5
 - **Backend**: Node.js, Express
-- **Runtime**: Bun (recommended) or Node.js (v18+)
+- **Runtime**: Bun or Node.js (v18+)
 
 ## Prerequisites
 
-- [Bun](https://bun.sh/) (latest version recommended) or Node.js (v18.0.0+)
+- [Bun](https://bun.sh/) (recommended) or [Node.js](https://nodejs.org/) (v18.0.0+)
 
 ## Installation & Setup
 
