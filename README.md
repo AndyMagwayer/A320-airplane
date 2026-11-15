@@ -11,7 +11,7 @@ This project provides a browser-based 3D visualization platform. It uses an Expr
 ## Features
 
 - **3D Rendering**: Implements Three.js to render the `assets/plane.obj` model.
-- **Scroll Animations**: Uses GSAP to synchronize 3D transformations with viewport scroll position.
+- **Scroll Animations**: Uses GSAP to synchronize 3D transformations with the viewport scroll position.
 - **Asset Management**: Organizes raw 3D models in `/assets` and environment textures in `src/assets/images`.
 - **Asset Automation**: Includes `scripts/generate_plane_obj.js` for custom asset preprocessing.
 
