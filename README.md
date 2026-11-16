@@ -12,7 +12,7 @@ This project provides a browser-based 3D experience. It leverages an Express.js 
 
 - **3D Rendering**: Real-time rendering of the `assets/plane.obj` 3D model using Three.js.
 - **Scroll Animations**: Integration of GSAP ScrollTrigger for synchronized viewport transitions.
-- **Asset Management**: Supports environment textures and imagery stored in `/assets` and `/src/assets/images`.
+- **Asset Management**: Optimized environment textures and imagery stored in `src/assets/images`.
 - **Utility Tooling**: Includes helper scripts in `scripts/` for asset generation and maintenance.
 
 ## Technology Stack
