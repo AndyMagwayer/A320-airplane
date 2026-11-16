@@ -2,18 +2,18 @@
 
 ![A320 Cockpit Simulation](Screenshot%202023-10-01%20164837.png)
 
-An interactive 3D visualization project showcasing an Airbus A320 model, utilizing Three.js and GSAP for scroll-driven animations.
+An interactive 3D visualization project showcasing an Airbus A320 model, utilizing Three.js and GSAP ScrollTrigger for scroll-driven animations.
 
 ## Overview
 
-This project provides a browser-based 3D experience. It leverages an Express.js server to deliver static assets and core frontend logic, enabling real-time 3D rendering of an A320 model within a scroll-responsive environment.
+This project provides a browser-based 3D experience. It leverages an Express.js server to serve the frontend application, which features an A320 3D model integrated with scroll-responsive animations.
 
 ## Features
 
 - **3D Rendering**: Real-time rendering of the `assets/plane.obj` 3D model using Three.js.
-- **Scroll Animations**: Integration of GSAP ScrollTrigger to orchestrate viewport-synchronized transitions.
-- **Asset Management**: Centralized management of environment textures and imagery within `/assets` and `/src/assets/images`.
-- **Utility Tooling**: Includes build scripts for model data handling in the `scripts/` directory.
+- **Scroll Animations**: Integration of GSAP ScrollTrigger for synchronized viewport transitions.
+- **Asset Management**: Supports environment textures and imagery stored in `/assets` and `/src/assets/images`.
+- **Utility Tooling**: Includes helper scripts in `scripts/` for asset generation and maintenance.
 
 ## Technology Stack
 
@@ -67,5 +67,4 @@ Access the application in your browser at `http://localhost:3000`.
 Contributions are welcome. Please ensure:
 - New assets are optimized for web performance.
 - Rendering logic updates are verified against the existing GSAP implementation.
-- Pull requests maintain the integrity of the project structure.
-<!-- David Maintenance Verified: 2026-11-16 03:00:30 (Asia/Tashkent) -->
+- Pull requests maintain the architectural integrity of the project.
