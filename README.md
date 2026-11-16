@@ -6,20 +6,20 @@ An interactive 3D visualization project showcasing an Airbus A320 model, utilizi
 
 ## Overview
 
-This project provides a browser-based 3D experience. It leverages an Express.js server to serve the frontend application, featuring an A320 3D model integrated with scroll-responsive animations.
+This project provides a browser-based 3D experience. It leverages an Express.js server to serve the frontend application, featuring an A320 3D model integrated with scroll-responsive animations using GSAP ScrollTrigger.
 
 ## Features
 
-- **3D Rendering**: Real-time rendering of the `assets/plane.obj` 3D model using Three.js.
+- **3D Rendering**: Real-time rendering of the `assets/plane.obj` 3D model via Three.js.
 - **Scroll Animations**: Integration of GSAP ScrollTrigger for synchronized viewport transitions.
-- **Asset Management**: Optimized environment textures and imagery stored in `src/assets/images`.
-- **Utility Tooling**: Includes helper scripts in `scripts/` for automated asset generation.
+- **Asset Management**: Includes optimized environment textures and imagery stored in `src/assets/images`.
+- **Utility Tooling**: Includes helper scripts in `scripts/` for asset generation and processing.
 
 ## Technology Stack
 
 - **Frontend**: Vanilla JavaScript, Three.js, GSAP, CSS3, HTML5
 - **Backend**: Node.js, Express
-- **Runtime**: Bun or Node.js (v18+)
+- **Runtime**: Bun (v1.x) or Node.js (v18+)
 
 ## Prerequisites
 
@@ -36,6 +36,8 @@ This project provides a browser-based 3D experience. It leverages an Express.js 
 2. Install project dependencies:
    ```bash
    bun install
+   # OR
+   npm install
    ```
 
 ## Running & Development
@@ -44,6 +46,8 @@ Start the development server:
 
 ```bash
 bun run dev
+# OR
+npm run dev
 ```
 
 Access the application in your browser at `http://localhost:3000`.
@@ -68,4 +72,3 @@ Contributions are welcome. Please ensure:
 - New assets are optimized for web performance.
 - Rendering logic updates are verified against the existing GSAP implementation.
 - Pull requests maintain the architectural integrity of the project.
-<!-- David Maintenance Verified: 2026-11-16 12:59:24 (Asia/Tashkent) -->
