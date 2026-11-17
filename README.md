@@ -2,18 +2,18 @@
 
 ![A320 Cockpit Simulation](Screenshot%202023-10-01%20164837.png)
 
-An interactive 3D visualization project showcasing an Airbus A320 model, utilizing Three.js and GSAP for scroll-driven animations.
+An interactive 3D visualization project showcasing an Airbus A320 model, leveraging Three.js and GSAP for scroll-driven animations.
 
 ## Overview
 
-This project provides a browser-based 3D experience. It leverages a lightweight Express.js server to serve the frontend application, where the A320 3D model is rendered and animated based on user scroll progress.
+This project provides a browser-based 3D experience. It uses a lightweight Express.js server to serve the frontend application, where the A320 model is rendered and animated based on user scroll progress.
 
 ## Features
 
-- **3D Rendering**: Real-time rendering of the `assets/plane.obj` 3D model via Three.js.
+- **3D Rendering**: Real-time rendering of the `assets/plane.obj` 3D model using Three.js.
 - **Scroll Animations**: Integration of GSAP for synchronized viewport transitions.
-- **Asset Management**: Includes optimized environment textures and imagery stored in `src/assets/images`.
-- **Utility Tooling**: Contains scripts in `scripts/` for asset generation and processing.
+- **Asset Management**: Optimized environment textures and imagery stored in `src/assets/images`.
+- **Utility Tooling**: Includes automated asset processing scripts located in `scripts/`.
 
 ## Technology Stack
 
@@ -72,4 +72,3 @@ Contributions are welcome. Please ensure:
 - New assets are optimized for web performance.
 - Rendering logic updates are verified against the existing GSAP implementation.
 - Pull requests maintain the architectural integrity of the project.
-<!-- David Maintenance Verified: 2026-11-17 05:59:56 (Asia/Tashkent) -->
