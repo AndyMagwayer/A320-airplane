@@ -12,14 +12,14 @@ This project provides a browser-based 3D experience. It uses a lightweight Expre
 
 - **3D Rendering**: Real-time rendering of the `assets/plane.obj` 3D model.
 - **Scroll Animations**: Integration of GSAP ScrollTrigger for synchronized 3D viewport transitions.
-- **Asset Management**: Includes optimized environment textures and background imagery.
-- **Utility Tooling**: Automated asset processing scripts located in `scripts/`.
+- **Asset Management**: Includes optimized environment textures and background imagery stored in `src/assets/images`.
+- **Utility Tooling**: Automated asset processing script `scripts/generate_plane_obj.js`.
 
 ## Technology Stack
 
 - **Frontend**: Vanilla JavaScript, Three.js, GSAP
 - **Backend**: Node.js, Express
-- **Runtime**: Bun (v1.x) or Node.js (v18+)
+- **Runtime**: Bun or Node.js (v18+)
 
 ## Prerequisites
 
@@ -50,7 +50,7 @@ bun run dev
 npm run dev
 ```
 
-Access the application in your browser at `http://localhost:3000`.
+Access the application in your browser at `http://localhost:3000` (or as configured in `server.js`).
 
 ## Project Structure
 
@@ -72,4 +72,3 @@ Contributions are welcome. Please ensure:
 - New assets are optimized for web performance.
 - Rendering logic updates are verified against the existing GSAP implementation.
 - Pull requests maintain the architectural integrity of the project.
-<!-- David Maintenance Verified: 2026-11-17 14:14:14 (Asia/Tashkent) -->
